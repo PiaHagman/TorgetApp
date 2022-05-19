@@ -37,3 +37,11 @@ Core funktionalitet som speglar blocket.
 - Bootstrap, MudBlazor eller andra bibliotek är ok att använda om man vill för specifika komponenter, exempelvis carousel, card, meny eller liknande.
 
 ## Gruppkontrakt
+
+## Branchingstrategi
+- Master
+ - Sprintbranch: sprint/1
+  - Individuell branch namnges issue/(#issue-number)
+
+PR från issue-branch görs till aktuell sprintbranch
+När allas arbeten är mergade in i sprintbranchen, testas denna innan den mergas in i master.
