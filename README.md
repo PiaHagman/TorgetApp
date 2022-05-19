@@ -32,6 +32,4 @@ Profil
 - Sparade annonser
 
 ## Projekt att implementera
-- Backend API (ASP.NET Core) 
-- Class library (Shared)
-- Frontend (Razor)
+- ASP.NET Core
