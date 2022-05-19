@@ -45,3 +45,13 @@ Core funktionalitet som speglar blocket.
 
 PR från issue-branch görs till aktuell sprintbranch. <br>
 När allas arbeten är mergade in i sprintbranchen, testas denna innan den mergas in i master.
+
+**Tänk på att**
+- Man lägger endast till nya commits till sprintbranch genom PR från en issue branch
+- Man _mergar_ aldrig _in_ till en master/sprintbranch, bara _från_
+- Om det står i PR att det finns en konflikt mellan sprint och en issue branch så löser man det genom att:
+1. Uppdatera den lokala master branchen
+2. Lokalt merga master till issue branchen
+3. Kolla att allt står väl till, lös eventuella konflikter
+4. Pusha din issue branch och därmed uppdatera PR automatiskt
+5. Om inget nytt har hänt så ska det nu gå att genomföra och avsluta PR 
