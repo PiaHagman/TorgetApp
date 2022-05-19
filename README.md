@@ -43,5 +43,5 @@ Core funktionalitet som speglar blocket.
  - Sprintbranch: sprint/1
   - Individuell branch namnges issue/(#issue-number)
 
-PR från issue-branch görs till aktuell sprintbranch
+PR från issue-branch görs till aktuell sprintbranch. <br>
 När allas arbeten är mergade in i sprintbranchen, testas denna innan den mergas in i master.
