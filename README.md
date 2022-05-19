@@ -31,5 +31,9 @@ Core funktionalitet som speglar blocket.
   - Mina annonser
   - Sparade annonser
 
-## Projekt att implementera
-- ASP.NET Core
+## Kodspecifika beslut
+- Vi bygger vårt projekt i ASP .NET Core
+- Vi använder razorpages framför controllers
+- Bootstrap, MudBlazor eller andra bibliotek är ok att använda om man vill för specifika komponenter, exempelvis carousel, card, meny eller liknande.
+
+## Gruppkontrakt
