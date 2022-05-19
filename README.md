@@ -2,11 +2,11 @@
 
 ## Gruppmedlemar
 
- - Kim Björnsen Åklint
- - Pia Hagman
- - Johan Fahlgren
- - Idris Hargaaya
- - Gustav Alvérus
- - Sania Athar
+ - Kim Björnsen Åklint (Scrum master)
+ - Pia Hagman (Product Owner)
+ - Johan Fahlgren 
+ - Idris Hargaaya (Stakeholder)
+ - Gustav Alvérus 
+ - Sania Athar 
 
 ## Blocket app
