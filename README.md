@@ -40,12 +40,20 @@ Core funktionalitet som speglar blocket.
 
 ### Tillgänglighet
 
-- Kim Björnsen Åklint
+#### Kim Björnsen Åklint
   - Kan arbeta varje vardag 8 - 17. Sitter också många kvällar.
   - Dagar jag vet att jag är borta:
     - 25/5 10-13 är jag borta
     - 27/5 Jobbar jag på mitt gamla jobb
     - 3/6 Bröllopsdag, så stor planering här ;)
+
+#### Johan Fahlgren
+  - Kan arbeta varje vardag 8~9 - 17.
+  - Dagar jag vet att jag är borta:
+    - 24/5 borta 11~14
+    - 26/5 hela dagen
+    - 27/5 hela dagen
+    - 1/6 vet inte tid än (gissa förmiddag), men borta ca 2 timmar.
 
 ## Branchingstrategi
 - Master
