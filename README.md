@@ -73,3 +73,10 @@ När allas arbeten är mergade in i sprintbranchen, testas denna innan den merga
 4. Pusha din issue branch och därmed uppdatera PR automatiskt
 5. Om inget nytt har hänt så ska det nu gå att genomföra och avsluta PR 
 
+___
+
+## SCRUM
+
+### DoR - Definition of Ready
+
+### DoD - Definition of Done
