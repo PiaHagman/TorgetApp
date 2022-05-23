@@ -59,6 +59,11 @@ Helgfria vardagar 9:00-9:15
     - 27/5 hela dagen
     - 1/6 vet inte tid än (gissa förmiddag), men borta ca 2 timmar.
 
+#### Hargaaya Idris
+  - Kan arbeta vardagar 9-17
+  - Tillfällen jag vet att jag är borta: 
+    - 25/5 Kl. 12-14
+
 ## Branchingstrategi
 - Master
  - Sprintbranch: sprint/1
