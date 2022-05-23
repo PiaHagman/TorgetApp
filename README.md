@@ -77,12 +77,12 @@ ___
 ## SCRUM
 
 ### Definition of Ready
-- Oberoende/tydligt: tydligt vad issuen ska lösa/resultat 
-- Öppen: Det är upp till utvecklaren att komma med egen lösningar, inte detalj planerat.
-- Estimerad: Fibonaccis sekvens, estimerat tillsammans under sprintplanering.  
+- **Oberoende/tydligt:** tydligt vad issuen ska lösa/resultat 
+- **Öppen:** Det är upp till utvecklaren att komma med egen lösningar, inte detalj planerat.
+- **Estimerad:** Fibonaccis sekvens, estimerat tillsammans under sprintplanering.  
 
 ### Definition of Done
-- Reviewer: Minst en kollege som tittat igenom och godkännt koden.
-- Körbar: Alla punkter i issuen ska vara implementerat och körbart.
-- Kund-klar: Redo att presenteras/ testas av kund.
-- Merge: issuen är mergad med sprintbranschen 
+- **Reviewer:** Minst en kollege som tittat igenom och godkännt koden.
+- **Körbar:** Alla punkter i issuen ska vara implementerat och körbart.
+- **Kund-klar:** Redo att presenteras/ testas av kund.
+- **Merge:** issuen är mergad med sprintbranschen 
