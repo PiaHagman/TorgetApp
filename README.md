@@ -78,7 +78,7 @@ ___
 
 ### Definition of Ready
 - **Oberoende/tydligt:** tydligt vad issuen ska lösa/resultat 
-- **Öppen:** Det är upp till utvecklaren att komma med egen lösningar, inte detalj planerat.
+- **Öppen:** Det är upp till utvecklaren att komma med egen lösningar, inte detaljplanerat.
 - **Estimerad:** Fibonaccis sekvens, estimerat tillsammans under sprintplanering.  
 
 ### Definition of Done
