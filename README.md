@@ -6,8 +6,7 @@
  - Pia Hagman (Product Owner)
  - Johan Fahlgren 
  - Idris Hargaaya (Stakeholder)
- - Gustav Alvérus 
- - Sania Athar 
+ - Gustav Alvérus
 
 ## Blocket app
 
