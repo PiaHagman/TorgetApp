@@ -38,6 +38,10 @@ Core funktionalitet som speglar blocket.
 
 ## Gruppkontrakt
 
+### Daily standup
+
+9:00-9:15
+
 ### Tillgänglighet
 
 #### Kim Björnsen Åklint
