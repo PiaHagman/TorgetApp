@@ -40,7 +40,7 @@ Core funktionalitet som speglar blocket.
 
 ### Daily standup
 
-9:00-9:15
+Helgfria vardagar 9:00-9:15
 
 ### Tillgänglighet
 
