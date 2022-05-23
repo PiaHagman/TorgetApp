@@ -38,6 +38,15 @@ Core funktionalitet som speglar blocket.
 
 ## Gruppkontrakt
 
+### Tillgänglighet
+
+- Kim Björnsen Åklint
+  - Kan arbeta varje vardag 8 - 17. Sitter också många kvällar.
+  - Dagar jag vet att jag är borta:
+    - 25/5 10-13 är jag borta
+    - 27/5 Jobbar jag på mitt gamla jobb
+    - 3/6 Bröllopsdag, så stor planering här ;)
+
 ## Branchingstrategi
 - Master
  - Sprintbranch: sprint/1
@@ -56,13 +65,3 @@ När allas arbeten är mergade in i sprintbranchen, testas denna innan den merga
 4. Pusha din issue branch och därmed uppdatera PR automatiskt
 5. Om inget nytt har hänt så ska det nu gå att genomföra och avsluta PR 
 
-## Kontrakt
-
-### Tillgänglighet
-
-- Kim Björnsen Åklint
-  - Kan arbeta varje vardag 8 - 17. Sitter också många kvällar.
-  - Dagar jag vet att jag är borta:
-    - 25/5 10-13 är jag borta
-    - 27/5 Jobbar jag på mitt gamla jobb
-    - 3/6 Bröllopsdag, så stor planering här ;)
