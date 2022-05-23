@@ -84,5 +84,5 @@ ___
 ### Definition of Done
 - Reviewer: Minst en kollege som tittat igenom och godkännt koden.
 - Körbar: Alla punkter i issuen ska vara implementerat och körbart.
-- Kund-klar: Redo att testas av kund.
+- Kund-klar: Redo att presenteras/ testas av kund.
 - Merge: issuen är mergad med sprintbranschen 
