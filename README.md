@@ -35,6 +35,7 @@ Core funktionalitet som speglar blocket.
 - Vi använder razorpages framför controllers
 - Bootstrap, MudBlazor eller andra bibliotek är ok att använda om man vill för specifika komponenter, exempelvis carousel, card, meny eller liknande.
 - Vi bygger mobile first
+- Commits görs på engelska
 
 ## Gruppkontrakt
 
@@ -64,6 +65,16 @@ Helgfria vardagar 9:00-9:15
   - Tillfällen jag vet att jag är borta: 
     - 25/5 Kl. 12-14
 
+#### Pia Hagman
+- Kan arbeta varje vardag 8.30 - 15.30. Kan också sitta flera kvällar om så krävs.
+- Frånvaro jag vet om
+- Dagar jag vet att jag är borta:
+  - denna vecka (v.21) lite från och till pga magsjuka och alla barn hemma
+  - 9/6 före lunch
+  - 15/6 efter lunch
+ 
+    
+
 ## Branchingstrategi
 - Master
  - Sprintbranch: sprint/1
@@ -71,6 +82,8 @@ Helgfria vardagar 9:00-9:15
 
 PR från issue-branch görs till aktuell sprintbranch. <br>
 När allas arbeten är mergade in i sprintbranchen, testas denna innan den mergas in i master.
+
+- Commits görs på engelska
 
 **Tänk på att**
 - Man lägger endast till nya commits till sprintbranch genom PR från en issue branch
