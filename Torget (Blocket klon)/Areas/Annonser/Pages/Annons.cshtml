@@ -1,0 +1,73 @@
+﻿@page
+@*Flytta till Shared..*@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Torget__Blocket_klon_.Areas.Annonser.Pages.AnnonsModel
+@{
+    ViewData["Title"] = "Annons";
+}
+
+
+
+<div class="my-container">
+    <div class="my-ad">
+        <div class="close-btn">x</div>
+
+        <div class="ad-images">
+            <div>
+                <img class="hero-img" @*src="@Model.Annons.Bilder[0]"*@/>
+            </div>
+       
+            <div class="prev-pic">
+                <
+            </div>
+            <div class="small-pics">
+                <img @*src="@Model.Annons.Bilder[0]"*@/>
+                <img @*src="@Model.Annons.Bilder[1]"*@/>
+                <img @*src="@Model.Annons.Bilder[2]"*@/>
+                <img @*src="@Model.Annons.Bilder[3]"*@/>
+            </div>
+            
+            <div class="next-pic">
+                >
+            </div>
+        </div>
+
+        <div class="ad-info">
+            <h1 class="ad-title">Färgrik cykel@*@Model.Annons.Titel*@</h1>
+            <h2 class="ad-price">1200 @*@Model.Annons.Pris*@ SEK</h2>
+            <p class="ad-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus officiis reiciendis facere tempore
+                consequatur esse harum praesentium, corrupti aliquid maiores commodi? Maiores architecto officiis
+                sapiente voluptas sit, quam itaque laboriosam et.@*@Model.Annons.Beskrivning*@</p>
+            <p class="ad-keywords">#cykel #damcykel #varm@*@Model.Annons.Taggar[0] #@Model.Annons.Taggar[1] #@Model.Annons.Taggar[2]*@</p>
+            <p class="ad-seller">Uppladdat av CykelTjuven32@*@Model.Annons.TorgetUser.UserName*@</p>
+            <p class="ad-date">2022-05-23 Kl. 15:32@*@Model.Annons.DatumUpplagd.ToShortDateString() Kl. @Model.Annons.DatumUpplagd.ToShortTimeString()*@</p>
+        </div>
+
+        <div class="ad-sellerInfo">
+
+            <div><img class="icon-location" src="hämtabild"></img></div>
+            <div class="info-container">
+                <div class="info-text">
+                    Säljarens postkod: 44332 @*@Model.Annons.TorgetUser.PostNummer*@
+                </div>
+            </div>
+            
+            <div><img class="icon-quote" src="hämtabild"></img></div>
+            <div class="info-container">
+                <div class="info-text">
+                    <a asp-page="xxxxxx">Chatta med säljaren</a>
+                    
+                </div>
+            </div>
+            
+            <div><img class="icon-phone" src="hämtabild"></img></div>
+            <div class="info-container">
+                <div class="info-text">
+                    Säljaren nås på 0766-210910@*@Model.Annons.TorgetUser.PhoneNumber*@
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
