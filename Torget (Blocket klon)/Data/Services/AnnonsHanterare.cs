@@ -15,9 +15,13 @@ public class AnnonsHanterare
 
     public async Task<Annons> SkapaNyAnnons(Annons annons)
     {
-        throw new NotImplementedException();
+        var entityEntry = _dbContext.Annonser.Add(annons);
+        await _dbContext.SaveChangesAsync();
+
+        return entityEntry.Entity;
     }
 
+    /// <exception cref="AnnonsFinnsEjException"></exception>
     public async Task<Annons> HämtaAnnons(int id)
     {
         var annons = await _dbContext.Annonser.Include(a => a.TorgetUser)
@@ -42,6 +46,44 @@ public class AnnonsHanterare
 
         var annonser = await query.ToListAsync();
         return annonser;
+    }
+
+    /// <exception cref="AnnonsFinnsEjException"></exception>
+    public async Task<Annons> ÄndraAnnons(int id, Annons uppdateradAnnons)
+    {
+        var annons = await _dbContext.Annonser.FindAsync(id);
+        if (annons == null) throw new AnnonsFinnsEjException();
+
+        annons = uppdateradAnnons;
+        var entityEntry = _dbContext.Annonser.Update(annons);
+        await _dbContext.SaveChangesAsync();
+
+        return entityEntry.Entity;
+    }
+
+    /// <exception cref="AnnonsFinnsEjException"></exception>
+    public async Task<Annons> MarkeraAnnonsSomSåld(int id)
+    {
+        var annons = await _dbContext.Annonser.FindAsync(id);
+        if (annons == null) throw new AnnonsFinnsEjException();
+
+        annons.Såld = true;
+        var entityEntry = _dbContext.Annonser.Update(annons);
+        await _dbContext.SaveChangesAsync();
+
+        return entityEntry.Entity;
+    }
+
+    /// <exception cref="AnnonsFinnsEjException"></exception>
+    public async Task<Annons> TaBortAnnons(int id)
+    {
+        var annons = await _dbContext.Annonser.FindAsync(id);
+        if (annons == null) throw new AnnonsFinnsEjException();
+
+        var entityEntry = _dbContext.Annonser.Remove(annons);
+        await _dbContext.SaveChangesAsync();
+
+        return entityEntry.Entity;
     }
 }
 

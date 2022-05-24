@@ -19,6 +19,8 @@ public class Annons
     [Column(TypeName = "smallmoney")]
     public int Pris { get; set; }
 
+    public bool Såld { get; set; } = false;
+
     public DateTime DatumUpplagd { get; set; }
     public DateTime DatumUppdaterad { get; set; }
 
