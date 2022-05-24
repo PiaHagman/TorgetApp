@@ -1,7 +1,7 @@
 **Datum: 24/5**
-Timebox: 3 timmar
-Sprintplanering
-
+<br>Timebox: 3 timmar
+<br>Sprintplanering
+<br><br>
 Summering: Lagets första sprintplanering och trots att jag var magsjuk så var jag ju tvungen att närvara. 😁 På grund av mitt mående fick jag tyvärr lämna över ansvaret 
 som ordförande till Kim. Jag försökte dock axla min roll som PO genom att vara tydlig med mina tankar kring prioritering. Vi hade ett bra inledande möte. 
 Alla var aktiva i att gå igenom alla issues och göra de redo för sprint enligt vår "Definition of Ready", 
