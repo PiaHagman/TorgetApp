@@ -72,6 +72,12 @@ Helgfria vardagar 9:00-9:15
   - denna vecka (v.21) lite från och till pga magsjuka och alla barn hemma
   - 9/6 före lunch
   - 15/6 efter lunch
+
+#### Gustav Alvérus
+- Kan arbeta vardagar 9-17
+- Frånvaro jag vet om
+  - 31/5 efter lunch
+  - 10/6 före lunch
  
     
 
