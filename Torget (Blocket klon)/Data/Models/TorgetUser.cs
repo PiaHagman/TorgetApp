@@ -2,7 +2,7 @@
 
 namespace Torget__Blocket_klon_.Data.Models;
 
-public class User : IdentityUser
+public class TorgetUser : IdentityUser
 {
     public string PostNummer { get; set; }
     public List<Annons> Annonser { get; set; }
