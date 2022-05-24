@@ -9,6 +9,7 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<TorgetDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("default")));
+builder.Services.AddScoped<Database>();
 
 #region Identity
 
@@ -38,11 +39,10 @@ if (app.Environment.IsDevelopment())
 {
     using var scope = app.Services.CreateScope();
     var services = scope.ServiceProvider;
-    var ctx = services.GetRequiredService<TorgetDbContext>();
+    var db = services.GetRequiredService<Database>();
     app.UseDeveloperExceptionPage();
 
-    await ctx.Database.EnsureDeletedAsync();
-    await ctx.Database.EnsureCreatedAsync();
+    await db.RecreateAndSeedDatabase();
 }
 
 app.UseHttpsRedirection();
