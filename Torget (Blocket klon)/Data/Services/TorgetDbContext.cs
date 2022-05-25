@@ -10,10 +10,10 @@ public class TorgetDbContext : IdentityDbContext<TorgetUser>
     {
     }
 
-    public DbSet<Annons> Annonser { get; set; }
-    public DbSet<Bevakning> Bevakningar { get; set; }
-    public DbSet<Bild> Bilder { get; set; }
-    public DbSet<Tag> Taggar { get; set; }
+    public DbSet<TorgetAd> TorgetAds { get; set; }
+    public DbSet<AdSearch> AdSearches { get; set; }
+    public DbSet<AdImage> AdImages { get; set; }
+    public DbSet<Tag> Tags { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
