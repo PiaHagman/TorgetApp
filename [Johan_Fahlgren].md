@@ -6,7 +6,8 @@
 
 
 ### DailyStand Ups:
-[Daily Stand Up 1](###Daily-stand-up-1)
+[Daily Stand Up 1](###Daily-stand-up-1)  
+[Daily Stand Up 2](###Daily-stand-up-2)
 
 ___
 
@@ -40,4 +41,15 @@ ___
 
 - Vi gör models och lite mappstruktur tillsammans under dagen.
 - Idris visar upp sina wireframes efter mötet. 
-- Vi kan assignea oss till issues. Men lägger bara de bi arbetarmed just nu i pågående. 
+- Vi kan assignea oss till issues, man gärna gör. Men lägger bara in den issue man arbetar med just nu i **pågående**. 
+
+### Daily Stand Up 2  <br/>
+**Date:** 2021-05-25 <br/>
+**Timebox:** 0 h 15 min <br/>
+
+**Notes:** <br/>
+
+- Idris skapat en design map i sprint/1.
+- Vi lägger till provkörning i våran DoD.
+- Möte klockan 10 för att uppdatera gusta, som missade gårdagens.
+- DBcontext klart   
