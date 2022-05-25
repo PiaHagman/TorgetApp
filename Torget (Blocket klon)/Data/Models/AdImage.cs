@@ -2,7 +2,7 @@
 
 namespace Torget__Blocket_klon_.Data.Models;
 
-public class Bevakning
+public class AdImage
 {
     public int Id { get; set; }
     [Required] public string Url { get; set; }
