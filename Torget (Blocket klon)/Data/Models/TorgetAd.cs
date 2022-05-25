@@ -19,12 +19,15 @@ public class TorgetAd
     [Column(TypeName = "smallmoney")]
     public int Price { get; set; }
 
+    public bool Sold { get; set; } = false;
     public DateTime DatePosted { get; set; }
     public DateTime DateUpdated { get; set; }
 
     [InverseProperty("TorgetAds")] public TorgetUser TorgetUser { get; set; }
 
-    [InverseProperty("SavedAds")] public List<TorgetUser>? UsersSomSparatAnnons { get; set; } //Ska detta verkligen vara "many to many"?
+    [InverseProperty("SavedAds")]
+    public List<TorgetUser>? SavedByUsers { get; set; } //Ska detta verkligen vara "many to many"?
+
     public List<AdImage> AdImages { get; set; }
     public List<Tag> Tags { get; set; }
 }

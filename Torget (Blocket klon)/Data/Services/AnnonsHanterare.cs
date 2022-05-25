@@ -13,31 +13,31 @@ public class AnnonsHanterare
         _dbContext = dbContext;
     }
 
-    public async Task<Annons> SkapaNyAnnons(Annons annons)
+    public async Task<TorgetAd> SkapaNyAnnons(TorgetAd annons)
     {
-        var entityEntry = _dbContext.Annonser.Add(annons);
+        var entityEntry = _dbContext.TorgetAds.Add(annons);
         await _dbContext.SaveChangesAsync();
 
         return entityEntry.Entity;
     }
 
     /// <exception cref="AnnonsFinnsEjException"></exception>
-    public async Task<Annons> Get(int id)
+    public async Task<TorgetAd> Get(int id)
     {
-        var annons = await _dbContext.Annonser.Include(a => a.TorgetUser)
-            .Include(a => a.Bilder)
-            .Include(a => a.Taggar)
+        var annons = await _dbContext.TorgetAds.Include(a => a.TorgetUser)
+            .Include(a => a.AdImages)
+            .Include(a => a.Tags)
             .FirstOrDefaultAsync(a => a.Id == id);
 
         return annons ?? throw new AnnonsFinnsEjException(); //Förstår vi detta allihopa?
     }
 
-    public async Task<List<Annons>> GetList(SearchQuery? sökQuery = null)
+    public async Task<List<TorgetAd>> GetList(SearchQuery? sökQuery = null)
     {
-        var query = _dbContext.Annonser
+        var query = _dbContext.TorgetAds
             .Include(a => a.TorgetUser)
-            .Include(a => a.Bilder)
-            .Include(a => a.Taggar)
+            .Include(a => a.AdImages)
+            .Include(a => a.Tags)
             .AsQueryable();
         if (sökQuery is not null)
         {
@@ -49,38 +49,38 @@ public class AnnonsHanterare
     }
 
     /// <exception cref="AnnonsFinnsEjException"></exception>
-    public async Task<Annons> Update(int id, Annons uppdateradAnnons)
+    public async Task<TorgetAd> Update(int id, TorgetAd uppdateradAnnons)
     {
-        var annons = await _dbContext.Annonser.FindAsync(id);
+        var annons = await _dbContext.TorgetAds.FindAsync(id);
         if (annons == null) throw new AnnonsFinnsEjException();
 
         annons = uppdateradAnnons;
-        var entityEntry = _dbContext.Annonser.Update(annons);
+        var entityEntry = _dbContext.TorgetAds.Update(annons);
         await _dbContext.SaveChangesAsync();
 
         return entityEntry.Entity;
     }
 
     /// <exception cref="AnnonsFinnsEjException"></exception>
-    public async Task<Annons> MarkAsSold(int id)
+    public async Task<TorgetAd> MarkAsSold(int id)
     {
-        var annons = await _dbContext.Annonser.FindAsync(id);
+        var annons = await _dbContext.TorgetAds.FindAsync(id);
         if (annons == null) throw new AnnonsFinnsEjException();
 
         annons.Sold = true;
-        var entityEntry = _dbContext.Annonser.Update(annons);
+        var entityEntry = _dbContext.TorgetAds.Update(annons);
         await _dbContext.SaveChangesAsync();
 
         return entityEntry.Entity;
     }
 
     /// <exception cref="AnnonsFinnsEjException"></exception>
-    public async Task<Annons> Delete(int id)
+    public async Task<TorgetAd> Delete(int id)
     {
-        var annons = await _dbContext.Annonser.FindAsync(id);
+        var annons = await _dbContext.TorgetAds.FindAsync(id);
         if (annons == null) throw new AnnonsFinnsEjException();
 
-        var entityEntry = _dbContext.Annonser.Remove(annons);
+        var entityEntry = _dbContext.TorgetAds.Remove(annons);
         await _dbContext.SaveChangesAsync();
 
         return entityEntry.Entity;
