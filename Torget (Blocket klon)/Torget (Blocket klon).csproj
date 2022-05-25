@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Annonser\Pages\" />
     <Folder Include="Data\Services\" />
     <Folder Include="Pages\Shared\" />
   </ItemGroup>

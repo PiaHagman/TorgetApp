@@ -52,7 +52,7 @@ public class Database
                 Category = "Cykel",
                 Price = 100,
                 TorgetUser = user1,
-                UsersSomSparatAnnons = new List<TorgetUser> {user2},
+                SavedByUsers = new List<TorgetUser> {user2},
                 Tags = new List<Tag> {new() {TagName = "Snabb"}},
                 AdImages = new List<AdImage> {new() {Url = "Bild1Annons1Url"}}
             },
@@ -64,7 +64,7 @@ public class Database
                 Category = "Dator",
                 Price = 100,
                 TorgetUser = user1,
-                UsersSomSparatAnnons = new List<TorgetUser> {user2},
+                SavedByUsers = new List<TorgetUser> {user2},
                 Tags = new List<Tag> {new() {TagName = "Snabb"}, new() {TagName = "Snygg"}},
                 AdImages = new List<AdImage> {new() {Url = "Bild1Annons2Url"}, new() {Url = "Bild2Annons2Url"}}
             },
