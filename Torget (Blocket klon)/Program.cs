@@ -10,7 +10,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<TorgetDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("default")));
 builder.Services.AddScoped<Database>();
-builder.Services.AddScoped<AnnonsHanterare>();
+builder.Services.AddScoped<AdHandler>();
 
 #region Identity
 
