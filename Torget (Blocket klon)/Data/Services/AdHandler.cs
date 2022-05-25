@@ -41,7 +41,7 @@ public class AdHandler
             .AsQueryable();
         if (searchQuery is not null)
         {
-            //Take according to query
+            query = searchQuery.AddSearchQueryToQuery(query);
         }
 
         var ads = await query.ToListAsync();
