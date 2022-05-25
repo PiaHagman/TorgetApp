@@ -1,0 +1,241 @@
+﻿body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+    color: #0f0a0a;
+    margin: 0;
+    padding: 0;
+    max-width: 100vw;
+}
+
+.input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 100px;
+    background-color: white;
+    box-shadow: 0 -3px #7fbbc4;
+    margin: 10px;
+}
+
+    .input input {
+        width: 80%;
+        height: 100%;
+        border: 0;
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+        .input input:focus {
+            outline: none;
+        }
+
+.button {
+    background-color: #07beb8;
+    box-shadow: 0 -3px #7fbbc4;
+    color: white;
+    border-radius: 100px;
+    margin: 6px;
+    min-width: contain;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: #98dfea;
+    min-height: 40vh;
+    max-width: 100vw;
+    padding: 0 50px;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px #7fbbc4;
+    padding: 10px;
+}
+
+    header h3 {
+        font-weight: bold;
+        text-align: left;
+        min-width: 100%;
+        font-size: 30px;
+        margin: 0;
+        padding 0;
+    }
+
+.filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    min-width: 90%;
+}
+
+
+.filter-search {
+    grid-area: 1 / 1 / 1 / 4;
+    height: 40px;
+    padding: 3px;
+}
+
+    .filter-search input {
+        width: 80%;
+        height: 100%;
+        border: 0;
+        font-size: 20px;
+    }
+
+        .filter-search input:focus {
+            outline: none;
+        }
+
+    .filter-search i {
+        display: none;
+        font-size: 32px;
+    }
+
+.filter-location {
+    grid-area: 2 / 1 / 2 / 3;
+    height: 40px;
+    padding: 3px;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-price {
+    display: none;
+}
+
+.filter-submit {
+    grid-area: 2 / 3 / 2 / 4;
+    height: 50px;
+    border: none;
+    color: inherit;
+    font-weight: 600;
+    font-family: inherit;
+    font-size: 20px;
+}
+
+
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #07beb8;
+    box-shadow: 0 -3px 15px #7fbbc4 ;
+    padding: 3px 10px;
+    min-width: 100%;
+    max-width: 100vw;
+    height: 50px;
+    position: relative;
+    top: 55vh;
+}
+
+    nav .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        nav .nav-item i {
+            font-size: 24px;
+        }
+
+        nav .nav-item h5 {
+            font-weight: 500;
+            margin: 0;
+            padding: 0;
+        }
+
+
+@media only screen and (min-width: 1100px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        background-color: #98dfea;
+        max-height: 130px;
+        padding: 0 50px;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 3px #7fbbc4;
+    }
+
+        header span {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            min-width: 600px;
+            max-width: 800px;
+        }
+
+            header span h3 {
+                font-weight: bold;
+                font-size: 42px;
+            }
+
+
+    .searchfield {
+        display: flex;
+        flex-direction: row;
+        min-width: 400px;
+        max-width: 500px;
+        height: 50px;
+        border-radius: 100px;
+        background-color: white;
+        box-shadow: 0 -3px #7fbbc4;
+        overflow: hidden;
+        padding: 3px;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .searchfield input {
+            width: 80%;
+            height: 100%;
+            border: 0;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+            .searchfield input:focus {
+                outline: none;
+            }
+
+        .searchfield i {
+            font-size: 32px;
+        }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #07beb8;
+        box-shadow: 0 -3px #7fbbc4;
+        border-radius: 100px;
+        padding: 3px 10px;
+        min-width: 300px;
+        height: 50px;
+    }
+
+        nav .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            nav .nav-item i {
+                font-size: 24px;
+            }
+
+            nav .nav-item h5 {
+                font-weight: 500;
+                margin: 0;
+                padding: 0;
+            }
+}
