@@ -22,7 +22,7 @@ public class AnnonsHanterare
     }
 
     /// <exception cref="AnnonsFinnsEjException"></exception>
-    public async Task<Annons> HämtaAnnons(int id)
+    public async Task<Annons> Get(int id)
     {
         var annons = await _dbContext.Annonser.Include(a => a.TorgetUser)
             .Include(a => a.Bilder)
@@ -32,7 +32,7 @@ public class AnnonsHanterare
         return annons ?? throw new AnnonsFinnsEjException(); //Förstår vi detta allihopa?
     }
 
-    public async Task<List<Annons>> HämtaAnnonser(SökQuery? sökQuery = null)
+    public async Task<List<Annons>> GetList(SearchQuery? sökQuery = null)
     {
         var query = _dbContext.Annonser
             .Include(a => a.TorgetUser)
@@ -49,7 +49,7 @@ public class AnnonsHanterare
     }
 
     /// <exception cref="AnnonsFinnsEjException"></exception>
-    public async Task<Annons> ÄndraAnnons(int id, Annons uppdateradAnnons)
+    public async Task<Annons> Update(int id, Annons uppdateradAnnons)
     {
         var annons = await _dbContext.Annonser.FindAsync(id);
         if (annons == null) throw new AnnonsFinnsEjException();
@@ -62,12 +62,12 @@ public class AnnonsHanterare
     }
 
     /// <exception cref="AnnonsFinnsEjException"></exception>
-    public async Task<Annons> MarkeraAnnonsSomSåld(int id)
+    public async Task<Annons> MarkAsSold(int id)
     {
         var annons = await _dbContext.Annonser.FindAsync(id);
         if (annons == null) throw new AnnonsFinnsEjException();
 
-        annons.Såld = true;
+        annons.Sold = true;
         var entityEntry = _dbContext.Annonser.Update(annons);
         await _dbContext.SaveChangesAsync();
 
@@ -75,7 +75,7 @@ public class AnnonsHanterare
     }
 
     /// <exception cref="AnnonsFinnsEjException"></exception>
-    public async Task<Annons> TaBortAnnons(int id)
+    public async Task<Annons> Delete(int id)
     {
         var annons = await _dbContext.Annonser.FindAsync(id);
         if (annons == null) throw new AnnonsFinnsEjException();

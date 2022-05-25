@@ -2,7 +2,7 @@
 
 namespace Torget__Blocket_klon_.Data.ModelsNotInDb;
 
-public class SökQuery
+public class SearchQuery
 {
     public string? SökOrd { get; set; }
     public string? Kategori { get; set; }
