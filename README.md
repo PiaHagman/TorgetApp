@@ -88,6 +88,7 @@ Helgfria vardagar 9:00-9:15
 
 PR från issue-branch görs till aktuell sprintbranch. <br>
 När allas arbeten är mergade in i sprintbranchen, testas denna innan den mergas in i master.
+Mötesanteckningar commitas rakt in i Sprintbranch
 
 - Commits görs på engelska
 

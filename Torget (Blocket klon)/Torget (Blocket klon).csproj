@@ -7,4 +7,17 @@
     <RootNamespace>Torget__Blocket_klon_</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Annonser\Pages\" />
+    <Folder Include="Data\Services\" />
+    <Folder Include="Pages\Shared\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
+  </ItemGroup>
+
 </Project>
