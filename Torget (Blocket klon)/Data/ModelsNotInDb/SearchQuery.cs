@@ -1,4 +1,7 @@
-﻿using Torget__Blocket_klon_.Data.Models;
+﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
+using Torget__Blocket_klon_.Data.Models;
 
 namespace Torget__Blocket_klon_.Data.ModelsNotInDb;
 
@@ -14,9 +17,29 @@ public class SearchQuery
     {
         if (SearchWords is not null)
         {
-            queryable = queryable.Where(a => a.Title.Contains(SearchWords));
+            var wordArray = SearchWords.Split(" ");
+
+            queryable = queryable.Where(CreateExpression(wordArray)).AsQueryable();
         }
 
         return queryable;
+    }
+
+    public Func<TorgetAd, bool> CreateExpression(string[] words)
+    {
+        Expression<Func<TorgetAd, bool>> predicate = (torgetAd) => false;
+
+        predicate = words
+            .Aggregate(predicate, (current, word) =>
+                Or(current, a => a.Title.Contains(word)));
+        return predicate.Compile();
+    }
+
+    private static Expression<Func<T, bool>> Or<T>(Expression<Func<T, bool>> where1,
+        Expression<Func<T, bool>> where2)
+    {
+        InvocationExpression invocationExpression = Expression.Invoke(where2, where1.Parameters.Cast<Expression>());
+        return Expression.Lambda<Func<T, bool>>(Expression.OrElse(where1.Body, invocationExpression),
+            where1.Parameters);
     }
 }

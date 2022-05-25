@@ -44,7 +44,8 @@ public class AdHandler
             query = searchQuery.AddSearchQueryToQuery(query);
         }
 
-        var ads = await query.ToListAsync();
+        var ads = query.ToList(); //TODO: Hitta ett sätt att kunna använda Async.
+
         return ads;
     }
 
