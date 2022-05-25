@@ -1,0 +1,32 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f6a20352b9.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<header>
+    
+</header>
+
+<main>
+    @RenderBody()
+</main>
+
+
+
+@await RenderSectionAsync("Scripts", false)
+<script src="~/lib/bootstrap/js/bootstrap.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+</body>
+</html>
