@@ -13,9 +13,9 @@ public class AdHandler
         _dbContext = dbContext;
     }
 
-    public async Task<TorgetAd> Create(TorgetAd annons)
+    public async Task<TorgetAd> Create(TorgetAd ad)
     {
-        var entityEntry = _dbContext.TorgetAds.Add(annons);
+        var entityEntry = _dbContext.TorgetAds.Add(ad);
         await _dbContext.SaveChangesAsync();
 
         return entityEntry.Entity;
@@ -24,7 +24,8 @@ public class AdHandler
     /// <exception cref="AdDoesNotExistException"></exception>
     public async Task<TorgetAd> Get(int id)
     {
-        var ad = await _dbContext.TorgetAds.Include(a => a.TorgetUser)
+        var ad = await _dbContext.TorgetAds
+            .Include(a => a.TorgetUser)
             .Include(a => a.AdImages)
             .Include(a => a.Tags)
             .FirstOrDefaultAsync(a => a.Id == id);
@@ -39,12 +40,12 @@ public class AdHandler
             .Include(a => a.AdImages)
             .Include(a => a.Tags)
             .AsQueryable();
-        if (searchQuery is not null)
-        {
-            query = searchQuery.AddSearchQueryToQuery(query);
-        }
 
-        var ads = query.ToList(); //TODO: Hitta ett sätt att kunna använda Async.
+        if (searchQuery is not null)
+            query = searchQuery.AddSearchQueryToQuery(query);
+
+
+        var ads = await query.ToListAsync(); //TODO: Hitta ett sätt att kunna använda Async.
 
         return ads;
     }
