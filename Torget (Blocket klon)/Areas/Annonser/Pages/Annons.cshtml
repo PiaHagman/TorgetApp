@@ -9,22 +9,23 @@
 
 
 <div class="my-container">
+    <i class="fa-solid fa-circle-x icon"></i> @*Denna får jag inte att fungera*@
     <div class="my-ad">
-        <i class="fa-solid fa-circle-x close-btn"></i> @*Denna får jag inte att fungera*@
+        
 
         <div class="ad-images">
             <div>
                 <img class="hero-img" src="../images/example-pic.png">
             </div>
             <div class="small-pics">
-                <div class="prev-pic"><</div>
+                <div class="arrow"><b><</b></div>
             
                 <img src="../images/example-pic.png"@*src="@Model.Annons.Bilder[0]"*@/>
                 <img src="../images/example-pic.png"@*src="@Model.Annons.Bilder[1]"*@/>
                 <img src="../images/example-pic.png" @*src="@Model.Annons.Bilder[2]"*@/>
                 <img src="../images/example-pic.png" @*src="@Model.Annons.Bilder[3]"*@/>
-
-                <div class="next-pic">></div>
+                
+                <div class="arrow"><b>></b></div>
             </div>
             
             
@@ -34,30 +35,31 @@
             <h1 class="ad-title">@Model.TorgetAd.Title</h1>
             <h4 class="ad-price">@Model.TorgetAd.Price SEK</h4>
             <p class="ad-description">@Model.TorgetAd.Description</p>
-            <p class="ad-keywords">#@Model.TorgetAd.Tags[0].TagName</p> @*bestäm count på listan med tags och skriv ut lika många taggar som count*@
-            <p class="ad-seller">Uppladdat av @Model.TorgetAd.TorgetUser.UserName</p>
-            <p class="ad-date">@Model.TorgetAd.DatePosted.ToShortDateString() Kl. @Model.TorgetAd.DatePosted.ToShortTimeString()</p>
+            <p class="ad-tags">#@Model.TorgetAd.Tags[0].TagName</p> @*bestäm count på listan med tags och skriv ut lika många taggar som count*@
+            <p class="ad-seller-date">Uppladdat av @Model.TorgetAd.TorgetUser.UserName <br/> @Model.TorgetAd.DatePosted.ToShortDateString() Kl. @Model.TorgetAd.DatePosted.ToShortTimeString()</p>
+       
         </div>
 
         <div class="ad-sellerInfo">
 
-            <div><img class="icon-location" src="hämtabild"></img></div>
+            
             <div class="info-container">
+                <div><img class="icon icon-location" src="hämtabild"></img></div>
                 <div class="info-text">
                     Säljarens postkod: @Model.TorgetAd.TorgetUser.ZipCode
                 </div>
             </div>
             
-            <div><img class="icon-quote" src="hämtabild"></img></div>
             <div class="info-container">
+                <div><img class="icon icon-quote" src="hämtabild"></img></div>
                 <div class="info-text">
                     <a asp-page="xxxxxx">Chatta med säljaren</a>
                     
                 </div>
             </div>
             
-            <div><img class="icon-phone" src="hämtabild"></img></div>
             <div class="info-container">
+                <div><img class="icon icon-phone" src="hämtabild"></img></div>
                 <div class="info-text">
                     Säljaren nås på @Model.TorgetAd.TorgetUser.PhoneNumber
                 </div>

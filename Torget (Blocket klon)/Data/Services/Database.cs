@@ -29,6 +29,7 @@ public class Database
             Email = "user1@email.com",
             UserName = "user1@email.com",
             ZipCode = "44340",
+            PhoneNumber = "0766-210910",
             Id = "43eefa21-9b75-4926-9e1f-d9a878aa5f24"
         };
         var user2 = new TorgetUser()
@@ -36,6 +37,7 @@ public class Database
             Email = "user2@email.com",
             UserName = "user2@email.com",
             ZipCode = "42446",
+            PhoneNumber = "0766-210910",
             Id = "f20ff2b1-a75d-4ce0-a245-6415284391cf"
         };
 
