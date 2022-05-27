@@ -3,6 +3,7 @@ using Torget__Blocket_klon_.Data.Models;
 
 namespace Torget__Blocket_klon_.Data.ModelsNotInDb;
 
+//TODO: Make sure to do checks against normalized strings.
 public class SearchQuery
 {
     public string? SearchWords { get; set; }
@@ -13,8 +14,8 @@ public class SearchQuery
 
     public IQueryable<TorgetAd> AddSearchQuery(IQueryable<TorgetAd> queryable)
     {
-        if (SearchWords is not null)
-            queryable = AddSearchWordsToQuery(queryable, SearchWords);
+        queryable = TryAddSearchWordsToQuery(queryable);
+        queryable = TryAddTagsToQuery(queryable);
 
         if (Category is not null)
             queryable = queryable.Where(a => a.Category == Category);
@@ -25,28 +26,26 @@ public class SearchQuery
         if (PriceHighest is not null)
             queryable = queryable.Where(a => a.Price <= PriceHighest);
 
-        if (Tags is not null)
-            queryable = AddTagsToQuery(queryable, Tags);
-
         return queryable;
     }
 
     #region PrivateMethods
 
     //TODO: Snacka om hur vi vill hantera sökning på sökord. Ska hela strängen stämma eller ska ett ord bara kunna stämma (funkar så nu)?
-    private static IQueryable<TorgetAd> AddSearchWordsToQuery(IQueryable<TorgetAd> queryable, string searchWords)
+    private IQueryable<TorgetAd> TryAddSearchWordsToQuery(IQueryable<TorgetAd> queryable)
     {
-        var wordArray = searchWords.Split(" ");
-        return queryable.Where(CreateExpressionForTitle(wordArray)).AsQueryable();
+        return SearchWords is null ? queryable : queryable.Where(CreateExpressionForTitle());
     }
 
-    private static IQueryable<TorgetAd> AddTagsToQuery(IQueryable<TorgetAd> queryable, IEnumerable<Tag> tags)
+    private IQueryable<TorgetAd> TryAddTagsToQuery(IQueryable<TorgetAd> queryable)
     {
-        return queryable.Where(CreateExpressionForTags(tags));
+        return Tags is null ? queryable : queryable.Where(CreateExpressionForTags());
     }
 
-    private static Expression<Func<TorgetAd, bool>> CreateExpressionForTitle(string[] words)
+    private Expression<Func<TorgetAd, bool>> CreateExpressionForTitle()
     {
+        var words = SearchWords.Split(" ");
+
         Expression<Func<TorgetAd, bool>> expression = (torgetAd) => false;
 
         expression = words
@@ -57,11 +56,11 @@ public class SearchQuery
         return expression;
     }
 
-    private static Expression<Func<TorgetAd, bool>> CreateExpressionForTags(IEnumerable<Tag> tags)
+    private Expression<Func<TorgetAd, bool>> CreateExpressionForTags()
     {
         Expression<Func<TorgetAd, bool>> expression = (torgetAd) => false;
 
-        expression = tags
+        expression = Tags
             .Aggregate(expression, (currentExpression, nextTag) =>
                 CreateOrExpression(currentExpression, a =>
                     a.Tags.Any(t => t.TagName == nextTag.TagName)));
