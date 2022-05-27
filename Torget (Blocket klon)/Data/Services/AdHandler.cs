@@ -42,10 +42,9 @@ public class AdHandler
             .AsQueryable();
 
         if (searchQuery is not null)
-            query = searchQuery.AddSearchQueryToQuery(query);
+            query = searchQuery.AddSearchQuery(query);
 
-
-        var ads = await query.ToListAsync(); //TODO: Hitta ett sätt att kunna använda Async.
+        var ads = await query.ToListAsync();
 
         return ads;
     }
