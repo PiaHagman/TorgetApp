@@ -28,4 +28,12 @@
 > ### Timebox
 > 15 min
 > ### Summering
+> Björn var med på dagens standup. Vi snackade lite om designen, Idris har gjort ett toppen jobb :)
+> Kom överens om att namnge på engelska, så vid 10:15 idag kommer de andra sitta tillsammans och renamea och även visa gustav vad vi gjort och hur vi tänkt.
 > 
+## 2022-05-30 - Daily standup
+
+> ### Timebox
+> 15 min
+> ### Summering
+> Fastnade litegrann när jag skulle snacka om min bit jag gjort. Vi var bara Pia, jag och Johan. Jag begärde en pull request och även lite codereview.
