@@ -35,6 +35,7 @@ Core funktionalitet som speglar blocket.
 - Vi använder razorpages framför controllers
 - Bootstrap, MudBlazor eller andra bibliotek är ok att använda om man vill för specifika komponenter, exempelvis carousel, card, meny eller liknande.
 - Vi bygger mobile first
+- Commits görs på engelska
 
 ## Gruppkontrakt
 
@@ -59,6 +60,27 @@ Helgfria vardagar 9:00-9:15
     - 27/5 hela dagen
     - 1/6 vet inte tid än (gissa förmiddag), men borta ca 2 timmar.
 
+#### Hargaaya Idris
+  - Kan arbeta vardagar 9-17
+  - Tillfällen jag vet att jag är borta: 
+    - 25/5 Kl. 12-14
+
+#### Pia Hagman
+- Kan arbeta varje vardag 8.30 - 15.30. Kan också sitta flera kvällar om så krävs.
+- Frånvaro jag vet om
+- Dagar jag vet att jag är borta:
+  - denna vecka (v.21) lite från och till pga magsjuka och alla barn hemma
+  - 9/6 före lunch
+  - 15/6 efter lunch
+
+#### Gustav Alvérus
+- Kan arbeta vardagar 9-17
+- Frånvaro jag vet om
+  - 31/5 efter lunch
+  - 10/6 före lunch
+ 
+    
+
 ## Branchingstrategi
 - Master
  - Sprintbranch: sprint/1
@@ -67,6 +89,8 @@ Helgfria vardagar 9:00-9:15
 PR från issue-branch görs till aktuell sprintbranch. <br>
 När allas arbeten är mergade in i sprintbranchen, testas denna innan den mergas in i master.
 Mötesanteckningar commitas rakt in i Sprintbranch
+
+- Commits görs på engelska
 
 **Tänk på att**
 - Man lägger endast till nya commits till sprintbranch genom PR från en issue branch
@@ -83,12 +107,12 @@ ___
 ## SCRUM
 
 ### Definition of Ready
-- **Oberoende/tydligt:** tydligt vad issuen ska lösa/resultat 
-- **Öppen:** Det är upp till utvecklaren att komma med egen lösningar, inte detaljplanerat.
-- **Estimerad:** Fibonaccis sekvens, estimerat tillsammans under sprintplanering.  
+- **Oberoende/tydligt:** Det ska vara tydligt vad issuen ska lösa/vilket resultat som ska nås
+- **Öppen:** Det är upp till utvecklaren att komma med egna lösningar, issuen är inte detaljplanerad.
+- **Estimerad:** Fibonaccis sekvens, estimerad tillsammans under sprintplanering.  
 
 ### Definition of Done
-- **Reviewer:** Minst en kollege som tittat igenom och godkännt koden.
-- **Körbar:** Alla punkter i issuen ska vara implementerat och körbart.
-- **Kund-klar:** Redo att presenteras/ testas av kund.
-- **Merge:** issuen är mergad med sprintbranschen 
+- **Reviewer:** Minst en kollega har tittat igenom, **testkört** och godkänt koden.
+- **Körbar:** Alla punkter i issuen ska vara implementerade och körbara.
+- **Kund-klar:** Redo att presenteras/testas av kund.
+- **Merge:** Issuen är mergad med sprintbranschen 
