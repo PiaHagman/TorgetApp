@@ -2,7 +2,7 @@
 
 namespace Torget__Blocket_klon_.Data.Models;
 
-public class Bild
+public class AdSearch
 {
     public int Id { get; set; }
     [Required] public string Url { get; set; }
