@@ -1,0 +1,48 @@
+﻿@page
+@model Torget__Blocket_klon_.Areas.User.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container d-flex justify-content-center flex-column w-75">
+<h2 class="display-4 text-center mb-3">Register new account</h2>
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="d-flex flex-row align-items-center mb-4">
+        <div class="form-floating flex-fill mb-0">
+            <input class="form-control flex-fill mb-0" asp-for="Email" placeholder="Email"/>
+            <label class="form-label" asp-for="Email"></label>
+            <span asp-validation-for="Email"></span>
+        </div>
+    </div>
+    <div class="d-flex flex-row align-items-center mb-4">
+        <div class="form-floating flex-fill mb-0">
+            <input class="form-control flex-fill mb-0" asp-for="PhoneNumber" placeholder="Telefon nummer"/>
+            <label class="form-label" asp-for="PhoneNumber"></label>
+            <span asp-validation-for="PhoneNumber"></span>
+        </div>
+    </div>
+    <div class="d-flex flex-row align-items-center mb-4">
+        <div class="form-floating flex-fill mb-0">
+            <input class="form-control flex-fill mb-0" asp-for="ZipCode" placeholder="Postnummer"/>
+            <label class="form-label" asp-for="ZipCode"></label>
+            <span asp-validation-for="ZipCode"></span>
+        </div>
+    </div>
+    <div class="d-flex flex-row align-items-center mb-4">
+        <div class="form-floating flex-fill mb-0">
+            <input class="form-control flex-fill mb-0" asp-for="Password" placeholder="Lösenord"/>
+            <label class="form-label" asp-for="Password"></label>
+            <span asp-validation-for="Password"></span>
+        </div>
+    </div>
+    <div class="d-flex flex-row align-items-center mb-4">
+        <div class="form-floating flex-fill mb-0">
+            <input class="form-control flex-fill mb-0" asp-for="ConfirmPassword" placeholder="Upprepa lösenord"/>
+            <label class="form-label" asp-for="ConfirmPassword"></label>
+            <span asp-validation-for="ConfirmPassword"></span>
+        </div>
+    </div>
+    <button class="btn btn-outline-success fw-bold m-3" type="submit">Registrera användare</button>
+</form>
+</div>
