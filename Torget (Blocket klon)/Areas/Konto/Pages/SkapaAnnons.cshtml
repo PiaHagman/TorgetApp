@@ -2,3 +2,32 @@
 @model Torget__Blocket_klon_.Areas.Konto.Pages.SkapaAnnonsModel
 @{
 }
+
+<div class="ad-container">
+    <div class="ad-input-area">
+        <form method="post" enctype="multipart/form-data">
+            @*Titel*@
+            <div class="titel">
+                <h2><i class="fa-solid fa-square-plus"></i>Ny Annons</h2>
+            </div>
+            @*Rubrik*@
+            <div class="rubrik">
+                <input asp-for="Input.Titel"/>
+                <label asp-for="Input.Titel"/>
+                <span asp-validation-for="Input.Titel"/>
+            </div>
+            @*Beskrivning*@
+            <div class="beskrivning">
+                <input asp-for="Input.Beskrivning"/>
+                <label asp-for="Input.Beskrivning"/>
+                <span asp-validation-for="Input.Beskrivning"/>
+            </div>
+            @*Beskrivning*@
+            <div class="pris">
+                <input asp-for="Input.Pris"/>
+                <label asp-for="Input.Pris"/>
+                <span asp-validation-for="Input.Pris"/>
+            </div>
+        </form>
+    </div>
+</div>
