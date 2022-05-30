@@ -3,7 +3,6 @@ using Torget__Blocket_klon_.Data.Models;
 
 namespace Torget__Blocket_klon_.Data.ModelsNotInDb;
 
-//TODO: Make sure to do checks against normalized strings.
 public class SearchQuery
 {
     public string? SearchWords { get; set; }
@@ -18,7 +17,7 @@ public class SearchQuery
         queryable = TryAddTagsToQuery(queryable);
 
         if (Category is not null)
-            queryable = queryable.Where(a => a.Category == Category);
+            queryable = queryable.Where(a => a.Category.ToUpper() == Category.ToUpper());
 
         if (PriceLowest is not null)
             queryable = queryable.Where(a => a.Price >= PriceLowest);
@@ -51,7 +50,7 @@ public class SearchQuery
         expression = words
             .Aggregate(expression, (currentExpression, nextWord) =>
                 CreateOrExpression(currentExpression, a =>
-                    a.Title.Contains(nextWord)));
+                    a.Title.ToUpper().Contains(nextWord.ToUpper())));
 
         return expression;
     }
@@ -63,7 +62,7 @@ public class SearchQuery
         expression = Tags
             .Aggregate(expression, (currentExpression, nextTag) =>
                 CreateOrExpression(currentExpression, a =>
-                    a.Tags.Any(t => t.TagName == nextTag.TagName)));
+                    a.Tags.Any(t => t.TagName.ToUpper() == nextTag.TagName.ToUpper())));
 
         return expression;
     }

@@ -38,7 +38,7 @@ public class AdHandler
         var query = _dbContext.TorgetAds
             .Include(a => a.TorgetUser)
             .Include(a => a.AdImages)
-            .Include(a => a.Tags)
+            .Include(a => a.Tags) //.AsSplitQuery() Behövs? Läs på om.
             .AsQueryable();
 
         if (searchQuery is not null)
