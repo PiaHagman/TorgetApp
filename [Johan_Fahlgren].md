@@ -8,6 +8,7 @@
 ### DailyStand Ups:
 [Daily Stand Up 1](###Daily-stand-up-1)  
 [Daily Stand Up 2](###Daily-stand-up-2)
+[Daily Stand Up 3](###Daily-stand-up-3)
 
 ___
 
@@ -53,3 +54,16 @@ ___
 - Vi lägger till provkörning i våran DoD.
 - Möte klockan 10 för att uppdatera gusta, som missade gårdagens.
 - DBcontext klart   
+
+### Daily Stand Up 3  <br/>
+**Date:** 2021-05-30 <br/>
+**Timebox:** 0 h 15 min <br/>
+
+**Notes:** <br/>
+
+-  Gustav sjuk och Idris vet ej.
+-  Kim har gjort en TODO om hur vi ska hantera sökningar i med query. 
+-  Kims kod behöver eventuellt refactoring enligt Björn, med någon av oss.
+-  Pia klar med frontend för "en annons".
+-  Onsdag blir sammanställning av sprint. 
+-  Mötet drog över lite med   
