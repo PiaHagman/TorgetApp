@@ -13,6 +13,24 @@
 <body>
     <header>
         <h3>TORGET</h3>
+        <div class="categories">
+            <div class="category-single">
+                <i class="fa-solid fa-cat"></i>
+                <p>Category</p>
+            </div>
+            <div class="category-single">
+                <i class="fa-solid fa-cat"></i>
+                <p>Category</p>
+            </div>
+            <div class="category-single">
+                <i class="fa-solid fa-cat"></i>
+                <p>Category</p>
+            </div>
+            <div class="category-single">
+                <i class="fa-solid fa-cat"></i>
+                <p>Category</p>
+            </div>
+        </div>
             <form class="filters" onsubmit=@{Console.WriteLine("Submitted");}>
                 <div class="filter-search input">
                     <input type="text" placeholder="Ex. Barnvagn, cykel" id="search"/>
@@ -26,6 +44,9 @@
                 </div>
                 <input class="filter-submit button" type="submit" value="Sök" />
             </form>
+        <div class="hide-header">
+            <i class="fa-solid fa-angle-up"></i>
+        </div>
         <nav class="navigation">
             <div class="nav-item">
                 <i class="fa-solid fa-camera-retro"></i>
