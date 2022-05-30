@@ -47,7 +47,7 @@ public class SearchQuery
 
     private Expression<Func<TorgetAd, bool>> CreateOrExpressionChainForTags()
     {
-        string[] tagNames = Tags.Select(item => item.TagName).ToArray();
+        var tagNames = Tags.Select(item => item.TagName).ToArray();
 
         Expression<Func<TorgetAd, bool>> FilterBuilder(string tagName) =>
             (ad) => ad.Tags.Any(tag => tag.TagName.ToUpper() == tagName.ToUpper());
@@ -60,9 +60,9 @@ public class SearchQuery
     private static Expression<Func<TorgetAd, bool>> BuildOrExpressionChain(string[] filterConstants,
         Func<string, Expression<Func<TorgetAd, bool>>> filterBuilder)
     {
-        Expression<Func<TorgetAd, bool>> firstExpression = (torgetAd) => false;
+        Expression<Func<TorgetAd, bool>> firstExpression = (ad) => false;
 
-        Expression<Func<TorgetAd, bool>> expressionChain = filterConstants
+        var expressionChain = filterConstants
             .Aggregate(firstExpression,
                 (chain, filterConstant) => AddOrChainLink(chain, filterBuilder(filterConstant)));
 
@@ -72,7 +72,7 @@ public class SearchQuery
     private static Expression<Func<TorgetAd, bool>> AddOrChainLink(Expression<Func<TorgetAd, bool>> chain,
         Expression<Func<TorgetAd, bool>> nextFilter)
     {
-        InvocationExpression filterWithChainContext = Expression.Invoke(nextFilter, chain.Parameters);
+        var filterWithChainContext = Expression.Invoke(nextFilter, chain.Parameters);
 
         chain = Expression.Lambda<Func<TorgetAd, bool>>(Expression
             .OrElse(chain.Body, filterWithChainContext), chain.Parameters);
