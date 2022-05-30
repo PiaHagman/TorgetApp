@@ -37,3 +37,14 @@ Summering:
 - Ny kolumn i Sprint 1 blackloggen: "Inväntar review" mellan "Pågående" och "Done"
 - Under Definition of Done har vi lagt till att kod ska testköras av minst en kollega innan merge
 - Readme-commits kan göras direkt i masterbranch
+
+
+## 26/5
+<br>**Daily standup**
+<br>**Timebox: 15 min**
+<br><br>
+Summering:
+- Endast jag, Johan och Kim närvarande
+- Inte så mycket har hänt sedan förra veckan. 
+- Jag har byggt klart UI för en annons, lite problem med font awesome, men får hjälp efter mötet.
+- Fortsätter med lite logik och Javascript för sidan under dagen.
