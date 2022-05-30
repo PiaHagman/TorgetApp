@@ -1,4 +1,5 @@
 ﻿@page
+@using Torget__Blocket_klon_.Areas.Konto.Pages
 @model Torget__Blocket_klon_.Areas.Konto.Pages.SkapaAnnonsModel
 @{
 }
@@ -8,25 +9,39 @@
         <form method="post" enctype="multipart/form-data">
             @*Titel*@
             <div class="titel">
-                <h2><i class="fa-solid fa-square-plus"></i>Ny Annons</h2>
+                <h2 class="titel"><i class="fa-solid fa-square-plus"></i> Ny annons</h2>
             </div>
             @*Rubrik*@
             <div class="rubrik">
-                <input asp-for="Input.Titel"/>
+                <input class="input-element" asp-for="Input.Titel" placeholder="Rubrik"/>
                 <label asp-for="Input.Titel"/>
                 <span asp-validation-for="Input.Titel"/>
             </div>
             @*Beskrivning*@
             <div class="beskrivning">
-                <input asp-for="Input.Beskrivning"/>
+                <textarea class="input-element" asp-for="Input.Beskrivning" placeholder="Beskrivning"></textarea>
                 <label asp-for="Input.Beskrivning"/>
                 <span asp-validation-for="Input.Beskrivning"/>
             </div>
-            @*Beskrivning*@
+            @*Pris*@
             <div class="pris">
-                <input asp-for="Input.Pris"/>
+                <input class="input-element" asp-for="Input.Pris" placeholder="Pris"/>
                 <label asp-for="Input.Pris"/>
                 <span asp-validation-for="Input.Pris"/>
+            </div>
+            @*Kategori*@
+            <div class="Kategori">
+                <input class="input-element" asp-for="Input.Kategori" placeholder="Kategorier"/>
+                <label asp-for="Input.Kategori"/>
+                <span asp-validation-for="Input.Kategori"/>
+            </div>
+            
+            @*Bild*@
+            <div class="Bild">
+                <input class="image-element" type="file" asp-for="Input.AdImage"/>
+                <label asp-for="Input.AdImage"/>
+                <span asp-validation-for="Input.AdImage"/>
+                <p class="image-text">Recommended minimum event image size 600x400px</p>
             </div>
         </form>
     </div>

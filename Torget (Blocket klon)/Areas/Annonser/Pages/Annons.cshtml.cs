@@ -7,13 +7,13 @@ namespace Torget__Blocket_klon_.Areas.Annonser.Pages
 {
     public class AnnonsModel : PageModel
     {
-        public AnnonsHanterare AnnonsHanterare { get; }
+        public AdHandler AnnonsHanterare { get; }
 
 
         [BindProperty]
         public TorgetAd TorgetAd { get; set; }
 
-        public AnnonsModel(AnnonsHanterare annonsHanterare)
+        public AnnonsModel(AdHandler annonsHanterare)
         {
             AnnonsHanterare = annonsHanterare;
         }
