@@ -1,0 +1,105 @@
+﻿html {
+   
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
+}
+
+h1 {
+   
+}
+h2{
+   
+}
+a {
+    text-decoration: none;
+    color:black;
+}
+.icon {
+    background-color: #07BEB8;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    position: absolute;
+    right: -22px;
+    top: -22px;
+    box-shadow: 2px 3px 5px #cfcfcf;
+}
+
+.my-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* max-width: 600px;*/
+    border-radius: 15px;
+    margin: 25px;
+    box-shadow: 5px 10px 18px #cfcfcf;
+    position:relative;
+}
+
+.my-ad {
+    width: 90%;
+    padding:15px 0 25px 0;
+}
+  
+.close-btn{
+
+}
+.hero-img{
+    width: 100%;
+    border-radius: 10px;
+}
+.arrow {
+    display:flex;
+    align-items:center;
+}
+
+.small-pics{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:space-between;
+    max-width: 100%;
+    margin: 15px 0 25px 0;
+    gap:5px;
+}
+    .small-pics > img {
+        max-width: 18%;
+        border-radius: 10px;
+    }
+
+.ad-description{
+    margin: 25px 0 5px 0;
+}
+.ad-tags,
+.ad-seller-date {
+    font-size: smaller;
+    color: grey;
+}
+.ad-sellerInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:30px;
+    margin-top: 25px;
+    
+}
+.info-container {
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 2px 3px 5px #cfcfcf;
+    padding: 10px;
+    display: flex;
+    position: relative;
+}
+
+.info-text {
+    width:60%;
+    font-weight:bold;
+    justify-content: center;
+    margin:5px 15px;
+
+}
+

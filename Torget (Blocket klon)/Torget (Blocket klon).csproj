@@ -9,7 +9,12 @@
 
   <ItemGroup>
     <Folder Include="Areas\Annonser\Pages\" />
-    <Folder Include="Pages\Shared\" />
+    <Folder Include="Data\Services\" />
+    <Folder Include="wwwroot\js\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\example-pic.png" />
   </ItemGroup>
 
   <ItemGroup>
