@@ -22,7 +22,7 @@ namespace Torget__Blocket_klon_.Areas.Annonser.Pages
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            TorgetAd = await AdHandler.Get(1);
+            TorgetAd = await AdHandler.Get(id);
             return Page();
            
         }
