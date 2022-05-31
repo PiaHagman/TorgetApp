@@ -13,8 +13,11 @@ public class SearchQuery
 
     public IQueryable<TorgetAd> AddSearchQuery(IQueryable<TorgetAd> queryable)
     {
-        queryable = TryAddSearchWordsToQuery(queryable);
-        queryable = TryAddTagsToQuery(queryable);
+        if (SearchWords is not null)
+            queryable = queryable.Where(CreateOrExpressionChainForTitle());
+
+        if (Tags is not null)
+            queryable = queryable.Where(CreateOrExpressionChainForTags());
 
         if (Category is not null)
             queryable = queryable.Where(a => a.Category.ToUpper() == Category.ToUpper());
@@ -30,53 +33,51 @@ public class SearchQuery
 
     #region PrivateMethods
 
-    //TODO: Snacka om hur vi vill hantera sökning på sökord. Ska hela strängen stämma eller ska ett ord bara kunna stämma (funkar så nu)?
-    private IQueryable<TorgetAd> TryAddSearchWordsToQuery(IQueryable<TorgetAd> queryable)
+    private Expression<Func<TorgetAd, bool>> CreateOrExpressionChainForTitle()
     {
-        return SearchWords is null ? queryable : queryable.Where(CreateExpressionForTitle());
-    }
+        var titleWords = SearchWords.Split(" ");
 
-    private IQueryable<TorgetAd> TryAddTagsToQuery(IQueryable<TorgetAd> queryable)
-    {
-        return Tags is null ? queryable : queryable.Where(CreateExpressionForTags());
-    }
+        Expression<Func<TorgetAd, bool>> FilterBuilder(string word) =>
+            (ad) => ad.Title.ToUpper().Contains(word.ToUpper());
 
-    private Expression<Func<TorgetAd, bool>> CreateExpressionForTitle()
-    {
-        var words = SearchWords.Split(" ");
-
-        Expression<Func<TorgetAd, bool>> expression = (torgetAd) => false;
-
-        expression = words
-            .Aggregate(expression, (currentExpression, nextWord) =>
-                CreateOrExpression(currentExpression, a =>
-                    a.Title.ToUpper().Contains(nextWord.ToUpper())));
-
-        return expression;
-    }
-
-    private Expression<Func<TorgetAd, bool>> CreateExpressionForTags()
-    {
-        Expression<Func<TorgetAd, bool>> expression = (torgetAd) => false;
-
-        expression = Tags
-            .Aggregate(expression, (currentExpression, nextTag) =>
-                CreateOrExpression(currentExpression, a =>
-                    a.Tags.Any(t => t.TagName.ToUpper() == nextTag.TagName.ToUpper())));
-
-        return expression;
-    }
-
-    private static Expression<Func<T, bool>> CreateOrExpression<T>(Expression<Func<T, bool>> where1,
-        Expression<Func<T, bool>> where2)
-    {
-        InvocationExpression invocationExpression = Expression.Invoke(where2, where1.Parameters.Cast<Expression>());
-
-        Expression<Func<T, bool>> returnExpression = Expression
-            .Lambda<Func<T, bool>>(Expression
-                .OrElse(where1.Body, invocationExpression), where1.Parameters);
+        var returnExpression = BuildOrExpressionChain(titleWords, FilterBuilder);
 
         return returnExpression;
+    }
+
+    private Expression<Func<TorgetAd, bool>> CreateOrExpressionChainForTags()
+    {
+        var tagNames = Tags.Select(item => item.TagName).ToArray();
+
+        Expression<Func<TorgetAd, bool>> FilterBuilder(string tagName) =>
+            (ad) => ad.Tags.Any(tag => tag.TagName.ToUpper() == tagName.ToUpper());
+
+        var returnExpression = BuildOrExpressionChain(tagNames, FilterBuilder);
+
+        return returnExpression;
+    }
+
+    private static Expression<Func<TorgetAd, bool>> BuildOrExpressionChain(string[] filterConstants,
+        Func<string, Expression<Func<TorgetAd, bool>>> filterBuilder)
+    {
+        Expression<Func<TorgetAd, bool>> firstExpression = (ad) => false;
+
+        var expressionChain = filterConstants
+            .Aggregate(firstExpression,
+                (chain, filterConstant) => AddOrChainLink(chain, filterBuilder(filterConstant)));
+
+        return expressionChain;
+    }
+
+    private static Expression<Func<TorgetAd, bool>> AddOrChainLink(Expression<Func<TorgetAd, bool>> chain,
+        Expression<Func<TorgetAd, bool>> nextFilter)
+    {
+        var filterWithChainContext = Expression.Invoke(nextFilter, chain.Parameters);
+
+        chain = Expression.Lambda<Func<TorgetAd, bool>>(Expression
+            .OrElse(chain.Body, filterWithChainContext), chain.Parameters);
+
+        return chain;
     }
 
     #endregion
