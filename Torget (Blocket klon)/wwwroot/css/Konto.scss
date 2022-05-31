@@ -24,6 +24,12 @@
     width: 90%;
     border-radius: 5px;
     border: 0px transparent solid;
+    
+}
+
+::placeholder {
+    color: red;
+    font-size: 4rem;
 }
 
 .image-text {

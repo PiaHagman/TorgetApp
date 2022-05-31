@@ -1,0 +1,74 @@
+﻿.ad-container {
+    padding-top: 20px;
+    margin: auto;
+    width: 90%;
+    display: flex;
+    
+    
+}
+
+.ad-input-area {
+    flex-direction: column;
+    background-color: #98DFEA;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 2px 5px 5px #cfcfcf;
+}
+
+.titel {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.input-element {
+    min-height: 30px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    width: 90%;
+    border-radius: 15px;
+    border: 0px transparent solid;
+    border-top: 2px inset #b1d6db;
+}
+
+.multiline-element {
+    min-height: 90px;
+}
+
+.image-element {
+    min-height: 30px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    padding-left: 10px;
+    font-size: 1rem;
+}
+
+.image-text {
+    font-size: 0.8rem;
+    width: 90%;
+}
+
+.submit {
+    justify-content: end;
+}
+
+.submit-btn {
+    float: right;
+    margin-right: 10%;
+    justify-content: end;
+    min-height: 30px;
+    border-radius: 25px;
+    border: 0px transparent solid;
+    border-top: 2px inset #b1d6db;
+    background-color: #07beb8;
+    padding: 10px 20px;
+    /*button text*/
+    font-size: 0.8rem;
+    font-weight: bold;
+}

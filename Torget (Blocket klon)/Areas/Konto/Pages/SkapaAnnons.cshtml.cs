@@ -13,12 +13,14 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
 
         private readonly UserManager<TorgetUser> _userManager;
         private readonly AdHandler _adHandler;
+        private IHostEnvironment _environment;
 
 
-        public SkapaAnnonsModel(UserManager<TorgetUser> userManager, AdHandler adHandler)
+        public SkapaAnnonsModel(UserManager<TorgetUser> userManager, AdHandler adHandler, IHostEnvironment environment)
         {
             _userManager = userManager;
             _adHandler = adHandler;
+            _environment = environment;
         }
 
         [BindProperty]
@@ -46,11 +48,6 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
             [Display(Name = "Kategori")]
             public string Kategori { get; set; }
 
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Taggar")]
-            public string Taggar { get; set; }
-
             [DataType(DataType.Upload)]
             [Display(Name = "Ad Image")]
             public IFormFile? AdImage { get; set; }
@@ -65,7 +62,9 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
             if (!ModelState.IsValid) return Page();
 
             var user = await _userManager.FindByIdAsync(
-                "43eefa21 - 9b75 - 4926 - 9e1f - d9a878aa5f24"); //Tillfällig user.
+                "43eefa21-9b75-4926-9e1f-d9a878aa5f24"); //Tillfällig user.
+
+            var imagePath = await addImage();
 
             var newTorgetAd = new TorgetAd
             {
@@ -75,6 +74,7 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
                 Price = Input.Pris,
                 DatePosted = DateTime.Now,
                 TorgetUser = user,
+                AdImages = new List<AdImage> { new AdImage { Url = imagePath } },
 
             };
 
@@ -82,6 +82,17 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
             await _adHandler.Create(newTorgetAd);
 
             return Page(); //returna till en preview sida?
+        }
+
+        public async Task<string> addImage()
+        {
+            var file = Path.Join("~/uploads/", Input.AdImage.FileName);
+            await using (var fileStream = new FileStream(file, FileMode.Create))
+            {
+                await Input.AdImage.CopyToAsync(fileStream);
+            }
+
+            return file;
         }
     }
 }
