@@ -12,6 +12,8 @@ namespace Torget__Blocket_klon_.Areas.Annonser.Pages
 
         [BindProperty]
         public TorgetAd TorgetAd { get; set; }
+        public int ImagesCount => TorgetAd.AdImages.Count;
+        public int TagsCount => TorgetAd.Tags.Count;
 
         public AnnonsModel(AnnonsHanterare annonsHanterare)
         {
@@ -21,6 +23,8 @@ namespace Torget__Blocket_klon_.Areas.Annonser.Pages
         public async Task OnGetAsync()
         {
             TorgetAd = await AnnonsHanterare.Get(1);
+
+           
         }
     }
 }

@@ -39,7 +39,7 @@ Summering:
 - Readme-commits kan göras direkt i masterbranch
 
 
-## 26/5
+## 30/5
 <br>**Daily standup**
 <br>**Timebox: 15 min**
 <br><br>

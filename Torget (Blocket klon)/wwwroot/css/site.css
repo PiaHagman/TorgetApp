@@ -27,6 +27,13 @@ a {
     top: -22px;
     box-shadow: 2px 3px 5px #cfcfcf;
 }
+.fa-solid {
+    font-size: x-large;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 10px
+}
+
 
 .my-container {
     display: flex;
@@ -35,8 +42,8 @@ a {
     /* max-width: 600px;*/
     border-radius: 15px;
     margin: 25px;
-    box-shadow: 5px 10px 18px #cfcfcf;
-    position:relative;
+    box-shadow: 2px 5px 10px #cfcfcf;
+    position: relative;
 }
 
 .my-ad {
@@ -47,14 +54,17 @@ a {
 .close-btn{
 
 }
+
+.arrow {
+    display: flex;
+    align-items: center;
+}
+
 .hero-img{
     width: 100%;
     border-radius: 10px;
 }
-.arrow {
-    display:flex;
-    align-items:center;
-}
+
 
 .small-pics{
     display: flex;
@@ -69,7 +79,15 @@ a {
         max-width: 18%;
         border-radius: 10px;
     }
+    .small-pics img:hover{
+        opacity:1;
+    }
 
+.img-active {
+    filter:opacity(50%);
+    border:2px solid grey;
+
+}
 .ad-description{
     margin: 25px 0 5px 0;
 }
@@ -89,7 +107,7 @@ a {
 .info-container {
     width: 80%;
     border-radius: 15px;
-    box-shadow: 2px 3px 5px #cfcfcf;
+    box-shadow: 2px 5px 10px #cfcfcf;
     padding: 10px;
     display: flex;
     position: relative;
