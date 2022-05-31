@@ -76,7 +76,7 @@ public class Database
                 Description =
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non erat quis orci porttitor sodales. Vivamus at diam dignissim, eleifend est id, placerat lacus. Vivamus semper sapien in maximus varius. Sed tincidunt quam quis dui sollicitudin, ac tincidunt purus tempor. Nulla eleifend vitae augue sit amet tincidunt. Aenean fermentum diam.",
                 Category = "Bil",
-                Price = 100,
+                Price = 150,
                 TorgetUser = user2,
                 Tags = new List<Tag> {new() {TagName = "Ferrari"}},
                 AdImages = new List<AdImage> {new() {Url = "Bild1Annons3Url"}}

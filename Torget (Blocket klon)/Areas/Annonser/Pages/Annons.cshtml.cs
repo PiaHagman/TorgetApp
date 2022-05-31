@@ -7,7 +7,7 @@ namespace Torget__Blocket_klon_.Areas.Annonser.Pages
 {
     public class AnnonsModel : PageModel
     {
-        public AnnonsHanterare AnnonsHanterare { get; }
+        public AdHandler AdHandler { get; }
 
 
         [BindProperty]
@@ -15,14 +15,14 @@ namespace Torget__Blocket_klon_.Areas.Annonser.Pages
         public int ImagesCount => TorgetAd.AdImages.Count;
         public int TagsCount => TorgetAd.Tags.Count;
 
-        public AnnonsModel(AnnonsHanterare annonsHanterare)
+        public AnnonsModel(AdHandler adHandler)
         {
-            AnnonsHanterare = annonsHanterare;
+            AdHandler = adHandler;
         }
 
         public async Task<IActionResult> OnGetAsync()
         {
-            TorgetAd = await AnnonsHanterare.Get(1);
+            TorgetAd = await AdHandler.Get(1);
             return Page();
            
         }
