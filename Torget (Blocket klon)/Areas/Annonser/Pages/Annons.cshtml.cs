@@ -20,10 +20,10 @@ namespace Torget__Blocket_klon_.Areas.Annonser.Pages
             AnnonsHanterare = annonsHanterare;
         }
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
             TorgetAd = await AnnonsHanterare.Get(1);
-
+            return Page();
            
         }
     }

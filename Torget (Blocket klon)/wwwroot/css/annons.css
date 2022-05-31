@@ -41,7 +41,8 @@ a {
     align-items: center;
     /* max-width: 600px;*/
     border-radius: 15px;
-    margin: 25px;
+    margin: 50px;
+    margin-bottom: 100px;
     box-shadow: 2px 5px 10px #cfcfcf;
     position: relative;
 }
