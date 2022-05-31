@@ -50,9 +50,9 @@ public class Database
                 Description =
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non erat quis orci porttitor sodales. Vivamus at diam dignissim, eleifend est id, placerat lacus. Vivamus semper sapien in maximus varius. Sed tincidunt quam quis dui sollicitudin, ac tincidunt purus tempor. Nulla eleifend vitae augue sit amet tincidunt. Aenean fermentum diam.",
                 Category = "Cykel",
-                Price = 100,
+                Price = 50,
                 TorgetUser = user1,
-                UsersSomSparatAnnons = new List<TorgetUser> {user2},
+                SavedByUsers = new List<TorgetUser> {user2},
                 Tags = new List<Tag> {new() {TagName = "Snabb"}},
                 AdImages = new List<AdImage> {new() {Url = "Bild1Annons1Url"}}
             },
@@ -64,7 +64,7 @@ public class Database
                 Category = "Dator",
                 Price = 100,
                 TorgetUser = user1,
-                UsersSomSparatAnnons = new List<TorgetUser> {user2},
+                SavedByUsers = new List<TorgetUser> {user2},
                 Tags = new List<Tag> {new() {TagName = "Snabb"}, new() {TagName = "Snygg"}},
                 AdImages = new List<AdImage> {new() {Url = "Bild1Annons2Url"}, new() {Url = "Bild2Annons2Url"}}
             },
@@ -74,7 +74,7 @@ public class Database
                 Description =
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non erat quis orci porttitor sodales. Vivamus at diam dignissim, eleifend est id, placerat lacus. Vivamus semper sapien in maximus varius. Sed tincidunt quam quis dui sollicitudin, ac tincidunt purus tempor. Nulla eleifend vitae augue sit amet tincidunt. Aenean fermentum diam.",
                 Category = "Bil",
-                Price = 100,
+                Price = 150,
                 TorgetUser = user2,
                 Tags = new List<Tag> {new() {TagName = "Ferrari"}},
                 AdImages = new List<AdImage> {new() {Url = "Bild1Annons3Url"}}
