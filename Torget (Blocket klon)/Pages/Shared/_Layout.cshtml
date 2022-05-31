@@ -1,5 +1,7 @@
 ﻿<!DOCTYPE html>
 
+<!DOCTYPE html>
+<html lang="en">
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/annons.css" asp-append-version="true" />
+
+
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -58,6 +65,7 @@
                 <h5>Ny annons</h5>
             </div>
 
+
             <div class="nav-item">
                 <i class="fa-solid fa-quote-right"></i>
                 <h5>Chatt</h5>
@@ -72,5 +80,9 @@
     <div>
         @RenderBody()
     </div>
+@await RenderSectionAsync("Scripts", false)
+<script src="~/lib/bootstrap/js/bootstrap.js"></script>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
 </body>
 </html>
