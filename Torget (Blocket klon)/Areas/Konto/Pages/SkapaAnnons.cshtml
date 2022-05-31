@@ -36,12 +36,17 @@
                 <span asp-validation-for="Input.Kategori"/>
             </div>
             
+            <div id="img-preview">
+                @*<asp:FileUpload ID="upload" runat="server" onchange="ShowPreview(this)"></asp:FileUpload>*@
+            </div>
+
             @*Bild*@
             <div class="Bild">
-                <input class="image-element" type="file" asp-for="Input.AdImage"/>
-                <label asp-for="Input.AdImage"/>
-                <span asp-validation-for="Input.AdImage"/>
+                <input class="image-element" ma type="file" onchange="ShowPreview(this)" asp-for="Input.AdImages" multiple max="4" accept=".jpg,.png,.jpeg*"/>
+                <label asp-for="Input.AdImages"/>
+                <span asp-validation-for="Input.AdImages"/>
                 <p class="image-text">Recommended minimum ad image size 600x400px</p>
+                <p class="image-text">Accepted image formats are: .jpg, .jpeg, .png </p>
             </div>
             
             @*Submit*@
@@ -51,3 +56,38 @@
         </form>
     </div>
 </div>
+
+<script>
+  
+    function ShowPreview(input) {
+
+        var imageContainer = document.getElementById("img-preview");
+        imageContainer.innerHTML = "";
+
+        var reader = new FileReader();
+
+        function readFile(index) {
+            if( index >= input.files.length ) return;
+            
+            var file = input.files[index];
+            reader.onload = function(e) {
+
+                var imageContainer = document.getElementById("img-preview");
+
+                // get file content
+                var bin = e.target.result;
+
+                var image = document.createElement("img");
+                image.src = bin;
+                imageContainer.appendChild(image);
+
+                readFile(index + 1);
+            }
+            reader.readAsDataURL(file);
+        }
+        readFile(0);
+    }
+
+    //#sourceURL=ShowPreview.js
+
+</script>

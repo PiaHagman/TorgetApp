@@ -72,3 +72,21 @@
     font-size: 0.8rem;
     font-weight: bold;
 }
+
+#img-preview {
+    border: 0px transparent solid;
+    border-top: 2px inset #b1d6db;
+    width: 90%;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+#img-preview >* {
+    border-radius: 10px;
+    height: 43px;
+}

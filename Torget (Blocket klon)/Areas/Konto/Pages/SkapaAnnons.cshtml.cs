@@ -50,12 +50,13 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
 
             [DataType(DataType.Upload)]
             [Display(Name = "Ad Image")]
-            public IFormFile? AdImage { get; set; }
+            public List<IFormFile>? AdImages { get; set; }
         }
 
         public void OnGet()
         {
         }
+
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -64,7 +65,8 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
             var user = await _userManager.FindByIdAsync(
                 "43eefa21-9b75-4926-9e1f-d9a878aa5f24"); //Tillfällig user.
 
-            var imagePath = await addImage();
+            var imagePaths = await addImages(Input.AdImages);
+
 
             var newTorgetAd = new TorgetAd
             {
@@ -74,25 +76,58 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
                 Price = Input.Pris,
                 DatePosted = DateTime.Now,
                 TorgetUser = user,
-                AdImages = new List<AdImage> { new AdImage { Url = imagePath } },
+                AdImages = imagePaths,
 
             };
-
 
             await _adHandler.Create(newTorgetAd);
 
             return Page(); //returna till en preview sida?
         }
 
-        public async Task<string> addImage()
+        public async Task<List<AdImage>> addImages(List<IFormFile> postedFiles)
         {
-            var file = Path.Join("~/uploads/", Input.AdImage.FileName);
-            await using (var fileStream = new FileStream(file, FileMode.Create))
+            var filePath = "uploads";
+
+            if (!Directory.Exists(filePath))
             {
-                await Input.AdImage.CopyToAsync(fileStream);
+                Directory.CreateDirectory(filePath);
             }
 
-            return file;
+            List<string> uploadedFiles = new List<string>();
+
+            foreach (IFormFile postedFile in postedFiles)
+            {
+                if (postedFile.Length > 0)
+                {
+                    var file = Path.Join(filePath, postedFile.FileName);
+
+                    await using (FileStream stream = new FileStream(file, FileMode.Create))
+                    {
+                        await postedFile.CopyToAsync(stream);
+                    }
+
+                    uploadedFiles.Add(file);
+                }
+
+            }
+
+            var returnList = CreateAdImageList(uploadedFiles);
+
+            return returnList;
+        }
+
+        public List<AdImage> CreateAdImageList(List<string> uploadedFiles)
+        {
+            var urlList = new List<AdImage>();
+
+            foreach (var uploadedFile in uploadedFiles)
+            {
+                urlList.Add(new AdImage { Url = uploadedFile });
+
+            }
+
+            return urlList;
         }
     }
 }
