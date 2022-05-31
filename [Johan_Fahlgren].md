@@ -7,8 +7,9 @@
 
 ### DailyStand Ups:
 [Daily Stand Up 1](###Daily-stand-up-1)  
-[Daily Stand Up 2](###Daily-stand-up-2)
-[Daily Stand Up 3](###Daily-stand-up-3)
+[Daily Stand Up 2](###Daily-stand-up-2)  
+[Daily Stand Up 3](###Daily-stand-up-3)  
+[Daily Stand Up 4](###Daily-stand-up-4)  
 
 ___
 
@@ -67,3 +68,17 @@ ___
 -  Pia klar med frontend för "en annons".
 -  Onsdag blir sammanställning av sprint. 
 -  Mötet drog över lite med   
+
+### Daily Stand Up 4  <br/>
+**Date:** 2021-05-31 <br/>
+**Timebox:** 0 h 15 min <br/>
+
+**Notes:** <br/>
+
+-  Gustav sjuk.
+-  Kim klar med sin refaktoring av annons services.
+-  Pia klar med ``enAnnons`` sidan, redo för PR.  
+-  Pia eller Idris kanske tar över ``Loggin`` av Gustav.
+-  Idris klar med ``_Layout`` och redo för PR.
+-  Jag forsätter med ``SkapaAnnons``, sitter med spara bild till databas. 
+   Gör sedan en spike för att kunna lägga till flera bilder samtidigt.    
