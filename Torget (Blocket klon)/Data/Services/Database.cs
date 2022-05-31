@@ -48,15 +48,15 @@ public class Database
         {
             new()
             {
-                Title = "TorgetAd 1",
+                Title = "Färggrann cykel",
                 Description =
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non erat quis orci porttitor sodales. Vivamus at diam dignissim, eleifend est id, placerat lacus. Vivamus semper sapien in maximus varius. Sed tincidunt quam quis dui sollicitudin, ac tincidunt purus tempor. Nulla eleifend vitae augue sit amet tincidunt. Aenean fermentum diam.",
                 Category = "Cykel",
-                Price = 50,
+                Price = 1200,
                 TorgetUser = user1,
                 SavedByUsers = new List<TorgetUser> {user2},
-                Tags = new List<Tag> {new() {TagName = "Snabb"}},
-                AdImages = new List<AdImage> {new() {Url = "Bild1Annons1Url"}}
+                Tags = new List<Tag> {new() {TagName = "Snabb"}, new() {TagName = "Snygg"}},
+                AdImages = new List<AdImage> {new() {Url = "../../images/example-pic.png" }, new() { Url = "../../images/example-pic2.png" }, new() { Url = "../../images/example-pic.png" }, new() { Url = "../../images/example-pic.png" } }
             },
             new()
             {

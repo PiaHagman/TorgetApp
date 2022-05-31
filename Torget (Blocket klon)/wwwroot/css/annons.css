@@ -17,6 +17,9 @@ a {
     text-decoration: none;
     color:black;
 }
+a:hover{
+    color: black;
+}
 .icon {
     background-color: #07BEB8;
     width: 44px;
@@ -27,6 +30,13 @@ a {
     top: -22px;
     box-shadow: 2px 3px 5px #cfcfcf;
 }
+.icon-content {
+    font-size: x-large;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 10px
+}
+
 
 .my-container {
     display: flex;
@@ -34,27 +44,31 @@ a {
     align-items: center;
     /* max-width: 600px;*/
     border-radius: 15px;
-    margin: 25px;
-    box-shadow: 5px 10px 18px #cfcfcf;
-    position:relative;
+    margin: 50px;
+    margin-bottom: 100px;
+    box-shadow: 2px 5px 10px #cfcfcf;
+    position: relative;
 }
 
 .my-ad {
     width: 90%;
-    padding:15px 0 25px 0;
+    padding:25px 0 25px 0;
 }
   
 .close-btn{
 
 }
+
+.arrow {
+    display: flex;
+    align-items: center;
+}
+
 .hero-img{
     width: 100%;
     border-radius: 10px;
 }
-.arrow {
-    display:flex;
-    align-items:center;
-}
+
 
 .small-pics{
     display: flex;
@@ -63,13 +77,21 @@ a {
     justify-content:space-between;
     max-width: 100%;
     margin: 15px 0 25px 0;
-    gap:5px;
+    gap:3px;
 }
     .small-pics > img {
         max-width: 18%;
         border-radius: 10px;
     }
+    .small-pics img:hover{
+        opacity:1;
+    }
 
+.img-active {
+    filter:opacity(50%);
+    border:2px solid grey;
+
+}
 .ad-description{
     margin: 25px 0 5px 0;
 }
@@ -89,7 +111,7 @@ a {
 .info-container {
     width: 80%;
     border-radius: 15px;
-    box-shadow: 2px 3px 5px #cfcfcf;
+    box-shadow: 2px 5px 10px #cfcfcf;
     padding: 10px;
     display: flex;
     position: relative;

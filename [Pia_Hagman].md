@@ -37,3 +37,26 @@ Summering:
 - Ny kolumn i Sprint 1 blackloggen: "Inväntar review" mellan "Pågående" och "Done"
 - Under Definition of Done har vi lagt till att kod ska testköras av minst en kollega innan merge
 - Readme-commits kan göras direkt i masterbranch
+
+
+## 30/5
+<br>**Daily standup**
+<br>**Timebox: 15 min**
+<br><br>
+Summering:
+- Endast jag, Johan och Kim närvarande
+- Inte så mycket har hänt sedan förra veckan. 
+- Jag har byggt klart UI för en annons, lite problem med font awesome, men får hjälp efter mötet.
+- Fortsätter med lite logik och Javascript för sidan under dagen.
+
+## 31/5
+<br>**Daily standup**
+<br>**Timebox: 15 min**
+<br><br>
+Summering:
+- Gustav sjuk idag igen. 
+- Vi pratade om att det kan vara kul att låta vissa issues ta lite extra tid. Att denna kurs passar ganska bra för fördjupning 
+samtidigt som vi lär oss det agila arbetssättet. Kanske viktigare än att komma långt med projektet. 
+- Jag klar med logik och javascript för "en annons" - mergat med issue1 lokalt för att få ihop med Idris meny. Lite små konflikter som vi ska diskutera under dagen.
+- Vi ska gå igenom Kims search-funktion direkt efter mötet för att se om vi förstår den. :)
+- Eftersom sprint 1 blev lite kortare än vi trodde och vi redan imorgon eftermiddag ska slutföra inkrementet för sprint1 så är det lite oklart om vi kommer hinna färdigt. 
