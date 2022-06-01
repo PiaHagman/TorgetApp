@@ -177,6 +177,7 @@ nav {
 }
 
     nav .nav-item {
+        all: unset;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -193,6 +194,14 @@ nav {
             margin: 0;
             padding: 0;
         }
+
+.validation-summary-errors {
+    color: red;
+}
+
+.field-validation-error {
+    color: red;
+}
 
 
 @media only screen and (min-width: 1000px) {

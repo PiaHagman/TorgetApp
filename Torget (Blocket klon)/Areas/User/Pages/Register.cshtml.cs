@@ -52,7 +52,26 @@ public class RegisterModel : PageModel
     {
     }
 
-    public async Task OnPost()
+    public async Task<IActionResult> OnPost()
     {
+        if (!ModelState.IsValid) return Page();
+
+        TorgetUser user = new()
+        {
+            Email = Email,
+            UserName = Email,
+            PhoneNumber = PhoneNumber,
+            ZipCode = ZipCode
+        };
+
+        var result = await _userManager.CreateAsync(user, Password);
+
+        if (result.Succeeded)
+            return RedirectToPage("/Index"); //Redirect to mina annonser or user info.
+
+        foreach (var error in result.Errors)
+            ModelState.AddModelError(error.Code, error.Description);
+
+        return Page();
     }
 }
