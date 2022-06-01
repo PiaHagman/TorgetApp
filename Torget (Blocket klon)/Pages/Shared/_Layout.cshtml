@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<TorgetUser> signInManager;
+<!DOCTYPE html>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +18,7 @@
     <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
 
 
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title</title> 
 </head>
 <body>
     <header>
@@ -73,9 +74,16 @@
                 <h5>Chatt</h5>
             </div>
 
-            <a asp-area="User" asp-page="/Register" class="nav-item">
+            <a asp-area="User" asp-page="/Register" class="nav-item"> @*Implementera if för inloggad eller inte. Länka vidare beroende på status.*@
                 <i class="fa-solid fa-user-tie"></i>
-                <h5>Profil</h5>
+                @if (!signInManager.IsSignedIn(User))
+                {
+                    <h5>Logga in</h5>
+                }
+                else
+                {
+                    <h5>Profil</h5>   
+                }
             </a>
         </nav>
     </header>

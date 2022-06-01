@@ -33,6 +33,19 @@ public class AdHandler
         return ad ?? throw new AdDoesNotExistException(); //Förstår vi detta allihopa?
     }
 
+    public async Task<List<TorgetAd>> GetUserAds(string userId)
+    {
+        var userAds = await _dbContext.TorgetAds
+            .Include(a => a.TorgetUser)
+            .Include(a => a.AdImages)
+            .Include(a => a.Tags)
+            .Where(a => a.TorgetUser.Id == userId)
+            .ToListAsync();
+        
+        return userAds;
+
+    }
+
     public async Task<List<TorgetAd>> GetList(SearchQuery? searchQuery = null)
     {
         var query = _dbContext.TorgetAds
