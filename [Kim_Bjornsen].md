@@ -30,10 +30,19 @@
 > ### Summering
 > Björn var med på dagens standup. Vi snackade lite om designen, Idris har gjort ett toppen jobb :)
 > Kom överens om att namnge på engelska, så vid 10:15 idag kommer de andra sitta tillsammans och renamea och även visa gustav vad vi gjort och hur vi tänkt.
-> 
+
 ## 2022-05-30 - Daily standup
 
 > ### Timebox
 > 15 min
 > ### Summering
 > Fastnade litegrann när jag skulle snacka om min bit jag gjort. Vi var bara Pia, jag och Johan. Jag begärde en pull request och även lite codereview.
+
+## 2022-05-31 - Daily standup
+
+> ### Timebox
+> 15 min
+> ### Summering
+> Jag snackade om min dag igår, kommer få ordning på min pull request och även göra klart registrering. 
+> Vi börjar få något fungerande helhet och känns som att vi kommer få ordning på ett ordentligt increment. Är inte säkra på om vi kommer hinna alla issues för sprinten.
+> Snackade om att fokus ska ligga på att vi kör på lärande.
