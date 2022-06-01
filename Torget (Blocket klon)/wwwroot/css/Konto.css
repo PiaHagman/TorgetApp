@@ -1,10 +1,10 @@
 ﻿.ad-container {
-    padding-top: 20px;
+    padding-top: 50px;
+    padding-bottom: 150px;
+    justify-content: center;
     margin: auto;
     width: 90%;
     display: flex;
-    
-    
 }
 
 .ad-input-area {
@@ -31,6 +31,14 @@
     border-top: 2px inset #b1d6db;
 }
 
+input {
+    padding-left: 15px;
+}
+
+textarea {
+    padding-left: 15px;
+}
+
 .multiline-element {
     min-height: 90px;
 }
@@ -45,9 +53,10 @@
 ::placeholder {
     color: rgba(0, 0, 0, 0.3);
     font-weight: 600;
-    padding-left: 10px;
     font-size: 1rem;
 }
+
+
 
 .image-text {
     font-size: 0.8rem;
@@ -79,14 +88,14 @@
     width: 90%;
     background-color: white;
     border-radius: 25px;
-    display: flex;
+    display: none;
     gap: 10px;
     justify-content: start;
     flex-wrap: wrap;
     padding: 10px;
 }
 
-#img-preview >* {
+#img-preview > * {
     border-radius: 10px;
     height: 43px;
 }

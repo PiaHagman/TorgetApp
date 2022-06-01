@@ -13,14 +13,14 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
 
         private readonly UserManager<TorgetUser> _userManager;
         private readonly AdHandler _adHandler;
-        private IHostEnvironment _environment;
+        private IWebHostEnvironment _webenvironment;
 
 
-        public SkapaAnnonsModel(UserManager<TorgetUser> userManager, AdHandler adHandler, IHostEnvironment environment)
+        public SkapaAnnonsModel(UserManager<TorgetUser> userManager, AdHandler adHandler, IWebHostEnvironment environment)
         {
             _userManager = userManager;
             _adHandler = adHandler;
-            _environment = environment;
+            _webenvironment = environment;
         }
 
         [BindProperty]
@@ -80,18 +80,21 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
 
             };
 
-            await _adHandler.Create(newTorgetAd);
+            var createdTorgetAd = await _adHandler.Create(newTorgetAd);
 
-            return Page(); //returna till en preview sida?
+
+            return Redirect("/Annonser/annons/" +
+                                  $"{createdTorgetAd.Id}");  //returna till en preview sida?
         }
 
         public async Task<List<AdImage>> addImages(List<IFormFile> postedFiles)
         {
-            var filePath = "uploads";
+            var fileUploadPath = _webenvironment.WebRootPath + "\\AdImageUploads";
 
-            if (!Directory.Exists(filePath))
+
+            if (!Directory.Exists(fileUploadPath))
             {
-                Directory.CreateDirectory(filePath);
+                Directory.CreateDirectory(fileUploadPath);
             }
 
             List<string> uploadedFiles = new List<string>();
@@ -100,14 +103,19 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
             {
                 if (postedFile.Length > 0)
                 {
-                    var file = Path.Join(filePath, postedFile.FileName);
+                    var file = Path.Join(fileUploadPath, postedFile.FileName);
+
+                    var pathSplit = file.Split("\\");
+
+                    var URLPath = "/" + pathSplit[^2] + "/" + pathSplit[^1];
+
 
                     await using (FileStream stream = new FileStream(file, FileMode.Create))
                     {
                         await postedFile.CopyToAsync(stream);
                     }
 
-                    uploadedFiles.Add(file);
+                    uploadedFiles.Add(URLPath);
                 }
 
             }

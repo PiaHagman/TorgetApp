@@ -45,8 +45,7 @@
                 <input class="image-element" ma type="file" onchange="ShowPreview(this)" asp-for="Input.AdImages" multiple max="4" accept=".jpg,.png,.jpeg*"/>
                 <label asp-for="Input.AdImages"/>
                 <span asp-validation-for="Input.AdImages"/>
-                <p class="image-text">Recommended minimum ad image size 600x400px</p>
-                <p class="image-text">Accepted image formats are: .jpg, .jpeg, .png </p>
+                <p class="image-text">Recommended minimum ad image size 600x400px <br/> Accepted image formats are: .jpg, .jpeg, .png </p>
             </div>
             
             @*Submit*@
@@ -63,6 +62,7 @@
 
         var imageContainer = document.getElementById("img-preview");
         imageContainer.innerHTML = "";
+        imageContainer.style.display ="flex";
 
         var reader = new FileReader();
 
