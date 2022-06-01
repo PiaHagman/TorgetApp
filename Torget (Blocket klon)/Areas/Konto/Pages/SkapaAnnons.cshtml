@@ -1,0 +1,93 @@
+﻿@page
+@using Torget__Blocket_klon_.Areas.Konto.Pages
+@model Torget__Blocket_klon_.Areas.Konto.Pages.SkapaAnnonsModel
+@{
+}
+
+<div class="ad-container">
+    <div class="ad-input-area">
+        <form method="post" enctype="multipart/form-data">
+            @*Titel*@
+            <div class="titel">
+                <h2 class="titel"><i class="fa-solid fa-square-plus"></i> Ny annons</h2>
+            </div>
+            @*Rubrik*@
+            <div class="rubrik">
+                <input class="input-element" asp-for="Input.Titel" placeholder="Rubrik"/>
+                <label asp-for="Input.Titel"/>
+                <span asp-validation-for="Input.Titel"/>
+            </div>
+            @*Beskrivning*@
+            <div class="beskrivning">
+                <textarea class="input-element multiline-element" asp-for="Input.Beskrivning" placeholder="Beskrivning"></textarea>
+                <label asp-for="Input.Beskrivning"/>
+                <span asp-validation-for="Input.Beskrivning"/>
+            </div>
+            @*Pris*@
+            <div class="pris">
+                <input class="input-element" asp-for="Input.Pris" placeholder="Pris"/>
+                <label asp-for="Input.Pris"/>
+                <span asp-validation-for="Input.Pris"/>
+            </div>
+            @*Kategori*@
+            <div class="Kategori">
+                <input class="input-element" asp-for="Input.Kategori" placeholder="Kategorier"/>
+                <label asp-for="Input.Kategori"/>
+                <span asp-validation-for="Input.Kategori"/>
+            </div>
+            
+            <div id="img-preview">
+                @*<asp:FileUpload ID="upload" runat="server" onchange="ShowPreview(this)"></asp:FileUpload>*@
+            </div>
+
+            @*Bild*@
+            <div class="Bild">
+                <input class="image-element" ma type="file" onchange="ShowPreview(this)" asp-for="Input.AdImages" multiple max="4" accept=".jpg,.png,.jpeg*"/>
+                <label asp-for="Input.AdImages"/>
+                <span asp-validation-for="Input.AdImages"/>
+                <p class="image-text">Recommended minimum ad image size 600x400px <br/> Accepted image formats are: .jpg, .jpeg, .png </p>
+            </div>
+            
+            @*Submit*@
+            <div class="submit">
+                <button class="submit-btn" type="submit">Lägg upp</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+  
+    function ShowPreview(input) {
+
+        var imageContainer = document.getElementById("img-preview");
+        imageContainer.innerHTML = "";
+        imageContainer.style.display ="flex";
+
+        var reader = new FileReader();
+
+        function readFile(index) {
+            if( index >= input.files.length ) return;
+            
+            var file = input.files[index];
+            reader.onload = function(e) {
+
+                var imageContainer = document.getElementById("img-preview");
+
+                // get file content
+                var bin = e.target.result;
+
+                var image = document.createElement("img");
+                image.src = bin;
+                imageContainer.appendChild(image);
+
+                readFile(index + 1);
+            }
+            reader.readAsDataURL(file);
+        }
+        readFile(0);
+    }
+
+    //#sourceURL=ShowPreview.js
+
+</script>

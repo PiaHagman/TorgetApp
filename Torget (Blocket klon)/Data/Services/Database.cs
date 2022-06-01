@@ -29,6 +29,7 @@ public class Database
             Email = "user1@email.com",
             UserName = "user1@email.com",
             ZipCode = "44340",
+            PhoneNumber = "0766-210910",
             Id = "43eefa21-9b75-4926-9e1f-d9a878aa5f24"
         };
         var user2 = new TorgetUser()
@@ -36,6 +37,7 @@ public class Database
             Email = "user2@email.com",
             UserName = "user2@email.com",
             ZipCode = "42446",
+            PhoneNumber = "0766-210910",
             Id = "f20ff2b1-a75d-4ce0-a245-6415284391cf"
         };
 
@@ -46,15 +48,15 @@ public class Database
         {
             new()
             {
-                Title = "TorgetAd 1",
+                Title = "Färggrann cykel",
                 Description =
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non erat quis orci porttitor sodales. Vivamus at diam dignissim, eleifend est id, placerat lacus. Vivamus semper sapien in maximus varius. Sed tincidunt quam quis dui sollicitudin, ac tincidunt purus tempor. Nulla eleifend vitae augue sit amet tincidunt. Aenean fermentum diam.",
                 Category = "Cykel",
-                Price = 50,
+                Price = 1200,
                 TorgetUser = user1,
                 SavedByUsers = new List<TorgetUser> {user2},
-                Tags = new List<Tag> {new() {TagName = "Snabb"}},
-                AdImages = new List<AdImage> {new() {Url = "Bild1Annons1Url"}}
+                Tags = new List<Tag> {new() {TagName = "Snabb"}, new() {TagName = "Snygg"}},
+                AdImages = new List<AdImage> {new() {Url = "../../images/example-pic.png" }, new() { Url = "../../images/example-pic2.png" }, new() { Url = "../../images/example-pic.png" }, new() { Url = "../../images/example-pic.png" } }
             },
             new()
             {

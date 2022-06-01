@@ -1,0 +1,127 @@
+﻿html {
+   
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
+}
+
+h1 {
+   
+}
+h2{
+   
+}
+a {
+    text-decoration: none;
+    color:black;
+}
+a:hover{
+    color: black;
+}
+.icon {
+    background-color: #07BEB8;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    position: absolute;
+    right: -22px;
+    top: -22px;
+    box-shadow: 2px 3px 5px #cfcfcf;
+}
+.icon-content {
+    font-size: x-large;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 10px
+}
+
+
+.my-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* max-width: 600px;*/
+    border-radius: 15px;
+    margin: 50px;
+    margin-bottom: 100px;
+    box-shadow: 2px 5px 10px #cfcfcf;
+    position: relative;
+}
+
+.my-ad {
+    width: 90%;
+    padding:25px 0 25px 0;
+}
+  
+.close-btn{
+
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+}
+
+.hero-img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+.small-pics{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:space-between;
+    max-width: 100%;
+    margin: 15px 0 25px 0;
+    gap:3px;
+}
+    .small-pics > img {
+        max-width: 18%;
+        border-radius: 10px;
+    }
+    .small-pics img:hover{
+        opacity:1;
+    }
+
+.img-active {
+    filter:opacity(50%);
+    border:2px solid grey;
+
+}
+.ad-description{
+    margin: 25px 0 5px 0;
+}
+.ad-tags,
+.ad-seller-date {
+    font-size: smaller;
+    color: grey;
+}
+.ad-sellerInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:30px;
+    margin-top: 25px;
+    
+}
+.info-container {
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 2px 5px 10px #cfcfcf;
+    padding: 10px;
+    display: flex;
+    position: relative;
+}
+
+.info-text {
+    width:60%;
+    font-weight:bold;
+    justify-content: center;
+    margin:5px 15px;
+
+}
+
