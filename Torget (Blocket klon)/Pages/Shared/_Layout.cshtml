@@ -74,7 +74,7 @@
                 <h5>Chatt</h5>
             </div>
 
-            <div class="nav-item">
+            <a asp-area="User" asp-page="/Register" class="nav-item"> @*Implementera if för inloggad eller inte. Länka vidare beroende på status.*@
                 <i class="fa-solid fa-user-tie"></i>
                 @if (!signInManager.IsSignedIn(User))
                 {
@@ -84,7 +84,7 @@
                 {
                     <h5>Profil</h5>   
                 }
-            </div>
+            </a>
         </nav>
     </header>
     <div>
