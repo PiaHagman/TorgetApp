@@ -11,6 +11,10 @@ body {
     max-width: 100vw;
 }
 
+h5 {
+    font-size: 0.83em;
+}
+
 .input {
     display: flex;
     flex-direction: row;

@@ -5,8 +5,8 @@
 }
 
 <div class="container d-flex justify-content-center flex-column w-75 mb-5" style="max-width: 800px;">
-<h2 class="display-4 text-center mt-3 mb-3">Registrera ny Användare</h2>
-<form class="mb-3" method="post">
+<h2 class="display-4 text-center mt-5 mb-3">Skapa nytt konto</h2>
+<form class="d-flex flex-column mb-3" method="post">
     <div class="d-flex flex-row align-items-center mb-4">
         <div class="form-floating flex-fill mb-0">
             <input class="form-control flex-fill mb-0" asp-for="Email" placeholder="Email"/>
@@ -43,6 +43,8 @@
         </div>
     </div>
     <div class="list-group" asp-validation-summary="All"></div>
-    <button class="button filter-submit m-3 mb-5" type="submit">Registrera användare</button>
+    <div class="d-flex justify-content-center">
+        <button class="button p-2 text-black fw-bold border-0 mb-5 px-3" type="submit">Registrera användare</button>
+    </div>
 </form>
 </div>
