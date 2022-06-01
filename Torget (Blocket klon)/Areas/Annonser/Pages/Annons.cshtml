@@ -1,0 +1,66 @@
+﻿@page "{id}"
+@model Torget__Blocket_klon_.Areas.Annonser.Pages.AnnonsModel
+@{
+    ViewData["Title"] = @Model.TorgetAd.Title;
+}
+
+<div class="my-container">
+    <a class="fa-solid fa-xmark icon icon-content" href="/index"></a> @*Lägg till rätt länk!*@
+         <div class="my-ad">
+
+        <div class="ad-images">
+            <div>
+                <img class="hero-img" id="hero-img" />
+            </div>
+            <div class="small-pics" id="small-pics">
+                <div class="arrow" id="arrow-left"><i class="fa-solid fa-angle-left icon-content"></i></div>
+                @{
+                    for (int i = 0; i < @Model.ImagesCount; i++)
+                    {
+                               <img id="small-pic-@i" src="@Model.TorgetAd.AdImages[i].Url"/>
+                    }
+                }
+                <div class="arrow" id="arrow-right"><i class="fa-solid fa-angle-right icon-content"></i></div>
+            </div>
+        </div>
+
+        <div class="ad-info">
+            <h1 id="ad-title">@Model.TorgetAd.Title</h1>
+            <h4 class="ad-price">@Model.TorgetAd.Price SEK</h4>
+            <p class="ad-description">@Model.TorgetAd.Description</p>
+            <p id="ad-tags">
+            @{
+                for (int i = 0; i < @Model.TagsCount; i++)
+                    {
+                           <span>#@Model.TorgetAd.Tags[i].TagName</span>
+                    }
+            }
+            </p>
+            <p class="ad-seller-date">Uppladdat av @Model.TorgetAd.TorgetUser.UserName <br/> @Model.TorgetAd.DatePosted.ToShortDateString() Kl. @Model.TorgetAd.DatePosted.ToShortTimeString()</p>
+        </div>
+
+        <div class="ad-sellerInfo">
+
+            <div class="info-container">
+                <div class="icon icon-quote fa-solid fa-map-location-dot icon-content"></div>
+                <div class="info-text">
+                    Säljarens postkod: @Model.TorgetAd.TorgetUser.ZipCode
+                </div>
+            </div>
+            
+            <a asp-page="/index" class="info-container"> @*Lägg till rätt länk!*@
+                <div class="icon icon-quote fa-solid fa-quote-right icon-content"></div>
+                <div class="info-text">
+                    Chatta med säljaren 
+                </div>
+            </a>
+            
+            <div class="info-container">
+                <div class=" icon icon-phone fa-solid fa-phone icon-content"></div>
+                <div class="info-text">
+                    Säljaren nås på @Model.TorgetAd.TorgetUser.PhoneNumber
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
