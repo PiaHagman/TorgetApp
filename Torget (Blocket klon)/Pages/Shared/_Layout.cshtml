@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<TorgetUser> signInManager;
+<!DOCTYPE html>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,12 +13,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Konto.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/annons.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
 
 
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title</title> 
 </head>
 <body>
     <header>
@@ -75,7 +76,14 @@
 
             <div class="nav-item">
                 <i class="fa-solid fa-user-tie"></i>
-                <h5>Profil</h5>
+                @if (!signInManager.IsSignedIn(User))
+                {
+                    <h5>Logga in</h5>
+                }
+                else
+                {
+                    <h5>Profil</h5>   
+                }
             </div>
         </nav>
     </header>

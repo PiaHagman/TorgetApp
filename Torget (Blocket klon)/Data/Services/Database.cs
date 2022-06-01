@@ -20,8 +20,7 @@ public class Database
         await _dbCtx.Database.EnsureCreatedAsync();
         await SeedTestData();
     }
-
-    //TODO: 
+ 
     private async Task SeedTestData()
     {
         var user1 = new TorgetUser()
@@ -60,26 +59,26 @@ public class Database
             },
             new()
             {
-                Title = "TorgetAd 2",
+                Title = "Sötaste katten",
                 Description =
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non erat quis orci porttitor sodales. Vivamus at diam dignissim, eleifend est id, placerat lacus. Vivamus semper sapien in maximus varius. Sed tincidunt quam quis dui sollicitudin, ac tincidunt purus tempor. Nulla eleifend vitae augue sit amet tincidunt. Aenean fermentum diam.",
-                Category = "Dator",
-                Price = 100,
+                Category = "Djur",
+                Price = 150,
                 TorgetUser = user1,
                 SavedByUsers = new List<TorgetUser> {user2},
-                Tags = new List<Tag> {new() {TagName = "Snabb"}, new() {TagName = "Snygg"}},
-                AdImages = new List<AdImage> {new() {Url = "Bild1Annons2Url"}, new() {Url = "Bild2Annons2Url"}}
+                Tags = new List<Tag> {new() {TagName = "s"}, new() {TagName = "Söt"}},
+                AdImages = new List<AdImage> {new() {Url = "../../images/cat.jpg" }, new() { Url = "../../images/cat2.jpg" }, new() { Url = "../../images/cat3.jpg" }}
             },
             new()
             {
-                Title = "TorgetAd 3",
+                Title = "Stor maskin",
                 Description =
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non erat quis orci porttitor sodales. Vivamus at diam dignissim, eleifend est id, placerat lacus. Vivamus semper sapien in maximus varius. Sed tincidunt quam quis dui sollicitudin, ac tincidunt purus tempor. Nulla eleifend vitae augue sit amet tincidunt. Aenean fermentum diam.",
-                Category = "Bil",
-                Price = 150,
+                Category = "Maskin",
+                Price = 15000,
                 TorgetUser = user2,
-                Tags = new List<Tag> {new() {TagName = "Ferrari"}},
-                AdImages = new List<AdImage> {new() {Url = "Bild1Annons3Url"}}
+                Tags = new List<Tag> {new() {TagName = "hjullastare"}},
+                AdImages = new List<AdImage> {new() {Url = "../../images/maskin.jpg" }, new() { Url = "../../images/maskin1.jpg" }, new() { Url = "../../images/maskin2.jpg" }}
             }
         };
 
