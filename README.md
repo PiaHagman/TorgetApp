@@ -67,10 +67,10 @@ Helgfria vardagar 9:00-9:15
 
 #### Pia Hagman
 - Kan arbeta varje vardag 8.30 - 15.30. Kan också sitta flera kvällar om så krävs.
-- Frånvaro jag vet om
-- Dagar jag vet att jag är borta:
+- Frånvaro jag vet om:
   - denna vecka (v.21) lite från och till pga magsjuka och alla barn hemma
-  - 9/6 före lunch
+  - 9/6 före lunch skolavslutning
+  - 10/6 barnen studiedag så endast med på möten
   - 15/6 efter lunch
 
 #### Gustav Alvérus
