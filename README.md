@@ -67,10 +67,10 @@ Helgfria vardagar 9:00-9:15
 
 #### Pia Hagman
 - Kan arbeta varje vardag 8.30 - 15.30. Kan också sitta flera kvällar om så krävs.
-- Frånvaro jag vet om
-- Dagar jag vet att jag är borta:
+- Frånvaro jag vet om:
   - denna vecka (v.21) lite från och till pga magsjuka och alla barn hemma
-  - 9/6 före lunch
+  - 9/6 före lunch skolavslutning
+  - 10/6 barnen studiedag så endast med på möten
   - 15/6 efter lunch
 
 #### Gustav Alvérus
@@ -88,6 +88,7 @@ Helgfria vardagar 9:00-9:15
 
 PR från issue-branch görs till aktuell sprintbranch. <br>
 När allas arbeten är mergade in i sprintbranchen, testas denna innan den mergas in i master.
+Mötesanteckningar commitas rakt in i Sprintbranch
 
 - Commits görs på engelska
 
@@ -109,6 +110,7 @@ ___
 - **Oberoende/tydligt:** Det ska vara tydligt vad issuen ska lösa/vilket resultat som ska nås
 - **Öppen:** Det är upp till utvecklaren att komma med egna lösningar, issuen är inte detaljplanerad.
 - **Estimerad:** Fibonaccis sekvens, estimerad tillsammans under sprintplanering.  
+- Issuen ska knytas till aktuell user story om den har en.
 
 ### Definition of Done
 - **Reviewer:** Minst en kollega har tittat igenom, **testkört** och godkänt koden.
