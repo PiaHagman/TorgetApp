@@ -7,16 +7,16 @@ assignees: ''
 
 ---
 
-> Heading
+# Heading
 
 
->> Punktlista funktioner som skall implementeras
+## Punktlista funktioner som skall implementeras
 
 
->> Simplare beskrivning av hur det eventuellt kan lösas (inte sagt att det ska lösas såhär)
+## Simplare beskrivning av hur det eventuellt kan lösas (inte sagt att det ska lösas såhär)
 
 
->> Eventuella länk tips
+## Eventuella länk tips
 
 
-**Länk till relevant UserStory**
+## Länk till relevant UserStory
