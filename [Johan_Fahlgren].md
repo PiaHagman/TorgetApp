@@ -12,6 +12,15 @@
 [Daily Stand Up 4](###Daily-stand-up-4)  
 [Daily Stand Up 5](###Daily-stand-up-5)  
 
+
+### Sprint reviews:  
+[Sprint Review 1](###Sprint-Review-1)  
+
+
+### Retrospectives:  
+[Retrospective 1](###Retrospective-1)  
+
+___
 ___
 
 
@@ -97,3 +106,42 @@ ___
 -  Pia börjar jobba med ``MinaAnnonser``.
 -  Jag börjar med ``Profilsida`` 
 -  Flyttar samanställningen av sprint 1 till 14:30
+
+
+
+## Sprint reviews:  
+
+### Sprint review 1  <br/>
+**Date:** 2021-06-02 <br/>
+**Timebox:** 2 h 0 min <br/>
+
+**Notes:** <br/>
+
+- Pia(product owner) håller i mötet och presenterar itterationen för Idris(Stakeholder)
+- Väldigt viktigt för Stakeholder att Iconen/länken till "ny annons" måste vara i mitten av navbar.
+- Spontana tankar är att vi borde använda "Grid" lite mera i våran frontend.
+
+<br/>
+
+___
+
+## Retrospectives:  
+
+### Retrospective 1  <br/>
+**Date:** 2021-06-02 <br/>
+**Timebox:** 1 h 0 min <br/>
+
+**Notes:** <br/>
+
+- Överlag är vi nöjda över hur engagemanget och jobbet gått. 
+- Lite sjukdom och dag bortfall (vi trodde att sprinten skulle vara till 6/3) gjorde att vi inte hann alla features.
+- Viktigt att pusha up commits och höra av sig vid sjukdom så att teamet vet hur de ska aggera.
+- Viktigt att höra av sig om man missa daily stand up av någon anleding.
+- Inför nästa sprint ska vi bli bättre på att "märka upp" våra commentarer så de syns i To-Do explorer.
+- Inför nästa sprint ska vi skapa issue templates
+- Inför nästa sprint ska vi ges möjlighet att titta igenom varandras kod med den som skrev den i lärande syfte.  
+
+<br/>
+
+___
+
