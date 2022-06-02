@@ -46,3 +46,21 @@
 > Jag snackade om min dag igår, kommer få ordning på min pull request och även göra klart registrering. 
 > Vi börjar få något fungerande helhet och känns som att vi kommer få ordning på ett ordentligt increment. Är inte säkra på om vi kommer hinna alla issues för sprinten.
 > Snackade om att fokus ska ligga på att vi kör på lärande.
+
+
+## 2022-06-02 - Sprint Review
+
+> ### Timebox
+> 2 h
+> ### Summering
+> Visade upp vårt increment. 
+> Stakeholder vill ha lite ändringar på några utseende saker.
+> 
+
+
+## 2022-06-02 - Sprint Retrospective
+
+> ### Timebox
+> 1 h
+> ### Summering
+> 
