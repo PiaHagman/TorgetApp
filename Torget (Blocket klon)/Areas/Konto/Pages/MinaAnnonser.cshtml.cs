@@ -14,7 +14,7 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
         private readonly AdHandler _adHandler;
 
         [BindProperty]
-        public List<TorgetAd> MinaAnnonser {get; set;}
+        public List<TorgetAd> MinaAnnonser { get; set; }
 
         public MinaAnnonserModel(UserManager<TorgetUser> userManager, AdHandler adHandler)
         {
@@ -26,9 +26,14 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
             var user = await _userManager.FindByIdAsync(
                 "43eefa21-9b75-4926-9e1f-d9a878aa5f24"); //Tillfällig user. Plocka in User sen istället.
 
-            MinaAnnonser= await _adHandler.GetUserAds(user.Id);
+            MinaAnnonser = await _adHandler.GetUserAds(user.Id);
 
             return Page();
+        }
+
+        public IActionResult OnPost(int torgetAdId)
+        {
+            return RedirectToPage("/EditAd", new { adId = torgetAdId });
         }
     }
 }

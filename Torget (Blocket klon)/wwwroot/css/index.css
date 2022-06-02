@@ -47,8 +47,12 @@ h5 {
     border-radius: 100px;
     margin: 6px;
     min-width: contain;
+    border: none;
 }
-
+.edit-container {
+    display: flex;
+    justify-content: right;
+}
 header {
     display: flex;
     flex-direction: column;

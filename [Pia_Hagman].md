@@ -1,5 +1,5 @@
 ﻿## 24/5
-<br>**Sprintplanering**
+<br>**Sprint Planning**
 <br>**Timebox: 3 timmar**
 <br><br>
 Summering: Lagets första sprintplanering och trots att jag var magsjuk så var jag ju tvungen att närvara. 😁 På grund av mitt mående fick jag tyvärr lämna över ansvaret 
@@ -60,3 +60,60 @@ samtidigt som vi lär oss det agila arbetssättet. Kanske viktigare än att komm
 - Jag klar med logik och javascript för "en annons" - mergat med issue1 lokalt för att få ihop med Idris meny. Lite små konflikter som vi ska diskutera under dagen.
 - Vi ska gå igenom Kims search-funktion direkt efter mötet för att se om vi förstår den. :)
 - Eftersom sprint 1 blev lite kortare än vi trodde och vi redan imorgon eftermiddag ska slutföra inkrementet för sprint1 så är det lite oklart om vi kommer hinna färdigt. 
+
+
+## 1/6
+<br>**Daily standup**
+<br>**Timebox: 15 min**
+<br><br>
+Summering:
+- Idris och Kim icke närvarande. Vart är Idris? Inget meddelande om frånvaro eller svar på chatt 
+- Gustav vill på grund av sjukdom skjuta sin issue till nästa sprint och önskar få lite vägledning 
+eftersom han inte gjort inloggning via Identity i något tidigare projekt ännu.
+- Jag och Johan tog varsin ny issue trot att det är oklart om vi kommer hinna gör klart dem med tanke på den "kortare" veckan
+- Möte för att få ihop allas issues och merga in i sprint 1 inför review-möte imorgon sker idag klockan 14.30
+- Jag och Johan sätter oss direkt efter mötet och godkänner hans PR (Skapa annons).
+
+
+## 2/6
+<br>**Sprint Review**
+<br>**Timebox: 1,5h**
+<br><br>
+Summering:
+- På detta viktiga möte var samtliga deltagare närvarande, härligt!
+- Jag som PO höll i mötet, närvarande var också Stakeholdern (i form av Idris).
+- Vi sammanställde vårt inkrement och såg till att vår sprint 1 branch var updaterad under vårt avlsutande möte igår. Så vi började med att demonstrera vårt inkrement 
+live för Stakeholdern. 
+- Stakeholdern var nöjd med det mesta, men hade lite små funderingar och påtalade några krav på designändringar från hans sida. Samtlig respons nedtecknades som _review notes_ i vår backlog för att åtgärda i kommande sprinter. Exempel:
+    - Hur kategorier ska visas och vilka huvudkategorier som kunden vill ha
+    - Att huvudmenyn i överkant ska kunna fällas in och ut
+    - Att Ikonen "Ny annons" ska ligga i mitten (och tydligare) i menyn i underkant - detta var tydligen VÄLDIGT viktigt för stakeholdern. :)
+- I övrigt tyckte stakeholdern att projektet är på god väg och i rätt riktning. 
+
+## 2/6
+<br>**Sprint Retrospective**
+<br>**Timebox: 1h**
+<br><br>
+Summering:
+- Vi skapade en projekt-kanban som vi kallar för Retrospective 1
+- Vi tog en stund där alla fick skriva kort utifrån egna tankar
+- Överlag bra agilt arbete. God kommunikation och bra plan gjorde det lätt att arbeta. 
+- Vi pratade om vad som gäller vi frånvaro - att frånvaro är ok, men att det måste meddelas så att resten av teamet kan ta vid dennes arbete om så krävs. 
+- Vi lade till 3 actions som vi ska jobba med från nästa sprint:
+    - hur vi hanterar och märker upp kommentarer i koden
+    - att vi ska ta fram en eller flera issue templates
+    - att vi ska bli bättre på att lära av varandra och uppmuntra till att titta på varandras kod och gå igenom den
+
+## 2/6
+<br>**Sprint Planning**
+<br>**Timebox: 2,5h**
+<br><br>
+Summering:
+- Skapade issue template
+- Vi hade lagt in ganska många backlog items under förra sprinten som nu behövde göras till issues enligt vår mall. 
+- Vi satt först var och en och skapade issues utifrån dessa och sedan tillsammans för att kontrollera att de var tydliga nog och 
+innehöll det vi kommit överens om enligt vår Defintion of Done. Detta tog tid! 
+- Sedan tidsestimering där vi var lite mer generösa i skalan än tidigare eftersom vi insåg att vi kanske var för snåla förra sprinten. 
+- På en sista kvart bestämde vi sen vilka issues som skulle vara med i Sprint 2 och det blev nästan alla. Vi bedömde att tiden vi har att jobba på 
+ungefär samma som förra sprinten efetrsom det även nu försvinner en del tid med röda dagar, frånvaro och redovisningar. 
+- 51 poäng (vi klarade 27 förra sprinten). Frågan är om vi än en gång tog oss vatten över huvudet...
