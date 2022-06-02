@@ -1,9 +1,4 @@
-﻿html {
-   
-}
-
-
-
+﻿
 a {
     text-decoration: none;
     color:black;
@@ -45,10 +40,7 @@ a:hover{
     width: 90%;
     padding:25px 0 25px 0;
 }
-  
-.close-btn{
 
-}
 
 .arrow {
     display: flex;

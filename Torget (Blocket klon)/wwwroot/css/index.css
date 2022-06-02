@@ -177,7 +177,7 @@ nav {
     max-width: 100vw;
     height: 50px;
     position: fixed;
-    bottom: 3vh;
+    bottom: 0;
 }
 
     nav .nav-item {
