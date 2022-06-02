@@ -1,10 +1,8 @@
-﻿.ad-container {
+﻿.ad-view {
     padding-top: 20px;
     margin: auto;
     width: 90%;
     display: flex;
-    
-    
 }
 
 .ad-input-area {

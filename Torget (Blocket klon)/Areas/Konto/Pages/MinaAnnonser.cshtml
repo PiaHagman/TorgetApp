@@ -8,7 +8,8 @@
     <div class="ads-container">
        
         @foreach(var ad in Model.MinaAnnonser){
-            <a class="ad-container" asp-area="Annonser" asp-page="/Annons" asp-route-id=@ad.Id>
+            <div class="ad-container" >
+            <a asp-area="Annonser" asp-page="/Annons" asp-route-id=@ad.Id>
              <img class="ad-container-image" src="@ad.AdImages.First().Url" alt="Image for @ad.Title" />
              <h5 class="ad-container-title">@ad.Title</h5>
              <span class="ad-container-tags">
@@ -23,5 +24,12 @@
                 </div>
                 <p class="ad-container-price">@ad.Price SEK</p>
             </a>
+           
+            <form class="edit-container" method="post" asp-route-torgetAdId="@ad.Id">
+                <input type="submit" class="button" value="Ändra"/>
+            </form>
+          
+            </div>
         }
+
     </div>

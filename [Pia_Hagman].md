@@ -60,3 +60,16 @@ samtidigt som vi lär oss det agila arbetssättet. Kanske viktigare än att komm
 - Jag klar med logik och javascript för "en annons" - mergat med issue1 lokalt för att få ihop med Idris meny. Lite små konflikter som vi ska diskutera under dagen.
 - Vi ska gå igenom Kims search-funktion direkt efter mötet för att se om vi förstår den. :)
 - Eftersom sprint 1 blev lite kortare än vi trodde och vi redan imorgon eftermiddag ska slutföra inkrementet för sprint1 så är det lite oklart om vi kommer hinna färdigt. 
+
+
+## 1/6
+<br>**Daily standup**
+<br>**Timebox: 15 min**
+<br><br>
+Summering:
+- Idris och Kim icke närvarande. Vart är Idris? Inget meddelande om frånvaro eller svar på chatt 
+- Gustav vill på grund av sjukdom skjuta sin issue till nästa sprint och önskar få lite vägledning 
+eftersom han inte gjort inloggning via Identity i något tidigare projekt ännu.
+- Jag och Johan tog varsin ny issue trot att det är oklart om vi kommer hinna gör klart dem med tanke på den "kortare" veckan
+- Möte för att få ihop allas issues och merga in i sprint 1 inför review-möte imorgon sker idag klockan 14.30
+- Jag och Johan sätter oss direkt efter mötet och godkänner hans PR (Skapa annons).
