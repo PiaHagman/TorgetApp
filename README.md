@@ -110,6 +110,7 @@ ___
 - **Oberoende/tydligt:** Det ska vara tydligt vad issuen ska lösa/vilket resultat som ska nås
 - **Öppen:** Det är upp till utvecklaren att komma med egna lösningar, issuen är inte detaljplanerad.
 - **Estimerad:** Fibonaccis sekvens, estimerad tillsammans under sprintplanering.  
+- Issuen ska knytas till aktuell user story om den har en.
 
 ### Definition of Done
 - **Reviewer:** Minst en kollega har tittat igenom, **testkört** och godkänt koden.
