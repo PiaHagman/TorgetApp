@@ -23,7 +23,8 @@
 <body>
     <header>
         <h3>TORGET</h3>
-        <div class="categories">
+        
+        <div class="categories to-hide">
             <div class="category-single">
                 <i class="fa-solid fa-cat"></i>
                 <p>Category</p>
@@ -41,7 +42,7 @@
                 <p>Category</p>
             </div>
         </div>
-            <form class="filters" onsubmit=@{Console.WriteLine("Submitted");}>
+            <form class="to-hide filters" onsubmit=@{Console.WriteLine("Submitted");}>
                 <div class="filter-search input">
                     <input type="text" placeholder="Ex. Barnvagn, cykel" id="search"/>
                     <i class="fa-solid fa-sliders"></i>
@@ -54,8 +55,8 @@
                 </div>
                 <input class="filter-submit button" type="submit" value="Sök" />
             </form>
-        <div class="hide-header">
-            <i class="fa-solid fa-angle-up"></i>
+        <div class="hide-header" onClick="hideSearch()">
+            <i class="fa-solid fa-angle-up hide-header-icon"></i>
         </div>
         <nav class="navigation">
             <div class="nav-item">
@@ -94,5 +95,25 @@
 <script src="~/lib/bootstrap/js/bootstrap.js"></script>
 
 <script src="~/js/site.js" asp-append-version="true"></script>
+
+<script>
+    function hideSearch() {
+        var categoryElement = document.querySelector(".to-hide");
+        var searchElement = document.querySelector(".filters");
+        var hideButtonElement = document.querySelector(".hide-header-icon");
+
+        if (categoryElement.style.display === "none" && 
+                searchElement.style.display === "none") {
+                categoryElement.style.display = "flex";
+                searchElement.style.display = "grid";
+                hideButtonElement.style.transform = "rotate(0deg)"
+            } else {
+                hideButtonElement.style.transform = "rotate(180deg)"
+                categoryElement.style.display = "none";
+                searchElement.style.display = "none";
+            }
+    }
+</script>
+
 </body>
 </html>
