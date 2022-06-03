@@ -117,3 +117,12 @@ innehöll det vi kommit överens om enligt vår Defintion of Done. Detta tog tid
 - På en sista kvart bestämde vi sen vilka issues som skulle vara med i Sprint 2 och det blev nästan alla. Vi bedömde att tiden vi har att jobba på 
 ungefär samma som förra sprinten efetrsom det även nu försvinner en del tid med röda dagar, frånvaro och redovisningar. 
 - 51 poäng (vi klarade 27 förra sprinten). Frågan är om vi än en gång tog oss vatten över huvudet...
+
+## 3/6
+<br>**Daily standup**
+<br>**Timebox: 15 min**
+<br><br>
+Summering:
+- Inget direkt att rapportera från gårdagen
+- Skapat brancher utifrån tilldelade issues
+- Kommer dra igång ordentligt på tisdag, annat jobb idag pch nationaldag på måndag. Eventuellt lite jobb i helgen.
