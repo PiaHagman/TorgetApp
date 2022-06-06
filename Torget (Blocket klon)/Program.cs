@@ -11,6 +11,8 @@ builder.Services.AddDbContext<TorgetDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("default")));
 builder.Services.AddScoped<Database>();
 builder.Services.AddScoped<AdHandler>();
+builder.Services.AddScoped<ZipCodeHandler>();
+builder.Services.AddHttpClient();
 
 #region Identity
 
