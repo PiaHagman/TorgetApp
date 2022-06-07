@@ -8,9 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\Images\maskin2" />
+    <Content Remove="wwwroot\Images\maskin2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Areas\Annonser\Pages\" />
     <Folder Include="Data\Services\" />
-    <Folder Include="Pages\Shared\" />
+    <Folder Include="wwwroot\js\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\example-pic.png" />
   </ItemGroup>
 
   <ItemGroup>

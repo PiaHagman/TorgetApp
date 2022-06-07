@@ -1,19 +1,30 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<TorgetUser> signInManager;
+<!DOCTYPE html>
 
+<!DOCTYPE html>
+<html lang="en">
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/Konto.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/annons.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
-    <title>@ViewBag.Title</title>
+
+
+    <title>@ViewBag.Title</title> 
 </head>
 <body>
     <header>
         <h3>TORGET</h3>
-        <div class="categories">
+        
+        <div class="categories to-hide">
             <div class="category-single">
                 <i class="fa-solid fa-cat"></i>
                 <p>Category</p>
@@ -31,7 +42,7 @@
                 <p>Category</p>
             </div>
         </div>
-            <form class="filters" onsubmit=@{Console.WriteLine("Submitted");}>
+            <form class="to-hide filters" onsubmit=@{Console.WriteLine("Submitted");}>
                 <div class="filter-search input">
                     <input type="text" placeholder="Ex. Barnvagn, cykel" id="search"/>
                     <i class="fa-solid fa-sliders"></i>
@@ -44,10 +55,15 @@
                 </div>
                 <input class="filter-submit button" type="submit" value="Sök" />
             </form>
-        <div class="hide-header">
-            <i class="fa-solid fa-angle-up"></i>
+        <div class="hide-header" onClick="hideSearch()">
+            <i class="fa-solid fa-angle-up hide-header-icon"></i>
         </div>
         <nav class="navigation">
+            <a href="/" class="nav-item">
+                <i class="fa-solid fa-house"></i>
+                <h5>Hem</h5>
+            </a>
+
             <div class="nav-item">
                 <i class="fa-solid fa-camera-retro"></i>
                 <h5>Bevakningar</h5>
@@ -58,19 +74,51 @@
                 <h5>Ny annons</h5>
             </div>
 
+
             <div class="nav-item">
                 <i class="fa-solid fa-quote-right"></i>
                 <h5>Chatt</h5>
             </div>
 
-            <div class="nav-item">
+            <a asp-area="User" asp-page="/Register" class="nav-item"> @*Implementera if för inloggad eller inte. Länka vidare beroende på status.*@
                 <i class="fa-solid fa-user-tie"></i>
-                <h5>Profil</h5>
-            </div>
+                @if (!signInManager.IsSignedIn(User))
+                {
+                    <h5>Logga in</h5>
+                }
+                else
+                {
+                    <h5>Profil</h5>   
+                }
+            </a>
         </nav>
     </header>
     <div>
         @RenderBody()
     </div>
+@await RenderSectionAsync("Scripts", false)
+<script src="~/lib/bootstrap/js/bootstrap.js"></script>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+<script>
+    function hideSearch() {
+        var categoryElement = document.querySelector(".to-hide");
+        var searchElement = document.querySelector(".filters");
+        var hideButtonElement = document.querySelector(".hide-header-icon");
+
+        if (categoryElement.style.display === "none" && 
+                searchElement.style.display === "none") {
+                categoryElement.style.display = "flex";
+                searchElement.style.display = "grid";
+                hideButtonElement.style.transform = "rotate(0deg)"
+            } else {
+                hideButtonElement.style.transform = "rotate(180deg)"
+                categoryElement.style.display = "none";
+                searchElement.style.display = "none";
+            }
+    }
+</script>
+
 </body>
 </html>
