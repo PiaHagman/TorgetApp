@@ -6,6 +6,7 @@ namespace Torget__Blocket_klon_.Data.ModelsNotInDb;
 public class SearchQuery
 {
     public string? SearchWords { get; set; }
+    public List<string>? Counties { get; set; }
     public string? Category { get; set; }
     public int? PriceLowest { get; set; }
     public int? PriceHighest { get; set; }
@@ -24,6 +25,9 @@ public class SearchQuery
 
         if (Tags is not null)
             queryable = queryable.Where(CreateAOrExpressionChainForTags());
+
+        if (Counties is not null)
+            queryable = queryable.Where(CreateAOrExpressionChainForCounties());
 
         if (Category is not null)
             queryable = queryable.Where(a => a.Category.ToUpper() == Category.ToUpper());
@@ -62,6 +66,16 @@ public class SearchQuery
             (ad) => ad.Tags.Any(tag => tag.TagName.ToUpper() == tagName.ToUpper());
 
         var returnExpression = BuildAOrExpressionChain(tagNames, FilterBuilder);
+
+        return returnExpression;
+    }
+
+    private Expression<Func<TorgetAd, bool>> CreateAOrExpressionChainForCounties()
+    {
+        Expression<Func<TorgetAd, bool>> FilterBuilder(string county) =>
+            (ad) => ad.TorgetUser.County.ToUpper() == county.ToUpper();
+
+        var returnExpression = BuildAOrExpressionChain(Counties.ToArray(), FilterBuilder);
 
         return returnExpression;
     }

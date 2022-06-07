@@ -1,0 +1,74 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Mvc
+@using Torget__Blocket_klon_.Data.ModelsNotInDb
+@using Microsoft.AspNetCore.WebUtilities
+@inject NavigationManager NavManager
+@inherits ComponentBase
+
+<EditForm Model="@SearchQuery" OnValidSubmit="@PerformSearch" class="filters">
+    <div class="filter-search input">
+        <InputText @bind-Value="SearchQuery.SearchWords" placeholder="Ex. Barnvagn, cykel" id="search"/>
+        <i class="fa-solid fa-sliders"></i>
+    </div>
+    <div class="filter-location input">
+        <MudSelect T="string" MultiSelection="true" @bind-SelectedValues="counties" Placeholder="Plats" id="location" style="padding-left: 15px;margin: 10px;padding-bottom: 25px;">
+            @foreach (var county in allowedCounties)
+            {
+                <MudSelectItem T="string" Value="@county">@county</MudSelectItem>
+            }
+        </MudSelect>
+    </div>
+    <div class="filter-price input">
+        <input type="text" placeholder="Pris" id="price"/>
+    </div>
+    <input class="filter-submit button" type="submit" value="Sök" />
+</EditForm>
+
+@code {
+    public SearchQuery SearchQuery { get; set; } = new();
+    [MaxLength(int.MaxValue)]
+    private IEnumerable<string> counties = new HashSet<string>();
+
+    private string[] allowedCounties = {"Lerum", "Göteborg", "Stockholm"};
+
+    private void PerformSearch()
+    {
+        if(counties.Count() != 0) 
+            SearchQuery.Counties = counties.ToList();
+            
+        var route = new RedirectToPageResult("Annonser", SearchQuery);
+
+        var url = CreateUrl(route);
+
+        NavManager.NavigateTo(url, true);
+    }
+
+    private string CreateUrl(RedirectToPageResult route)
+    {
+        var url = new Uri(NavManager.BaseUri + route.PageName).AbsoluteUri;
+
+        var keys = route.RouteValues.Keys.ToList();
+        var values = route.RouteValues.Values.ToList();
+
+        for (var i = 0; i < keys.Count; i++)
+        {
+            if (values[i] is null) continue;
+
+            url = AddQuery(url, keys[i], values[i]);
+        }
+        return url;
+    }
+
+    private static string AddQuery(string url, string key, object valueObject)
+    {
+        if(valueObject.GetType() != typeof(List<string>))
+            url = QueryHelpers.AddQueryString(url, key, valueObject.ToString());
+
+        else
+            url = ((List<string>) valueObject)
+                .Aggregate(url, (currentUrl, value) => 
+                    QueryHelpers.AddQueryString(currentUrl, key, value));
+
+        return url;
+    }
+}

@@ -1,0 +1,25 @@
+﻿@page
+@using Torget__Blocket_klon_.Data.Models
+@model Torget__Blocket_klon_.Areas.Annonser.Pages.IndexModel
+@{
+}
+<div class="ads-container">
+    @foreach (TorgetAd ad in Model.TorgetAds)
+    {
+        <a class="ad-container" asp-area="Annonser" asp-page="/Annons" asp-route-id=@ad.Id>
+            <img class="ad-container-image" src="@ad.AdImages.First().Url" alt="Image for @ad.Title" />
+            <h5 class="ad-container-title">@ad.Title</h5>
+            <span class="ad-container-tags">
+                @foreach (Tag tag in ad.Tags)
+                {
+                    <p>#@tag.TagName</p>
+                }
+            </span>
+            <div class="ad-container-zipcode">
+                <i class="fa-solid fa-compass"></i>
+                <p>@ad.TorgetUser.ZipCode</p>
+            </div>
+            <p class="ad-container-price">@ad.Price SEK</p>
+        </a>
+    }
+</div>

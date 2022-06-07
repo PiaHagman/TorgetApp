@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Annonser\Pages\" />
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
@@ -26,6 +25,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
+    <PackageReference Include="MudBlazor" Version="6.0.10" />
   </ItemGroup>
 
 </Project>
