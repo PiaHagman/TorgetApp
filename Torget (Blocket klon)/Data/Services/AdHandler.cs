@@ -63,12 +63,19 @@ public class AdHandler
     }
 
     /// <exception cref="AdDoesNotExistException"></exception>
-    public async Task<TorgetAd> Update(int id, TorgetAd updatedAd)
+    public async Task<TorgetAd> Update(TorgetAd updatedAd)
     {
-        var ad = await _dbContext.TorgetAds.FindAsync(id);
+        var ad = await _dbContext.TorgetAds.FindAsync(updatedAd.Id);
         if (ad == null) throw new AdDoesNotExistException();
 
-        ad = updatedAd;
+
+        ad.Title=updatedAd.Title;
+        ad.Description=updatedAd.Description;
+        ad.Price=updatedAd.Price;
+        ad.Category=updatedAd.Category;
+        ad.DateUpdated=updatedAd.DateUpdated;
+      
+
         var entityEntry = _dbContext.TorgetAds.Update(ad);
         await _dbContext.SaveChangesAsync();
 

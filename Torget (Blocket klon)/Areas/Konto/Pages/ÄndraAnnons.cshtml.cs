@@ -51,18 +51,50 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
             _userManager = userManager;
         }
 
-        //public async Task<IActionResult> OnGetAsync(int adId)
-        //{
-        //    Input = new InputModel();
-        //    AdToEdit = await _adHandler.Get(adId);
+        public async Task OnGet(int adId)
+        {
+          Input = new InputModel();
+          AdToEdit = await _adHandler.Get(adId);
 
-        //    Input.Title = AdToEdit.Title;
-        //    Input.Description = AdToEdit.Description;
-        //    Input.Price = AdToEdit.Price;
-        //    Input.Category = AdToEdit.Category;
-        //    //Input.AdImages = AdToEdit.Category
+          Input.Title = AdToEdit.Title;
+          Input.Description = AdToEdit.Description;
+          Input.Price = AdToEdit.Price;
+          Input.Category = AdToEdit.Category;
+           //STUDY Lägg till så att en kan ändra bilder 
+        }
 
+        public async Task<IActionResult> OnPostAsync(int adId)
+        {
 
-        //}
+            if (ModelState.IsValid)
+            {
+                //TODO Byt till följade:
+                //var seller = await _userManager.GetUserAsync(User);
+
+                var user = await _userManager.FindByIdAsync(
+                "43eefa21-9b75-4926-9e1f-d9a878aa5f24"); //TODO Tillfällig user.
+
+                AdToEdit = await _adHandler.Get(adId);
+
+                AdToEdit.Title = Input.Title;
+                AdToEdit.Description = Input.Description;
+                AdToEdit.Price = Input.Price;
+                AdToEdit.Category = Input.Category;
+                AdToEdit.DateUpdated=DateTime.Now;
+                
+
+                await _adHandler.Update(AdToEdit);
+                
+                return RedirectToPage("/MinaAnnonser", new {area="Konto"});
+                   
+            }
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostDelete(int adId)
+        {
+            await _adHandler.Delete(adId);
+            return RedirectToPage("/MinaAnnonser", new { area = "Konto" });
+        }
     }
 }

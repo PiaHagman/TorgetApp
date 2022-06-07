@@ -1,4 +1,55 @@
 ﻿@page
 @model Torget__Blocket_klon_.Areas.Konto.Pages.ÄndraAnnonsModel
 @{
+    ViewData["Title"] = "Ändra Annons";
 }
+<div class="ad-view">
+    <div class="ad-input-area">
+        <form method="post" enctype="multipart/form-data" id="updateAdForm">
+            @*Titel*@
+            <div class="titel">
+                <h2 class="titel"><i class="fa-solid fa-square-pen"></i> Ändra annons</h2>
+            </div>
+            @*Rubrik*@
+            <div class="rubrik">
+                <label asp-for="Input.Title"></label> 
+                <input class="input-element" asp-for="Input.Title" class="form-control" aria-required="true"    />
+                <span asp-validation-for="Input.Title" ></span>
+            </div>
+            @*Beskrivning*@
+            <div class="beskrivning">
+                <label asp-for="Input.Description" ></label>
+                <textarea class="input-element multiline-element" asp-for="Input.Description" class="form-control" aria-required="true"></textarea>
+                <span asp-validation-for="Input.Description" ></span>
+            </div>
+            @*Pris*@
+            <div class="pris">
+                <label asp-for="Input.Price" ></label>
+                <input class="input-element" asp-for="Input.Price" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Input.Price"/>
+            </div>
+            @*Kategori*@
+            <div class="Kategori">
+                <label asp-for="Input.Category"></label>
+                <input class="input-element" asp-for="Input.Category" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Input.Category" ></span>
+            </div>
+            
+           
+            <div class="submit-buttons">
+            @*Submit*@
+            <div class="submit">
+            <input type="hidden" name="adId" value="@Model.AdToEdit.Id"/>
+            <button id="registerSubmit" type="submit" class="submit-btn">Uppdatera</button>            
+            </div>
+            
+        </form>
+        <form asp-page-handler="delete" method="post">
+            <input type ="hidden" name="adId" value="@Model.AdToEdit.Id" />
+            <button class="submit-btn" type="submit">Radera</button>
+        </form>
+
+
+        </div>
+    </div>
+</div>
