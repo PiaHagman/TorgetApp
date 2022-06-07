@@ -34,7 +34,7 @@
 <component type="typeof(MudThemeProvider)" render-mode="ServerPrerendered"/>
 <header>
     <h3>TORGET</h3>
-    <div class="categories">
+    <div class="categories to-hide">
         <div class="category-single">
             <i class="fa-solid fa-cat"></i>
             <p>Category</p>
@@ -53,8 +53,8 @@
         </div>
     </div>
     <component type="typeof(_SearchBar)" render-mode="ServerPrerendered"/>
-    <div class="hide-header">
-        <i class="fa-solid fa-angle-up"></i>
+    <div class="hide-header" onClick="hideSearch()">
+        <i class="fa-solid fa-angle-up hide-header-icon"></i>
     </div>
     <nav class="navigation">
         <div class="nav-item">
@@ -96,5 +96,25 @@
 <script src="~/_framework/blazor.server.js"></script>
 <!--Blazor -->
 <script src="~/js/site.js" asp-append-version="true"></script>
+
+<script>
+    function hideSearch() {
+        var categoryElement = document.querySelector(".to-hide");
+        var searchElement = document.querySelector(".filters");
+        var hideButtonElement = document.querySelector(".hide-header-icon");
+
+        if (categoryElement.style.display === "none" && 
+                searchElement.style.display === "none") {
+                categoryElement.style.display = "flex";
+                searchElement.style.display = "grid";
+                hideButtonElement.style.transform = "rotate(0deg)"
+            } else {
+                hideButtonElement.style.transform = "rotate(180deg)"
+                categoryElement.style.display = "none";
+                searchElement.style.display = "none";
+            }
+    }
+</script>
+
 </body>
 </html>
