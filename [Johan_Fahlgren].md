@@ -14,6 +14,7 @@
 [Daily Stand Up 4](###Daily-stand-up-4)  
 [Daily Stand Up 5](###Daily-stand-up-5)  
 [Daily Stand Up 6](###Daily-stand-up-6)  
+[Daily Stand Up 7](###Daily-stand-up-7)
 
 
 ### Sprint reviews:  
@@ -135,8 +136,17 @@ ___
 - Vi andra kommer sitta med lite annat idag, men finnas tillgängliga.
 
 
+### Daily Stand Up 7  <br/>
+**Date:** 2021-06-07 <br/>
+**Timebox:** 0 h 15 min <br/>
 
+**Notes:** <br/>
 
+- Idris inte möjlighet att del ta vid avsatt tid.
+- Kim har sutit med sin issue att med postnummer och ort vid registrering. 
+- Pia ska hjälpa gustav med login sidan. Vill gå igenom hur jag implementerar bilder när man skapat annons. 
+- Gustav ska implementerar en login sida.
+- Johan ska påbörja med kategorier. 
 
 ___
 
