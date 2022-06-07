@@ -8,6 +8,7 @@ using Torget__Blocket_klon_.Data.Services;
 
 namespace Torget__Blocket_klon_.Areas.Konto.Pages
 {
+    [Authorize]
     public class MinaAnnonserModel : PageModel
     {
         private readonly UserManager<TorgetUser> _userManager;
