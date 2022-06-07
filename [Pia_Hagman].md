@@ -126,3 +126,13 @@ Summering:
 - Inget direkt att rapportera från gårdagen
 - Skapat brancher utifrån tilldelade issues
 - Kommer dra igång ordentligt på tisdag, annat jobb idag pch nationaldag på måndag. Eventuellt lite jobb i helgen.
+
+## 3/6
+<br>**Daily standup**
+<br>**Timebox: 15 min**
+<br><br>
+Summering:
+- Förbättringar av postnummerbegränsningar och spara ner orten för Kim - titta på PR under fm
+- Idris ej närvarande men två liggande PR
+- Jag och Gustav ska kolla på log in tillsammans då han inte tidigare implementerat detta. 
+- Stämde av kommande veckan lite. Något hattigt för mig med skolavslutning och studiedag för kidsen, men jobabr på så gott det går.
