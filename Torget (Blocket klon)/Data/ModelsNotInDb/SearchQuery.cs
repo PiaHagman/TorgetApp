@@ -6,17 +6,18 @@ namespace Torget__Blocket_klon_.Data.ModelsNotInDb;
 public class SearchQuery
 {
     public string? SearchWords { get; set; }
+    public List<string>? Counties { get; set; }
     public string? Category { get; set; }
     public int? PriceLowest { get; set; }
     public int? PriceHighest { get; set; }
     public List<Tag>? Tags { get; set; }
 
     /// <summary>
-    /// Adds the searchQuery to the specific queryable.
-    /// See the added comment to get a proper understanding.
+    ///     Adds the searchQuery to the specific queryable.
+    ///     See the added comment to get a proper understanding.
     /// </summary>
     /// <param name="queryable"></param>
-    /// <returns>The <paramref name="queryable"/> with the searchQuery added.</returns>
+    /// <returns>The <paramref name="queryable" /> with the searchQuery added.</returns>
     public IQueryable<TorgetAd> AddSearchQuery(IQueryable<TorgetAd> queryable)
     {
         if (SearchWords is not null)
@@ -25,8 +26,11 @@ public class SearchQuery
         if (Tags is not null)
             queryable = queryable.Where(CreateAOrExpressionChainForTags());
 
+        if (Counties is not null)
+            queryable = queryable.Where(CreateAOrExpressionChainForCounties());
+
         if (Category is not null)
-            queryable = queryable.Where(a => a.Category.ToUpper() == Category.ToUpper());
+            queryable = queryable.Where(a => a.Category.Name.ToUpper() == Category.ToUpper());
 
         if (PriceLowest is not null)
             queryable = queryable.Where(a => a.Price >= PriceLowest);
@@ -46,8 +50,10 @@ public class SearchQuery
     {
         var titleWords = SearchWords.Split(" ");
 
-        Expression<Func<TorgetAd, bool>> FilterBuilder(string word) =>
-            (ad) => ad.Title.ToUpper().Contains(word.ToUpper());
+        Expression<Func<TorgetAd, bool>> FilterBuilder(string word)
+        {
+            return ad => ad.Title.ToUpper().Contains(word.ToUpper());
+        }
 
         var returnExpression = BuildAOrExpressionChain(titleWords, FilterBuilder);
 
@@ -58,10 +64,22 @@ public class SearchQuery
     {
         var tagNames = Tags.Select(item => item.TagName).ToArray();
 
-        Expression<Func<TorgetAd, bool>> FilterBuilder(string tagName) =>
-            (ad) => ad.Tags.Any(tag => tag.TagName.ToUpper() == tagName.ToUpper());
+        Expression<Func<TorgetAd, bool>> FilterBuilder(string tagName)
+        {
+            return ad => ad.Tags.Any(tag => tag.TagName.ToUpper() == tagName.ToUpper());
+        }
 
         var returnExpression = BuildAOrExpressionChain(tagNames, FilterBuilder);
+
+        return returnExpression;
+    }
+
+    private Expression<Func<TorgetAd, bool>> CreateAOrExpressionChainForCounties()
+    {
+        Expression<Func<TorgetAd, bool>> FilterBuilder(string county) =>
+            (ad) => ad.TorgetUser.County.ToUpper() == county.ToUpper();
+
+        var returnExpression = BuildAOrExpressionChain(Counties.ToArray(), FilterBuilder);
 
         return returnExpression;
     }
@@ -69,7 +87,7 @@ public class SearchQuery
     private static Expression<Func<TorgetAd, bool>> BuildAOrExpressionChain(string[] filterConstants,
         Func<string, Expression<Func<TorgetAd, bool>>> filterBuilder)
     {
-        Expression<Func<TorgetAd, bool>> firstExpression = (ad) => false;
+        Expression<Func<TorgetAd, bool>> firstExpression = ad => false;
 
         var expressionChain = filterConstants
             .Aggregate(firstExpression,

@@ -41,9 +41,8 @@ public class AdHandler
             .Include(a => a.Tags)
             .Where(a => a.TorgetUser.Id == userId)
             .ToListAsync();
-        
-        return userAds;
 
+        return userAds;
     }
 
     public async Task<List<TorgetAd>> GetList(SearchQuery? searchQuery = null)
