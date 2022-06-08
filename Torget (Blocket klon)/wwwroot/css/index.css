@@ -247,6 +247,14 @@ nav {
         font-weight: 600;
     }
 
+.mud-input-text {
+    padding: 0 15px 20px 25px;
+}
+
+.mud-popover {
+    top: 290px !important;
+}
+
 .validation-summary-errors {
     color: red;
 }

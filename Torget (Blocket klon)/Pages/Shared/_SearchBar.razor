@@ -11,7 +11,7 @@
         <i class="fa-solid fa-sliders"></i>
     </div>
     <div class="filter-location input">
-        <MudSelect T="string" MultiSelection="true" @bind-SelectedValues="counties" Placeholder="Plats" id="location" style="padding-left: 15px;margin: 10px;padding-bottom: 25px;">
+        <MudSelect T="string" MultiSelection="true" @bind-SelectedValues="counties" Placeholder="Plats" id="location">
             @foreach (var county in allowedCounties)
             {
                 <MudSelectItem T="string" Value="@county">@county</MudSelectItem>
