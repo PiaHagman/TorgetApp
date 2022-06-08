@@ -1,0 +1,15 @@
+﻿@page
+@using Torget__Blocket_klon_.Data.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Torget__Blocket_klon_.Areas.Annonser.Pages.IndexModel
+@{
+    ViewData["Title"] = "Sök";
+}
+
+@*//Study: Skriva in sökningen som en överskrift. eg Sökning: "cykel" "lerum"*@
+<div class="ads-container">
+    @foreach (TorgetAd ad in Model.TorgetAds)
+    {
+        <partial name="_SmallAdCard" model="ad"/>
+    }
+</div>

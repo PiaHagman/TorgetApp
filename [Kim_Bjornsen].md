@@ -63,4 +63,20 @@
 > ### Timebox
 > 1 h
 > ### Summering
-> 
+
+
+## 2022-06-07 - Daily standup
+
+> ### Timebox
+> 15 min
+> ### Summering
+> Jag berättade om min implementering av PostKod kraven. Jag har gjort en pull request.
+> Jag kommer idag fortsätta på filtreringen via min issue #42. Jag jobbar med BlazorComponents.
+> De andra hade bra 
+
+## 2022-06-08 - Daily standup
+
+> ### Timebox
+> 15 min
+> ### Summering
+> Dagens möte var lite kort pga att vi bara var 3 deltagare. Bestämde att vi ska sitta med pull requests under dagen.
