@@ -11,6 +11,7 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
     {
         private readonly AdHandler _adHandler;
         private readonly UserManager<TorgetUser> _userManager;
+        public bool ErrorOccured = false;
 
         public TorgetAd AdToEdit { get; set; }
        
@@ -93,7 +94,31 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
 
         public async Task<IActionResult> OnPostDelete(int adId)
         {
-            await _adHandler.Delete(adId);
+
+            try
+            {
+                await _adHandler.Delete(adId);
+                return RedirectToPage("/AnnonsRaderad", new { area = "Konto" });
+            }
+            catch
+            {
+                ErrorOccured = true;
+                Input = new InputModel();
+                AdToEdit = await _adHandler.Get(adId);
+
+                Input.Title = AdToEdit.Title;
+                Input.Description = AdToEdit.Description;
+                Input.Price = AdToEdit.Price;
+                Input.Category = AdToEdit.Category;
+
+                return Page();
+            }
+
+        }
+
+        public async Task<IActionResult> OnPostSold(int adId)
+        {
+            await _adHandler.MarkAsSold(adId);
             return RedirectToPage("/MinaAnnonser", new { area = "Konto" });
         }
     }

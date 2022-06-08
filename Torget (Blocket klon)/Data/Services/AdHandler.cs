@@ -98,7 +98,10 @@ public class AdHandler
     /// <exception cref="AdDoesNotExistException"></exception>
     public async Task<TorgetAd> Delete(int id)
     {
-        var ad = await _dbContext.TorgetAds.FindAsync(id);
+        var ad = await _dbContext.TorgetAds
+            .Include(a => a.AdImages)
+            .Include(a => a.Tags)
+            .FirstOrDefaultAsync(a => a.Id == id);
         if (ad == null) throw new AdDoesNotExistException();
 
         var entityEntry = _dbContext.TorgetAds.Remove(ad);

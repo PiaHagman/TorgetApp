@@ -3,6 +3,42 @@
 @{
     ViewData["Title"] = "Ändra Annons";
 }
+
+@if (@Model.ErrorOccured)
+{
+    <!-- Button trigger modal -->
+     @*   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Launch demo modal
+        </button>*@
+
+        <!-- Modal -->
+    <div class="modal" style="display: block;" tabindex="-1" role="dialog" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Varning!</h5>
+                    
+                </div>
+                <div class="modal-body">
+                    <p>Något gick fel. Din annons kunde inte raderas. Försök igen senare!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  onclick="closeFunc()" class="btn btn-secondary" id="closeModal" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function closeFunc() {
+            var modal = document.getElementById("myModal");
+            modal.classList.remove("show");
+            modal.style.display = "none";
+        }
+      </script>
+}
+
 <div class="ad-view">
     <div class="ad-input-area">
         <form method="post" enctype="multipart/form-data" id="updateAdForm">
@@ -35,7 +71,6 @@
                 <span asp-validation-for="Input.Category" ></span>
             </div>
             
-           
             <div class="submit-buttons">
             @*Submit*@
             <div class="submit">
@@ -44,12 +79,27 @@
             </div>
             
         </form>
+         <div class="submit">
         <form asp-page-handler="delete" method="post">
+           
             <input type ="hidden" name="adId" value="@Model.AdToEdit.Id" />
-            <button class="submit-btn" type="submit">Radera</button>
+            <button onclick="confirmDelete(event)"class="submit-btn" type="submit">Radera</button>
+            
         </form>
-
+        </div>
 
         </div>
+        <form asp-page-handler="sold" method="post">
+            <input type ="hidden" name="adId" value="@Model.AdToEdit.Id" />
+            <button class="submit-btn" id="sold-btn" type="submit">Markera som såld</button>
+        </form>
     </div>
 </div>
+
+
+<script>
+    function confirmDelete(event) {
+        var yesDelete = confirm("Vill du radera denna annons?");
+        if(!yesDelete) event.preventDefault();
+    }
+</script>   
