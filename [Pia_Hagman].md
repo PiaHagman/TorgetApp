@@ -127,7 +127,7 @@ Summering:
 - Skapat brancher utifrån tilldelade issues
 - Kommer dra igång ordentligt på tisdag, annat jobb idag pch nationaldag på måndag. Eventuellt lite jobb i helgen.
 
-## 3/6
+## 7/6
 <br>**Daily standup**
 <br>**Timebox: 15 min**
 <br><br>
@@ -136,3 +136,13 @@ Summering:
 - Idris ej närvarande men två liggande PR
 - Jag och Gustav ska kolla på log in tillsammans då han inte tidigare implementerat detta. 
 - Stämde av kommande veckan lite. Något hattigt för mig med skolavslutning och studiedag för kidsen, men jobabr på så gott det går.
+
+## 8/6
+<br>**Daily standup**
+<br>**Timebox: 15 min**
+<br><br>
+Summering: 
+- Inte så supermycket att rapportera eftersom vi satt tillsammans hela dagen igår. Mest jobba vidare och godkänna PR så snabbt som möjligt.
+- Jag, Kim och Idris närvarande.
+- Idris har kommit långt med sin chatt-funktion. Grymt! 
+- Imorgon är jag frånvarande på fm pga skolavslutning
