@@ -12,6 +12,7 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
     {
         private readonly UserManager<TorgetUser> _userManager;
         private readonly AdHandler _adHandler;
+        
 
         [BindProperty]
         public List<TorgetAd> MinaAnnonser { get; set; }

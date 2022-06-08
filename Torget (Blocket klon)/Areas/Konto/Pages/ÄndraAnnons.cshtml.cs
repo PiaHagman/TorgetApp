@@ -11,7 +11,8 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
     {
         private readonly AdHandler _adHandler;
         private readonly UserManager<TorgetUser> _userManager;
-        public bool ErrorOccured = false;
+    
+        public bool ErrorOccurred = false;
 
         public TorgetAd AdToEdit { get; set; }
        
@@ -102,7 +103,7 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
             }
             catch
             {
-                ErrorOccured = true;
+                ErrorOccurred = true;
                 Input = new InputModel();
                 AdToEdit = await _adHandler.Get(adId);
 

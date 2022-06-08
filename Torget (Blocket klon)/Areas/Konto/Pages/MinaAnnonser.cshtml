@@ -2,33 +2,50 @@
 @model Torget__Blocket_klon_.Areas.Konto.Pages.MinaAnnonserModel
 @{
     ViewData["Title"] = "Mina Annonser";
-
 }
  <h5 class="my-heading">Mina annonser</h5>
     <div class="ads-container">
        
         @foreach(var ad in Model.MinaAnnonser){
-            <div class="ad-container" >
-            <a asp-area="Annonser" asp-page="/Annons" asp-route-id=@ad.Id>
-             <img class="ad-container-image" src="@ad.AdImages.First().Url" alt="Image for @ad.Title" />
-             <h5 class="ad-container-title">@ad.Title</h5>
-             <span class="ad-container-tags">
-                    @foreach (var tag in ad.Tags)
-                    {
-                        <p>#@tag.TagName</p>
-                    }
-            </span>
-                <div class="ad-container-zipcode">
-                    <i class="fa-solid fa-compass"></i>
-                    <p>@ad.TorgetUser.ZipCode</p>
-                </div>
-                <p class="ad-container-price">@ad.Price SEK</p>
-            </a>
-           
-            <form class="edit-container" method="post" asp-route-torgetAdId="@ad.Id">
-                <input type="submit" class="button" value="Ändra"/>
-            </form>
-          
+            <div class="ad-container" id="ad-@ad.Id">
+                
+                <a asp-area="Annonser" asp-page="/Annons" asp-route-id=@ad.Id>
+                    <img class="ad-container-image" src="@ad.AdImages.First().Url" alt="Image for @ad.Title"/>
+                    <h5 class="ad-container-title">@ad.Title</h5>
+                    <span class="ad-container-tags">
+                        @foreach (var tag in ad.Tags)
+                        {
+                            <p>#@tag.TagName</p>
+                        }
+                    </span>
+                    <div class="ad-container-zipcode">
+                        <i class="fa-solid fa-compass"></i>
+                        <p>@ad.TorgetUser.ZipCode</p>
+                    </div>
+                    <p class="ad-container-price">@ad.Price SEK</p>
+                </a>
+                
+                @if (ad.Sold)
+                {
+                    <script>
+                        var soldText = document.createElement("div");
+                        soldText.innerText = "Såld";
+                        soldText.classList.add("ad-sold-text");
+
+                        var adContainer = document.getElementById("ad-@ad.Id");
+                        adContainer.classList.add("ad-sold");
+                        adContainer.append(soldText);
+
+                    </script>
+                }
+                @if (!ad.Sold)
+                {
+                    <form class="edit-container" method="post" asp-route-torgetAdId="@ad.Id">
+                        <input type="submit" class="button" value="Ändra"/>
+                    </form>
+                }
+               
+
             </div>
         }
 

@@ -122,3 +122,12 @@ textarea {
     width:100%;
     margin-top:10px;
 }
+
+.ad-sold {
+    filter: brightness(30%);
+    
+}
+.ad-sold-text {
+
+    color: red;
+}
