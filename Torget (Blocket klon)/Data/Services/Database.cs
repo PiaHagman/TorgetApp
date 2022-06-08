@@ -23,7 +23,7 @@ public class Database
 
     private async Task SeedTestData()
     {
-        var user1 = new TorgetUser()
+        var user1 = new TorgetUser
         {
             Email = "user1@email.com",
             UserName = "user1@email.com",
@@ -32,7 +32,7 @@ public class Database
             PhoneNumber = "0766-210910",
             Id = "43eefa21-9b75-4926-9e1f-d9a878aa5f24"
         };
-        var user2 = new TorgetUser()
+        var user2 = new TorgetUser
         {
             Email = "user2@email.com",
             UserName = "user2@email.com",
@@ -45,14 +45,28 @@ public class Database
         await _userManager.CreateAsync(user1, "Passw0rd!");
         await _userManager.CreateAsync(user2, "Passw0rd!");
 
-        var annonser = new List<TorgetAd>()
+
+        var categorys = new[]
+        {
+            new TorgetCategory {Name = "KLÄDER"},
+            new TorgetCategory {Name = "MÖBLER"},
+            new TorgetCategory {Name = "HOBBY"},
+            new TorgetCategory {Name = "ELEKTRONIK"},
+            new TorgetCategory {Name = "FORDON"}
+        };
+
+        _dbCtx.AddRange(categorys);
+        await _dbCtx.SaveChangesAsync();
+
+
+        var annonser = new List<TorgetAd>
         {
             new()
             {
                 Title = "Färggrann cykel",
                 Description =
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non erat quis orci porttitor sodales. Vivamus at diam dignissim, eleifend est id, placerat lacus. Vivamus semper sapien in maximus varius. Sed tincidunt quam quis dui sollicitudin, ac tincidunt purus tempor. Nulla eleifend vitae augue sit amet tincidunt. Aenean fermentum diam.",
-                Category = "Cykel",
+                Category = categorys[2],
                 Price = 1200,
                 TorgetUser = user1,
                 SavedByUsers = new List<TorgetUser> {user2},
@@ -68,7 +82,7 @@ public class Database
                 Title = "Sötaste katten",
                 Description =
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non erat quis orci porttitor sodales. Vivamus at diam dignissim, eleifend est id, placerat lacus. Vivamus semper sapien in maximus varius. Sed tincidunt quam quis dui sollicitudin, ac tincidunt purus tempor. Nulla eleifend vitae augue sit amet tincidunt. Aenean fermentum diam.",
-                Category = "Djur",
+                Category = categorys[2],
                 Price = 150,
                 TorgetUser = user1,
                 SavedByUsers = new List<TorgetUser> {user2},
@@ -84,7 +98,7 @@ public class Database
                 Title = "Stor maskin",
                 Description =
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non erat quis orci porttitor sodales. Vivamus at diam dignissim, eleifend est id, placerat lacus. Vivamus semper sapien in maximus varius. Sed tincidunt quam quis dui sollicitudin, ac tincidunt purus tempor. Nulla eleifend vitae augue sit amet tincidunt. Aenean fermentum diam.",
-                Category = "Maskin",
+                Category = categorys[4],
                 Price = 15000,
                 TorgetUser = user2,
                 Tags = new List<Tag> {new() {TagName = "hjullastare"}},
