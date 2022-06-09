@@ -1,8 +1,10 @@
 # Meeting Notes
 
 ## Table of Contents:
-### Sprints:  
+
+### Sprints:
 [Sprintplanering 1](###Sprintplanering-1)  
+[Sprintplanering 2](###Sprintplanering-2)  
 
 
 ### DailyStand Ups:
@@ -11,6 +13,9 @@
 [Daily Stand Up 3](###Daily-stand-up-3)  
 [Daily Stand Up 4](###Daily-stand-up-4)  
 [Daily Stand Up 5](###Daily-stand-up-5)  
+[Daily Stand Up 6](###Daily-stand-up-6)  
+[Daily Stand Up 7](###Daily-stand-up-7)  
+[Daily Stand Up 8](###Daily-stand-up-8)
 
 
 ### Sprint reviews:  
@@ -30,6 +35,20 @@ ___
 ### Sprintplanering 1  <br/>
 **Date:** 2021-05-23 <br/>
 **Timebox:** 3 h 0 min <br/>
+
+**Notes:** <br/>
+
+- Idris gör wireframes. !ganbare! :)
+- Daily stand Up 09:00 - 09:15
+- Siktar på att hinna alla 15 färdiga issues, bra lärdom om vi inte lyckas.
+- Skapa notes i "feature colunnen" som kom ihåg för fortsatt utveckling.
+
+<br/>
+
+
+### Sprintplanering 2  <br/>
+**Date:** 2021-06-02 <br/>
+**Timebox:** 2 h 0 min <br/>
 
 **Notes:** <br/>
 
@@ -107,6 +126,42 @@ ___
 -  Jag börjar med ``Profilsida`` 
 -  Flyttar samanställningen av sprint 1 till 14:30
 
+
+### Daily Stand Up 6  <br/>
+**Date:** 2021-06-03 <br/>
+**Timebox:** 0 h 15 min <br/>
+
+**Notes:** <br/>
+
+- Idris och Kim frånvarande.
+- Vi andra kommer sitta med lite annat idag, men finnas tillgängliga.
+
+
+### Daily Stand Up 7  <br/>
+**Date:** 2021-06-07 <br/>
+**Timebox:** 0 h 15 min <br/>
+
+**Notes:** <br/>
+
+- Idris inte möjlighet att del ta vid avsatt tid.
+- Kim har sutit med sin issue att med postnummer och ort vid registrering. 
+- Pia ska hjälpa gustav med login sidan. Vill gå igenom hur jag implementerar bilder när man skapat annons. 
+- Gustav ska implementerar en login sida.
+- Johan ska påbörja med kategorier. 
+- 
+- 
+- ### Daily Stand Up 8  <br/>
+**Date:** 2021-06-09 <br/>
+**Timebox:** 0 h 15 min <br/>
+
+**Notes:** <br/>
+
+- Pia på skolaavsluting, Idris vet ej. 
+- Pia och Kim satt med pull requests igår, hade lite problem, ska forsätta under dagen.
+- Gustav ska merga sin issue. 
+- Jag ska implementera en drop down för kategorier och lägga till taggar på ``skapa annons`` sidan. 
+
+___
 
 
 ## Sprint reviews:  
