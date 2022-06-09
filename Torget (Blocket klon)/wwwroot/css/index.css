@@ -48,6 +48,7 @@ h5 {
     margin: 6px;
     min-width: contain;
     border: none;
+    padding-left: 0px;
 }
 .edit-container {
     display: flex;
@@ -148,6 +149,7 @@ header {
     font-weight: 600;
     font-family: inherit;
     font-size: 20px;
+    
 }
 
 .hide-header {

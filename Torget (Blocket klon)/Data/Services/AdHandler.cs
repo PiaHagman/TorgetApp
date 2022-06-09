@@ -28,6 +28,7 @@ public class AdHandler
             .Include(a => a.TorgetUser)
             .Include(a => a.AdImages)
             .Include(a => a.Tags)
+            .Include(a => a.Category)
             .FirstOrDefaultAsync(a => a.Id == id);
 
         return ad ?? throw new AdDoesNotExistException(); //Förstår vi detta allihopa?
@@ -39,6 +40,7 @@ public class AdHandler
             .Include(a => a.TorgetUser)
             .Include(a => a.AdImages)
             .Include(a => a.Tags)
+            .Include(a=> a.Category)
             .Where(a => a.TorgetUser.Id == userId)
             .ToListAsync();
 
@@ -51,6 +53,7 @@ public class AdHandler
             .Include(a => a.TorgetUser)
             .Include(a => a.AdImages)
             .Include(a => a.Tags) //.AsSplitQuery() Behövs? Läs på om.
+            .Include(a=>a.Category)
             .AsQueryable();
 
         if (searchQuery is not null)

@@ -61,7 +61,7 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
           Input.Title = AdToEdit.Title;
           Input.Description = AdToEdit.Description;
           Input.Price = AdToEdit.Price;
-          Input.Category = AdToEdit.Category;
+          Input.Category = AdToEdit.Category.Name;
            //STUDY Lägg till så att en kan ändra bilder 
         }
 
@@ -81,7 +81,7 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
                 AdToEdit.Title = Input.Title;
                 AdToEdit.Description = Input.Description;
                 AdToEdit.Price = Input.Price;
-                AdToEdit.Category = Input.Category;
+                AdToEdit.Category.Name = Input.Category;
                 AdToEdit.DateUpdated=DateTime.Now;
                 
 
@@ -110,7 +110,7 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
                 Input.Title = AdToEdit.Title;
                 Input.Description = AdToEdit.Description;
                 Input.Price = AdToEdit.Price;
-                Input.Category = AdToEdit.Category;
+                Input.Category = AdToEdit.Category.Name;
 
                 return Page();
             }
