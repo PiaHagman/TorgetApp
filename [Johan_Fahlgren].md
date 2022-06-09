@@ -14,7 +14,8 @@
 [Daily Stand Up 4](###Daily-stand-up-4)  
 [Daily Stand Up 5](###Daily-stand-up-5)  
 [Daily Stand Up 6](###Daily-stand-up-6)  
-[Daily Stand Up 7](###Daily-stand-up-7)
+[Daily Stand Up 7](###Daily-stand-up-7)  
+[Daily Stand Up 8](###Daily-stand-up-8)
 
 
 ### Sprint reviews:  
@@ -147,6 +148,18 @@ ___
 - Pia ska hjälpa gustav med login sidan. Vill gå igenom hur jag implementerar bilder när man skapat annons. 
 - Gustav ska implementerar en login sida.
 - Johan ska påbörja med kategorier. 
+- 
+- 
+- ### Daily Stand Up 8  <br/>
+**Date:** 2021-06-09 <br/>
+**Timebox:** 0 h 15 min <br/>
+
+**Notes:** <br/>
+
+- Pia på skolaavsluting, Idris vet ej. 
+- Pia och Kim satt med pull requests igår, hade lite problem, ska forsätta under dagen.
+- Gustav ska merga sin issue. 
+- Jag ska implementera en drop down för kategorier och lägga till taggar på ``skapa annons`` sidan. 
 
 ___
 
