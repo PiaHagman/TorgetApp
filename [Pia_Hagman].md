@@ -146,3 +146,14 @@ Summering:
 - Jag, Kim och Idris närvarande.
 - Idris har kommit långt med sin chatt-funktion. Grymt! 
 - Imorgon är jag frånvarande på fm pga skolavslutning
+
+## 10/6
+<br>**Daily standup**
+<br>**Timebox: 15 min**
+<br><br>
+Summering: 
+- Jag, Kim och Johan närvarande.
+- Klar med PR igår. Påbörjade issue #50 - kanske hinner fortsätta lite idag. Annars måndag.
+- Jag rapporterade lite för Gustav som sitter med logga in och länkningar till registrering samt ev logga ut
+- Kim på studiebesök idag, inte så mycket jobb. 
+- Johan försökte med mudblazor igår, men gick tillbaka till html när det inte fungerade som han ville. Ska kika vidare på kategorier idag.
