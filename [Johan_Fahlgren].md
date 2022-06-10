@@ -16,6 +16,7 @@
 [Daily Stand Up 6](###Daily-stand-up-6)  
 [Daily Stand Up 7](###Daily-stand-up-7)  
 [Daily Stand Up 8](###Daily-stand-up-8)
+[Daily Stand Up 9](###Daily-stand-up-9)
 
 
 ### Sprint reviews:  
@@ -160,6 +161,19 @@ ___
 - Pia och Kim satt med pull requests igår, hade lite problem, ska forsätta under dagen.
 - Gustav ska merga sin issue. 
 - Jag ska implementera en drop down för kategorier och lägga till taggar på ``skapa annons`` sidan. 
+ 
+
+- ### Daily Stand Up 9  <br/>
+**Date:** 2021-06-10 <br/>
+**Timebox:** 0 h 15 min <br/>
+
+**Notes:** <br/>
+
+- Idris och gustav vet ej.
+- Kim sitter lite på eftermiddagen.
+- Kim hittat bugg i Pias uppdatera annons, lägger man inte med en bild krashar sidan. 
+- Pia vill att vi går igenom hur bilder läggs till i databasan. 
+- Jag forsätter med "lägg till annons"
 
 ___
 
