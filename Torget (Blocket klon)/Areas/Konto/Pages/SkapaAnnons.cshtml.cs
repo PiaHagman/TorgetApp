@@ -10,22 +10,23 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages;
 public class SkapaAnnonsModel : PageModel
 {
     private readonly AdHandler _adHandler;
-
     private readonly UserManager<TorgetUser> _userManager;
-    private IWebHostEnvironment _webenvironment;
+    private IWebHostEnvironment _webEnvironment;
+    public List<string> CategoryList;
 
 
     public SkapaAnnonsModel(UserManager<TorgetUser> userManager, AdHandler adHandler, IWebHostEnvironment environment)
     {
         _userManager = userManager;
         _adHandler = adHandler;
-        _webenvironment = environment;
+        _webEnvironment = environment;
     }
 
     [BindProperty] public InputModel Input { get; set; }
 
-    public void OnGet()
+    public async Task OnGet()
     {
+        CategoryList = await _adHandler.GetCategoriesList();
     }
 
 
@@ -59,7 +60,7 @@ public class SkapaAnnonsModel : PageModel
 
     public async Task<List<AdImage>> addImages(List<IFormFile> postedFiles)
     {
-        var fileUploadPath = _webenvironment.WebRootPath + "\\AdImageUploads";
+        var fileUploadPath = _webEnvironment.WebRootPath + "\\AdImageUploads";
 
 
         if (!Directory.Exists(fileUploadPath)) Directory.CreateDirectory(fileUploadPath);

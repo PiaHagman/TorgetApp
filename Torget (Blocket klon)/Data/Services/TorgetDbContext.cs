@@ -15,10 +15,12 @@ public class TorgetDbContext : IdentityDbContext<TorgetUser>
     public DbSet<AdImage> AdImages { get; set; }
     public DbSet<Tag> Tags { get; set; }
 
+    public DbSet<TorgetCategory> TorgetCategories { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
             optionsBuilder
-                .UseSqlServer(@$"Server=(localdb)\MSSQLLocalDB;Database=TorgetDb");
+                .UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=TorgetDb");
     }
 }

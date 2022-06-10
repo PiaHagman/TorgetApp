@@ -1,8 +1,6 @@
 ﻿@page
-@using Torget__Blocket_klon_.Areas.Konto.Pages
+@using Humanizer
 @model Torget__Blocket_klon_.Areas.Konto.Pages.SkapaAnnonsModel
-@{
-}
 
 <div class="ad-view">
     <div class="ad-input-area">
@@ -31,13 +29,23 @@
             </div>
             @*Kategori*@
             <div class="Kategori">
-                <input class="input-element" asp-for="Input.Kategori" placeholder="Kategorier"/>
+
+                <select>
+                    <option value="" disabled selected>Välj kategori</option>
+                    @foreach (var category in Model.CategoryList)
+                    {
+                        <option value="@category">@category.ToLower().Humanize(LetterCasing.Sentence)</option>
+                    }
+                </select>
+
+
+                @*TODO*@ @*<input class="input-element" asp-for="Input.Kategori" placeholder="Kategorier"/>
                 <label asp-for="Input.Kategori"/>
-                <span asp-validation-for="Input.Kategori"/>
+                <span asp-validation-for="Input.Kategori"/>*@
+
             </div>
-            
+
             <div id="img-preview">
-                @*<asp:FileUpload ID="upload" runat="server" onchange="ShowPreview(this)"></asp:FileUpload>*@
             </div>
 
             @*Bild*@
@@ -47,7 +55,7 @@
                 <span asp-validation-for="Input.AdImages"/>
                 <p class="image-text">Recommended minimum ad image size 600x400px <br/> Accepted image formats are: .jpg, .jpeg, .png </p>
             </div>
-            
+
             @*Submit*@
             <div class="submit">
                 <button class="submit-btn" type="submit">Lägg upp</button>
@@ -55,6 +63,7 @@
         </form>
     </div>
 </div>
+
 
 <script>
   

@@ -101,6 +101,18 @@ public class AdHandler
 
         return entityEntry.Entity;
     }
+
+    public async Task<List<string>> GetCategoriesList()
+    {
+        var categories = await _dbContext.TorgetCategories
+            .ToListAsync();
+
+        var categoryList = new List<string>();
+
+        foreach (var category in categories) categoryList.Add(category.Name);
+
+        return categoryList;
+    }
 }
 
 public class AdDoesNotExistException : Exception
