@@ -25,22 +25,32 @@
     justify-content: center;
     align-items: center;
     margin: 10px 0;
-    width: 90%;
-    border-radius: 15px;
+    width: 100%;
+    border-radius: 19px;
     border: 0px transparent solid;
     border-top: 2px inset #b1d6db;
 }
 
 input {
     padding-left: 15px;
+    height: 38px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline-color: #07beb8;
 }
 
 textarea {
-    padding-left: 15px;
+    padding-top: 8px;
+    text-indent: 15px;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 .multiline-element {
-    min-height: 90px;
+    min-height: 150px;
 }
 
 .image-element {
@@ -57,20 +67,75 @@ textarea {
 }
 
 
-
 .image-text {
-    font-size: 0.8rem;
-    width: 90%;
+    font-size: 0.7rem;
+    width: 100%;
 }
 
 .submit {
     justify-content: end;
+    height: 50px;
 }
+
+select {
+    height: 38px;
+    text-indent: 2px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
 
 .submit-btn {
     float: right;
-    margin-right: 10%;
     justify-content: end;
+    min-height: 30px;
+    border-radius: 25px;
+    border: 0px transparent solid;
+    border-top: 2px inset #b1d6db;
+    background-color: #07beb8;
+    padding: 10px 20px;
+    margin-top: 20px;
+    /*button text*/
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.modal-btn {
+    float: left;
+    justify-content: start;
+    min-height: 30px;
+    border-radius: 50%;
+    border: 0px transparent solid;
+    border-top: 2px inset #b1d6db;
+    background-color: #07beb8;
+    padding: 10px 20px;
+    margin-top: 20px;
+    /*button text*/
+    font-size: 1rem;
+    font-weight: 1000;
+}
+
+.image-modal {
+    padding: 1em;
+    margin: auto;
+    justify-content: center;
+    border-radius: 5px;
+    border: 5px solid #07beb8;
+}
+
+.image-modal::backdrop {
+    background: linear-gradient(45deg, #07beb8, #b1d6db);
+    opacity: .5;
+}
+
+.image-modal > h4 {
+    font-weight: bold;
+    width: 100%;
+}
+
+.close-btn {
+    float: right;
+    justify-content: start;
     min-height: 30px;
     border-radius: 25px;
     border: 0px transparent solid;
@@ -85,17 +150,39 @@ textarea {
 #img-preview {
     border: 0px transparent solid;
     border-top: 2px inset #b1d6db;
-    width: 90%;
+    width: 100%;
     background-color: white;
-    border-radius: 25px;
+    border-radius: 19px;
     display: none;
     gap: 10px;
     justify-content: start;
     flex-wrap: wrap;
     padding: 10px;
+    margin: 10px 0;
 }
 
 #img-preview > * {
     border-radius: 10px;
     height: 43px;
 }
+
+.tag-pill {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+}
+
+.form-control {
+    border: 0px transparent solid;
+    border-top: 2px inset #b1d6db;
+    border-radius: 19px;
+    margin: 10px 0;
+}
+
+.form-select {
+    border: 0px transparent solid;
+    border-top: 2px inset #b1d6db;
+    border-radius: 19px;
+    margin: 10px 0;
+}
+

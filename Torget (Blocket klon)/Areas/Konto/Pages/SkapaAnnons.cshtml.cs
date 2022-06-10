@@ -121,6 +121,11 @@ public class SkapaAnnonsModel : PageModel
         [Display(Name = "Kategori")]
         public TorgetCategory Kategori { get; set; }
 
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Taggar")]
+        public List<Tag> Tags { get; set; }
+
         [DataType(DataType.Upload)]
         [Display(Name = "Ad Image")]
         public List<IFormFile>? AdImages { get; set; }

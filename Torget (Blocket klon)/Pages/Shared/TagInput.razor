@@ -1,0 +1,48 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+<MudTextField Variant="Variant.Outlined" Clearable="true" Immediate="true" Label="Tags" @bind-Value="@input.name" OnKeyPress="Callback"></MudTextField>
+<MudChipSet AllClosable="true" OnClose="Closed">
+    @foreach (var value in values)
+    {
+        <MudChip Text="@value"></MudChip>
+    }
+</MudChipSet>
+
+@code
+{
+    private readonly Inputted input = new() {name = ""};
+
+    public class Inputted
+    {
+        public string name { get; set; }
+    }
+
+    readonly List<string> values = new();
+
+    private void Add(string tag)
+    {
+        values.Add(tag);
+    }
+
+    private async void Reset()
+    {
+        input.name = string.Empty;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private void Closed(MudChip chip)
+    {
+        values.Remove(chip.Text);
+    }
+
+    private void Callback(KeyboardEventArgs args)
+    {
+        if (args.Key != " ")
+        {
+            return;
+        }
+
+        Add(input.name);
+        Reset();
+    }
+
+}

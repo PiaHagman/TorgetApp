@@ -1,5 +1,6 @@
 ﻿@page
 @using Humanizer
+@using Torget__Blocket_klon_.Pages.Shared
 @model Torget__Blocket_klon_.Areas.Konto.Pages.SkapaAnnonsModel
 
 <div class="ad-view">
@@ -9,57 +10,74 @@
             <div class="titel">
                 <h2 class="titel"><i class="fa-solid fa-square-plus"></i> Ny annons</h2>
             </div>
+
             @*Rubrik*@
             <div class="rubrik">
                 <input class="input-element" asp-for="Input.Titel" placeholder="Rubrik"/>
-                <label asp-for="Input.Titel"/>
                 <span asp-validation-for="Input.Titel"/>
             </div>
+
             @*Beskrivning*@
             <div class="beskrivning">
                 <textarea class="input-element multiline-element" asp-for="Input.Beskrivning" placeholder="Beskrivning"></textarea>
-                <label asp-for="Input.Beskrivning"/>
                 <span asp-validation-for="Input.Beskrivning"/>
             </div>
+
             @*Pris*@
             <div class="pris">
                 <input class="input-element" asp-for="Input.Pris" placeholder="Pris"/>
-                <label asp-for="Input.Pris"/>
                 <span asp-validation-for="Input.Pris"/>
             </div>
+
             @*Kategori*@
             <div class="Kategori">
 
-                <select>
+                <select class="form-select" name="Input.Kategori">
                     <option value="" disabled selected>Välj kategori</option>
                     @foreach (var category in Model.CategoryList)
                     {
-                        <option value="@category">@category.ToLower().Humanize(LetterCasing.Sentence)</option>
+                        <option value="@category">@category.ToLower().Humanize(LetterCasing.Title)</option>
                     }
                 </select>
-
-
-                @*TODO*@ @*<input class="input-element" asp-for="Input.Kategori" placeholder="Kategorier"/>
-                <label asp-for="Input.Kategori"/>
-                <span asp-validation-for="Input.Kategori"/>*@
-
+                <span asp-validation-for="Input.Kategori"></span>
             </div>
 
+            @*Tags*@
+            <div class="tags">
+                <input id="tag-element" type="text" class="input-element" onchange="tagTextPillDecoration(this)" asp-for="Input.Tags" placeholder="Taggar"/>
+            </div>
+
+            <component type="typeof(TagInput)" render-mode="ServerPrerendered"/>
+
+
+            @*Bild Prewview*@
             <div id="img-preview">
             </div>
 
             @*Bild*@
             <div class="Bild">
-                <input class="image-element" ma type="file" onchange="ShowPreview(this)" asp-for="Input.AdImages" multiple max="4" accept=".jpg,.png,.jpeg*"/>
-                <label asp-for="Input.AdImages"/>
+                <input class="form-control" ma type="file" onchange="ShowPreview(this)" asp-for="Input.AdImages" multiple max="4" accept=".jpg,.png,.jpeg*"/>
                 <span asp-validation-for="Input.AdImages"/>
-                <p class="image-text">Recommended minimum ad image size 600x400px <br/> Accepted image formats are: .jpg, .jpeg, .png </p>
+
+                <dialog class="image-modal">
+                    <h4>Bild restriktioner</h4>
+                    <p>Rekommenderad minsta bild storlek är 400x600px </p>
+                    <p>Accepterade bildformat är:.jpg, .jpeg, .png</p>
+                    <p>Max fyra bider</p>
+                    <button type="button" class="close-btn">Close</button>
+                </dialog>
+
+
             </div>
 
             @*Submit*@
             <div class="submit">
-                <button class="submit-btn" type="submit">Lägg upp</button>
+
+                <button type="button" class="modal-btn">i</button>
+
+                <button class="submit-btn" type="submit">Lägg upp</button> @*BUG - submits on enter key*@
             </div>
+
         </form>
     </div>
 </div>
@@ -67,7 +85,8 @@
 
 <script>
   
-    function ShowPreview(input) {
+    function ShowPreview(input) 
+    {
 
         var imageContainer = document.getElementById("img-preview");
         imageContainer.innerHTML = "";
@@ -98,5 +117,23 @@
     }
 
     //#sourceURL=ShowPreview.js
+    
+       
+    /*MODAL*/
+    const modal = document.querySelector(".image-modal")
+    const modal_btn = document.querySelector(".modal-btn")
+    const close_modal_btn = document.querySelector(".close-btn")
+   
+    
+    modal_btn.addEventListener("click", () => {
+        modal.showModal();
+    })  
+    
+    close_modal_btn.addEventListener("click", () => {
+        modal.close();
+    })
+    
+    
+  
 
 </script>
