@@ -1,6 +1,9 @@
 ﻿@model TorgetAd
+@using Microsoft.AspNetCore.Http.Extensions;
+@*@inject HttpContext httpContext*@
 
-<a class="ad-container" asp-area="Annonser" asp-page="/Annons" asp-route-id=@Model.Id>
+
+<a class="ad-container" id="ad-@Model.Id" asp-area="Annonser" asp-page="/Annons" asp-route-id=@Model.Id>
     <img class="ad-container-image" src="@Model.AdImages.First().Url" alt="Image for @Model.Title" />
     <h5 class="ad-container-title">@Model.Title</h5>
     <span class="ad-container-tags">
@@ -14,4 +17,17 @@
         <p>@Model.TorgetUser.County</p>
     </div>
     <p class="ad-container-price">@Model.Price SEK</p>
+    
+    @{
+        string path = Context.Request.Path.Value.Trim('/').ToLower();
+    }
+
+    @if(!Model.Sold && path=="konto/minaannonser")
+    {
+        <form class="edit-container" method="post" asp-route-torgetAdId="@Model.Id">
+            <input type="submit" class="submit-btn" value="Ändra"/>
+        </form>
+    }
 </a>
+
+
