@@ -3,7 +3,7 @@
     public class AdMessages
     {
         public Guid _id { get; set; } = Guid.NewGuid();
-        public string? AdId { get; set; }
+        public int AdId { get; set; }
         public string? SellerUserId { get; set; }
         public string? BuyerUserId { get; set; }
         public List<Message> Messages { get; set; } = new List<Message>();

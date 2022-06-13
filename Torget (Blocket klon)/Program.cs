@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Torget__Blocket_klon_.Areas.Konto.Pages;
 using Torget__Blocket_klon_.Data.Models;
 using Torget__Blocket_klon_.Data.Services;
 
@@ -11,6 +12,7 @@ builder.Services.AddDbContext<TorgetDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("default")));
 builder.Services.AddScoped<Database>();
 builder.Services.AddScoped<AdHandler>();
+builder.Services.AddScoped<ChatService>();
 
 #region Identity
 
@@ -30,6 +32,8 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 #endregion
+
+builder.Services.AddSignalR(opt => opt.EnableDetailedErrors = true);
 
 
 var app = builder.Build();
@@ -55,5 +59,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapHub<ChattHub>("/chatHub");
 
 app.Run();

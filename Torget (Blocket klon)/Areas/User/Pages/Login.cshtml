@@ -1,0 +1,10 @@
+﻿@page
+@model Torget__Blocket_klon_.Areas.User.Pages.LoginModel
+@{
+}
+
+<form method="post">
+    <input type="text" placeholder="user1@email.com" name="UserName"/>
+    <input type="text" placeholder="Passw0rd!" name="Password" />
+    <input type="submit" value="Login" asp-page-handler="LogIn" />
+</form>
