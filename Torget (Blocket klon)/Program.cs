@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using MudBlazor.Services;
 using Torget__Blocket_klon_.Areas.Konto.Pages;
 using Torget__Blocket_klon_.Data.Models;
 using Torget__Blocket_klon_.Data.Services;
@@ -7,11 +8,15 @@ using Torget__Blocket_klon_.Data.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
+builder.Services.AddMudServices();
 
 builder.Services.AddDbContext<TorgetDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("default")));
 builder.Services.AddScoped<Database>();
 builder.Services.AddScoped<AdHandler>();
+builder.Services.AddScoped<ZipCodeHandler>();
+builder.Services.AddHttpClient();
 builder.Services.AddScoped<ChatService>();
 
 #region Identity
@@ -60,5 +65,6 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 app.MapHub<ChattHub>("/chatHub");
+app.MapBlazorHub();
 
 app.Run();

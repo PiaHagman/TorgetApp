@@ -1,4 +1,8 @@
-﻿@inject SignInManager<TorgetUser> signInManager;
+﻿
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Components.Web
+@using Torget__Blocket_klon_.Data.ModelsNotInDb
+@inject SignInManager<TorgetUser> signInManager;
 <!DOCTYPE html>
 
 <!DOCTYPE html>
@@ -10,6 +14,12 @@
     <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!--Blazor -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="~/_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
+    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+    <base href="~/"/>
+    <!--Blazor -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -21,84 +31,86 @@
     <title>@ViewBag.Title</title> 
 </head>
 <body>
-    <header>
+<component type="typeof(MudThemeProvider)" render-mode="ServerPrerendered"/>
+<header>
+    <div class="joined-header">
         <h3>TORGET</h3>
-        
-        <div class="categories to-hide">
-            <div class="category-single">
-                <i class="fa-solid fa-cat"></i>
-                <p>Category</p>
-            </div>
-            <div class="category-single">
-                <i class="fa-solid fa-cat"></i>
-                <p>Category</p>
-            </div>
-            <div class="category-single">
-                <i class="fa-solid fa-cat"></i>
-                <p>Category</p>
-            </div>
-            <div class="category-single">
-                <i class="fa-solid fa-cat"></i>
-                <p>Category</p>
-            </div>
+        <div>
+            <label for="checkbox" class="toggler">
+                <input type="checkbox" id="checkbox" />
+                <span class="ball"></span>
+                <i class="fa-regular fa-sun sun"></i>
+                <i class="fa-regular fa-moon moon"></i>
+            </label>
         </div>
-            <form class="to-hide filters" onsubmit=@{Console.WriteLine("Submitted");}>
-                <div class="filter-search input">
-                    <input type="text" placeholder="Ex. Barnvagn, cykel" id="search"/>
-                    <i class="fa-solid fa-sliders"></i>
-                </div>
-                <div class="filter-location input">
-                    <input type="text" placeholder="Plats" id="location"/>
-                </div>
-                <div class="filter-price input">
-                    <input type="text" placeholder="Pris" id="price"/>
-                </div>
-                <input class="filter-submit button" type="submit" value="Sök" />
-            </form>
-        <div class="hide-header" onClick="hideSearch()">
-            <i class="fa-solid fa-angle-up hide-header-icon"></i>
-        </div>
-        <nav class="navigation">
-            <a href="/" class="nav-item">
-                <i class="fa-solid fa-house"></i>
-                <h5>Hem</h5>
-            </a>
-
-            <a class="nav-item">
-                <i class="fa-solid fa-camera-retro"></i>
-                <h5>Bevakningar</h5>
-            </a>
-
-            <a class="nav-item" asp-area="Konto" asp-page="/SkapaAnnons">
-                <i class="fa-solid fa-square-plus"></i>
-                <h5>Ny annons</h5>
-            </a>
-
-
-            <a class="nav-item" asp-area="Konto" asp-page="/Chatt">
-                <i class="fa-solid fa-quote-right"></i>
-                <h5>Chatt</h5>
-            </a>
-
-            <a asp-area="User" asp-page="/Register" class="nav-item"> @*Implementera if för inloggad eller inte. Länka vidare beroende på status.*@
-                <i class="fa-solid fa-user-tie"></i>
-                @if (!signInManager.IsSignedIn(User))
-                {
-                    <h5>Logga in</h5>
-                }
-                else
-                {
-                    <h5>Profil</h5>   
-                }
-            </a>
-        </nav>
-    </header>
-    <div>
-        @RenderBody()
     </div>
+    <div class="categories to-hide">
+        <div class="category-single">
+            <i class="fa-solid fa-cat"></i>
+            <p>Category</p>
+        </div>
+        <div class="category-single">
+            <i class="fa-solid fa-cat"></i>
+            <p>Category</p>
+        </div>
+        <div class="category-single">
+            <i class="fa-solid fa-cat"></i>
+            <p>Category</p>
+        </div>
+        <div class="category-single">
+            <i class="fa-solid fa-cat"></i>
+            <p>Category</p>
+        </div>
+    </div>
+    <component type="typeof(_SearchBar)" render-mode="ServerPrerendered"/>
+    <div class="hide-header" onClick="hideSearch()">
+        <i class="fa-solid fa-angle-up hide-header-icon"></i>
+    </div>
+    <nav class="navigation">
+        
+        <a href="/" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <h5>Hem</h5>
+        </a>
+
+        <a class="nav-item">
+            <i class="fa-solid fa-camera-retro"></i>
+            <h5>Bevakningar</h5>
+        </a>
+
+        <a class="nav-item" asp-area="Konto" asp-page="/SkapaAnnons">
+            <i class="fa-solid fa-square-plus"></i>
+            <h5>Ny annons</h5>
+        </a>
+
+
+        <a class="nav-item" asp-area="Konto" asp-page="/Chatt">
+            <i class="fa-solid fa-quote-right"></i>
+            <h5>Chatt</h5>
+        </a>
+
+        <a asp-area="User" asp-page="/Register" class="nav-item"> @*Implementera if för inloggad eller inte. Länka vidare beroende på status.*@
+            <i class="fa-solid fa-user-tie"></i>
+            @if (!signInManager.IsSignedIn(User))
+            {
+                <h5>Logga in</h5>
+            }
+            else
+            {
+                <h5>Profil</h5>
+            }
+        </a>
+    </nav>
+</header>
+<div>
+    @RenderBody()
+</div>
 @await RenderSectionAsync("Scripts", false)
 <script src="~/lib/bootstrap/js/bootstrap.js"></script>
-
+<!--Blazor -->
+<script src="~/_content/MudBlazor/MudBlazor.min.js"></script>
+<script src="~/_framework/blazor.server.js"></script>
+<!--Blazor -->
 <script src="~/js/site.js" asp-append-version="true"></script>
 
 <script>
