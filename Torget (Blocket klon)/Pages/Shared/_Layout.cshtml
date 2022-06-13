@@ -89,17 +89,20 @@
             <h5>Chatt</h5>
         </a>
 
-        <a asp-area="User" asp-page="/Register" class="nav-item"> @*Implementera if för inloggad eller inte. Länka vidare beroende på status.*@
-            <i class="fa-solid fa-user-tie"></i>
-            @if (!signInManager.IsSignedIn(User))
-            {
+        @if (!signInManager.IsSignedIn(User))
+        {
+            <a asp-area="Konto" asp-page="/Inloggning" class="nav-item">
+                <i class = "fa-solid fa-user-tie"></i>
                 <h5>Logga in</h5>
-            }
-            else
-            {
-                <h5>Profil</h5>
-            }
-        </a>
+            </a>
+        }
+        else
+        {
+            <a asp-area="Konto" asp-page="/Profil" class="nav-item">
+                <i class = "fa-solid fa-user-tie"></i>
+                <h5>Profil </h5>
+            </a>
+        }
     </nav>
 </header>
 <div>
