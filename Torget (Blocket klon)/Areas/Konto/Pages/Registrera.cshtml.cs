@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,7 +8,8 @@ using Torget__Blocket_klon_.Data.Services;
 
 namespace Torget__Blocket_klon_.Areas.User.Pages;
 
-public class RegisterModel : PageModel
+[AllowAnonymous]
+public class RegistreraModel : PageModel
 {
     private readonly UserManager<TorgetUser> _userManager;
     private readonly ZipCodeHandler _zipCodeHandler;
@@ -47,7 +49,7 @@ public class RegisterModel : PageModel
     [Compare("Password", ErrorMessage = "Lösenorden matchar inte.")]
     public string ConfirmPassword { get; set; }
 
-    public RegisterModel(UserManager<TorgetUser> userManager, ZipCodeHandler zipCodeHandler)
+    public RegistreraModel(UserManager<TorgetUser> userManager, ZipCodeHandler zipCodeHandler)
     {
         _userManager = userManager;
         _zipCodeHandler = zipCodeHandler;

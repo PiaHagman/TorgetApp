@@ -7,6 +7,7 @@ using Torget__Blocket_klon_.Data.Models;
 using Torget__Blocket_klon_.Data.Services;
 
 namespace Torget__Blocket_klon_.Areas.Konto.Pages;
+
 [Authorize]
 public class SkapaAnnonsModel : PageModel
 {
@@ -34,16 +35,15 @@ public class SkapaAnnonsModel : PageModel
     {
         if (!ModelState.IsValid) return Page();
 
-        var user = await _userManager.FindByIdAsync(
-            "43eefa21-9b75-4926-9e1f-d9a878aa5f24"); //Tillfällig user.
+        var user = await _userManager.GetUserAsync(User);
 
-        var imagePaths = await addImages(Input.AdImages);
+        var imagePaths = await AddImages(Input.AdImages);
 
 
         var newTorgetAd = new TorgetAd
         {
             Title = Input.Titel,
-            Category = Input.Kategori,
+            Category = new TorgetCategory() {Name = Input.Kategori},
             Description = Input.Beskrivning,
             Price = Input.Pris,
             DatePosted = DateTime.Now,
@@ -58,7 +58,7 @@ public class SkapaAnnonsModel : PageModel
                         $"{createdTorgetAd.Id}"); //returna till en preview sida?
     }
 
-    public async Task<List<AdImage>> addImages(List<IFormFile> postedFiles)
+    public async Task<List<AdImage>> AddImages(List<IFormFile> postedFiles)
     {
         var fileUploadPath = _webenvironment.WebRootPath + "\\AdImageUploads";
 
@@ -119,7 +119,7 @@ public class SkapaAnnonsModel : PageModel
         [Required]
         [DataType(DataType.Text)]
         [Display(Name = "Kategori")]
-        public TorgetCategory Kategori { get; set; }
+        public string Kategori { get; set; }
 
         [DataType(DataType.Upload)]
         [Display(Name = "Ad Image")]

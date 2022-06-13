@@ -78,10 +78,10 @@
             <h5>Bevakningar</h5>
         </div>
 
-        <div class="nav-item">
+        <a asp-area="Konto" asp-page="/SkapaAnnons" class="nav-item">
             <i class="fa-solid fa-square-plus"></i>
             <h5>Ny annons</h5>
-        </div>
+        </a>
 
 
         <div class="nav-item">
@@ -91,14 +91,14 @@
 
         @if (!signInManager.IsSignedIn(User))
         {
-            <a asp-area="Konto" asp-page="/Inloggning">
+            <a asp-area="Konto" asp-page="/Inloggning" class="nav-item">
                 <i class = "fa-solid fa-user-tie"></i>
                 <h5>Logga in</h5>
             </a>
         }
         else
         {
-            <a asp-area="Konto" asp-page="/Profil">
+            <a asp-area="Konto" asp-page="/Profil" class="nav-item">
                 <i class = "fa-solid fa-user-tie"></i>
                 <h5>Profil </h5>
             </a>
