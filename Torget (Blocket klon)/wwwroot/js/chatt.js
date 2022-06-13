@@ -3,14 +3,14 @@
 const connection = new signalR.HubConnectionBuilder().withUrl("/chathub").configureLogging(signalR.LogLevel.Information).build();
 connection.start();
 
-var activeChatId = null;
-var activeAdId = null;
+let activeChatId = null;
+let activeAdId = null;
 
-var chatWindow = document.getElementById("chatWindow");
-var referenceBox = document.getElementById("referenceBox");
+let chatWindow = document.getElementById("chatWindow");
+let referenceBox = document.getElementById("referenceBox");
 
 connection.on("Status", function (status) {
-    var cs = document.getElementById("connectionStatus");
+    let cs = document.getElementById("connectionStatus");
     cs.innerHTML = status;
 });
 
@@ -19,7 +19,7 @@ if (referenceBox != null) {
 }
 
 document.getElementById("chatSend").addEventListener("click", () => {
-    var content = document.getElementById("chatInput").value;
+    let content = document.getElementById("chatInput").value;
     chatWindow.innerHTML += `<p class="right">${content}</p>`
 
     if (content && activeAdId) {
@@ -40,9 +40,9 @@ connection.on("ReceiveMessage", function (message, active) {
 
 document.querySelectorAll(".chat-menu-item").forEach(item => {
     item.addEventListener("click", () => {
-        var chatId = item.dataset.chatid;
-        var adId = item.dataset.adid;
-        var currentUser = item.dataset.currentuser;
+        let chatId = item.dataset.chatid;
+        let adId = item.dataset.adid;
+        let currentUser = item.dataset.currentuser;
 
         if (activeChatId != chatId) {
             activeChatId = chatId;

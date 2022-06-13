@@ -1,9 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.SignalR;
-using System.Text.Json;
 using Torget__Blocket_klon_.Data.Models;
 using Torget__Blocket_klon_.Data.Services;
 
@@ -58,69 +56,25 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
         public async Task SendMessage(string adId, string content)
         {
             if (currentUserId == null) throw new Exception("There is no logged in user D:");
-            Console.WriteLine("trying to send a message");
-
             MessagesFilter target = new MessagesFilter { AdId = Int16.Parse(adId), BuyerUserId = currentUserId, SellerUserId = currentUserId };
 
+            // Saves the message to document
             Message message = new Message { Content = content, UserId = currentUserId };
             await _chatService.SaveMessageAsync(target, message);
 
+            // Sends the message to receiver
             string receiverId = _chatService.GetMessageReceiver(target, currentUserId);
             await Clients.User(receiverId).SendAsync("ReceiveMessage", content, adId);
         }
 
-        public List<AdMessages> GetMessages()
+        public AdMessages GetMessage(string chatId)
         {
-            if (currentUserId == null) throw new Exception("There is no logged in user D:");
-
-            MessagesFilter target = new MessagesFilter { BuyerUserId = currentUserId, SellerUserId = currentUserId };
-            List<AdMessages> result = _chatService.GetMessages(target);
-
-            return result;
-        }
-
-        public AdMessages GetMessage(string id)
-        {
-            return _chatService.GetMessage(id);
+            return _chatService.GetMessage(chatId);
         }
 
         public override async Task OnConnectedAsync()
         {
-            Console.WriteLine(Context.UserIdentifier + " connected");
             await Clients.All.SendAsync("Status", "Connected successfully.");
-        }
-
-        public void Seed()
-        {
-            AdMessages adMessages = new AdMessages
-            {
-                AdId = 1,
-                SellerUserId = "43eefa21-9b75-4926-9e1f-d9a878aa5f24",
-                BuyerUserId = "f20ff2b1-a75d-4ce0-a245-6415284391cf",
-            };
-
-            List<Message> messages = new List<Message>
-            {
-                new()
-                {
-                    UserId = "f20ff2b1-a75d-4ce0-a245-6415284391cf",
-                    Content = "Finns cykeln kvar?"
-                },
-                new()
-                {
-                    UserId = "43eefa21-9b75-4926-9e1f-d9a878aa5f24",
-                    Content = "Ja den finns kvar, intresserad?"
-                },
-                new()
-                {
-                    UserId = "f20ff2b1-a75d-4ce0-a245-6415284391cf",
-                    Content = "Nä inte längre :)"
-                }
-            };
-
-            adMessages.Messages.AddRange(messages);
-
-            _chatService.Seed(adMessages);
         }
     }
 }

@@ -60,12 +60,6 @@ namespace Torget__Blocket_klon_.Data.Services
             return _collection.Find(idFilter).FirstOrDefault();
         }
 
-        internal void Seed(AdMessages adMessages)
-        {
-            Console.WriteLine("Seeding mongoDb");
-            _collection.InsertOne(adMessages);
-        }
-
         public string GetMessageReceiver(MessagesFilter filter, string currentUserId)
         {
             AdMessages target = _collection.Find(filter.FilterAll).First();
