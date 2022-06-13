@@ -15,13 +15,12 @@
 [Daily Stand Up 5](###Daily-stand-up-5)  
 [Daily Stand Up 6](###Daily-stand-up-6)  
 [Daily Stand Up 7](###Daily-stand-up-7)  
-[Daily Stand Up 8](###Daily-stand-up-8)
-[Daily Stand Up 9](###Daily-stand-up-9)
-
+[Daily Stand Up 8](###Daily-stand-up-8)  
+[Daily Stand Up 9](###Daily-stand-up-9)  
+[Daily Stand Up 10](###Daily-stand-up-10)
 
 ### Sprint reviews:  
 [Sprint Review 1](###Sprint-Review-1)  
-
 
 ### Retrospectives:  
 [Retrospective 1](###Retrospective-1)  
@@ -65,7 +64,7 @@ ___
 
 ## Daily Stand Ups:  
 
-### Daily Stand Up 1  <br/>
+### Daily Stand Up 1 <br/>
 **Date:** 2021-05-24 <br/>
 **Timebox:** 0 h 15 min <br/>
 
@@ -75,7 +74,7 @@ ___
 - Idris visar upp sina wireframes efter mötet. 
 - Vi kan assignea oss till issues, man gärna gör. Men lägger bara in den issue man arbetar med just nu i **pågående**. 
 
-### Daily Stand Up 2  <br/>
+### Daily Stand Up 2 <br/>
 **Date:** 2021-05-25 <br/>
 **Timebox:** 0 h 15 min <br/>
 
@@ -86,7 +85,7 @@ ___
 - Möte klockan 10 för att uppdatera gusta, som missade gårdagens.
 - DBcontext klart   
 
-### Daily Stand Up 3  <br/>
+### Daily Stand Up 3 <br/>
 **Date:** 2021-05-30 <br/>
 **Timebox:** 0 h 15 min <br/>
 
@@ -99,7 +98,7 @@ ___
 -  Onsdag blir sammanställning av sprint. 
 -  Mötet drog över lite med   
 
-### Daily Stand Up 4  <br/>
+### Daily Stand Up 4 <br/>
 **Date:** 2021-05-31 <br/>
 **Timebox:** 0 h 15 min <br/>
 
@@ -113,7 +112,7 @@ ___
 -  Jag forsätter med ``SkapaAnnons``, sitter med spara bild till databas. 
    Gör sedan en spike för att kunna lägga till flera bilder samtidigt.    
 
-### Daily Stand Up 5  <br/>
+### Daily Stand Up 5 <br/>
 **Date:** 2021-06-01 <br/>
 **Timebox:** 0 h 15 min <br/>
 
@@ -128,7 +127,7 @@ ___
 -  Flyttar samanställningen av sprint 1 till 14:30
 
 
-### Daily Stand Up 6  <br/>
+### Daily Stand Up 6 <br/>
 **Date:** 2021-06-03 <br/>
 **Timebox:** 0 h 15 min <br/>
 
@@ -138,7 +137,7 @@ ___
 - Vi andra kommer sitta med lite annat idag, men finnas tillgängliga.
 
 
-### Daily Stand Up 7  <br/>
+### Daily Stand Up 7 <br/>
 **Date:** 2021-06-07 <br/>
 **Timebox:** 0 h 15 min <br/>
 
@@ -151,7 +150,7 @@ ___
 - Johan ska påbörja med kategorier. 
 - 
 - 
-- ### Daily Stand Up 8  <br/>
+- ### Daily Stand Up 8 <br/>
 **Date:** 2021-06-09 <br/>
 **Timebox:** 0 h 15 min <br/>
 
@@ -163,7 +162,7 @@ ___
 - Jag ska implementera en drop down för kategorier och lägga till taggar på ``skapa annons`` sidan. 
  
 
-- ### Daily Stand Up 9  <br/>
+- ### Daily Stand Up 9 <br/>
 **Date:** 2021-06-10 <br/>
 **Timebox:** 0 h 15 min <br/>
 
@@ -175,6 +174,16 @@ ___
 - Pia vill att vi går igenom hur bilder läggs till i databasan. 
 - Jag forsätter med "lägg till annons"
 
+- ### Daily Stand Up 10 <br/>
+**Date:** 2021-06-13 <br/>
+**Timebox:** 0 h 15 min <br/>
+
+**Notes:** <br/>
+
+- Gustav ska sitta med sin PR, fanns lite saker att rätta till.
+- Idris sitter med sin chat tjänst.
+- Pia jobbar vidare med att begränsa antalet bilder som ska kunna laddas up.
+- Kim och jag ska titta viadre på taggar på skapa annons sidan. 
 ___
 
 
