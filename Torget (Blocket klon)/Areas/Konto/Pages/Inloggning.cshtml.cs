@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Torget__Blocket_klon_.Data.Models;
 
-namespace Torget__Blocket_klon_.Areas.User.Pages
+namespace Torget__Blocket_klon_.Areas.Konto.Pages
 {
     [AllowAnonymous]
     public class InloggningModel : PageModel

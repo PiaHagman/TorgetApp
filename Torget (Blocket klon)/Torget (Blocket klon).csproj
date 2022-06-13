@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\User\Pages\" />
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
