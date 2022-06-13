@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,6 +8,7 @@ using Torget__Blocket_klon_.Data.Services;
 
 namespace Torget__Blocket_klon_.Areas.Konto.Pages;
 
+[Authorize]
 public class SkapaAnnonsModel : PageModel
 {
     private readonly AdHandler _adHandler;
@@ -22,8 +24,6 @@ public class SkapaAnnonsModel : PageModel
         _webenvironment = environment;
     }
 
-    public TorgetAd inputToSave { get; set; }
-
     [BindProperty] public InputModel Input { get; set; }
 
     public void OnGet()
@@ -33,20 +33,17 @@ public class SkapaAnnonsModel : PageModel
 
     public async Task<IActionResult> OnPostAsync()
     {
-
         if (!ModelState.IsValid) return Page();
 
+        var user = await _userManager.GetUserAsync(User);
 
-        var user = await _userManager.FindByIdAsync(
-            "43eefa21-9b75-4926-9e1f-d9a878aa5f24"); //Tillfällig user.
+        var imagePaths = await AddImages(Input.AdImages);
 
-        var imagePaths = await addImages(Input.AdImages);
-        
 
         var newTorgetAd = new TorgetAd
         {
             Title = Input.Titel,
-            Category = new TorgetCategory{Name = Input.Kategori},
+            Category = new TorgetCategory() {Name = Input.Kategori},
             Description = Input.Beskrivning,
             Price = Input.Pris,
             DatePosted = DateTime.Now,
@@ -61,7 +58,7 @@ public class SkapaAnnonsModel : PageModel
                         $"{createdTorgetAd.Id}"); //returna till en preview sida?
     }
 
-    public async Task<List<AdImage>> addImages(List<IFormFile>? postedFiles)
+    public async Task<List<AdImage>> AddImages(List<IFormFile> postedFiles)
     {
         if (postedFiles == null)
         {
