@@ -78,10 +78,10 @@
             <h5>Bevakningar</h5>
         </div>
 
-        <div class="nav-item">
+        <a asp-area="Konto" asp-page="/SkapaAnnons" class="nav-item">
             <i class="fa-solid fa-square-plus"></i>
             <h5>Ny annons</h5>
-        </div>
+        </a>
 
 
         <div class="nav-item">
@@ -89,17 +89,20 @@
             <h5>Chatt</h5>
         </div>
 
-        <a asp-area="User" asp-page="/Register" class="nav-item"> @*Implementera if för inloggad eller inte. Länka vidare beroende på status.*@
-            <i class="fa-solid fa-user-tie"></i>
-            @if (!signInManager.IsSignedIn(User))
-            {
+        @if (!signInManager.IsSignedIn(User))
+        {
+            <a asp-area="Konto" asp-page="/Inloggning" class="nav-item">
+                <i class = "fa-solid fa-user-tie"></i>
                 <h5>Logga in</h5>
-            }
-            else
-            {
-                <h5>Profil</h5>
-            }
-        </a>
+            </a>
+        }
+        else
+        {
+            <a asp-area="Konto" asp-page="/Profil" class="nav-item">
+                <i class = "fa-solid fa-user-tie"></i>
+                <h5>Profil </h5>
+            </a>
+        }
     </nav>
 </header>
 <div>
