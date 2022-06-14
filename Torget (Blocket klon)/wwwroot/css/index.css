@@ -27,7 +27,7 @@ h5 {
     margin: 10px;
 }
 
-    .input input {
+    .input input, input {
         width: 100%;
         height: 100%;
         border: 0;
@@ -36,24 +36,29 @@ h5 {
         margin: 0px 10px;
     }
 
-        .input input:focus {
+        .input input:focus, input:focus {
             outline: none;
         }
 
 .button {
-    background-color: var(--background-color-dark);
-    box-shadow: 0 -3px #7fbbc4;
-    color: white;
+    background-color: #07beb8;
+    color: black;
     border-radius: 100px;
     margin: 6px;
     min-width: contain;
     border: none;
     padding-left: 0px;
 }
+
+header .button {
+    box-shadow: 0 -3px #7fbbc4;
+}
+
 .edit-container {
     display: flex;
     justify-content: right;
 }
+
 header {
     display: flex;
     flex-direction: column;
@@ -139,6 +144,7 @@ header {
 
 .filter-price {
     grid-area: 3 / 1 / 3 / 3;
+    padding: 3px;
 }
 
 .filter-submit {
@@ -216,9 +222,8 @@ nav {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 12px;
-    margin-bottom: 100px;
+    justify-content: space-around;
+    margin: 16px 0 0 0;
 }
 
     .ads-container a, a:hover, a:focus, a:active {
@@ -231,19 +236,21 @@ nav {
     flex-direction: column;
     background-color: white;
     box-shadow: 2px 5px 10px #cfcfcf;
+    background-color: rgb(152, 223, 234, 0.05);
     border-radius: 16px;
     overflow: hidden;
-    width: 43%;
+    width: calc(50% - 1em);
+    max-width: 180px;
     padding: 8px;
-    margin: 0 0 14px 0;
+    margin: 6px;
 }
 
     .ad-container img {
         background-color: gainsboro;
         border-radius: 16px;
         height: 100px;
-        max-height: 110px;
         width: 100%;
+        object-fit: cover;
     }
 
     .ad-container .ad-container-title {
@@ -290,6 +297,7 @@ nav {
 
     .ad-container .ad-container-tags {
         display: flex;
+        height: 23px;
         margin: 0 0 0 5px;
     }
 
@@ -337,7 +345,7 @@ nav {
     .categories {
         order: 3;
         width: 40%;
-        display: flex;
+        display: none;
         flex-direction: row;
         justify-content: center;
         align-items: center;

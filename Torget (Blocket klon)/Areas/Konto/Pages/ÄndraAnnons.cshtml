@@ -4,6 +4,7 @@
     ViewData["Title"] = "Ändra Annons";
 }
 
+<h2 class="display-4 text-center mt-5 mb-3">Ändra annons</h2>
 @if (@Model.ErrorOccurred)
 {
     <!-- Button trigger modal -->
@@ -42,10 +43,10 @@
 <div class="ad-view">
     <div class="ad-input-area">
         <form method="post" enctype="multipart/form-data" id="updateAdForm">
-            @*Titel*@
+            @*Titel
             <div class="titel">
                 <h2 class="titel"><i class="fa-solid fa-square-pen"></i> Ändra annons</h2>
-            </div>
+            </div>*@
             @*Rubrik*@
             <div class="rubrik">
                 <label asp-for="Input.Title"></label> 
@@ -75,7 +76,7 @@
             @*Submit*@
             <div class="submit">
             <input type="hidden" name="adId" value="@Model.AdToEdit.Id"/>
-            <button id="registerSubmit" type="submit" class="submit-btn">Uppdatera</button>            
+            <button id="registerSubmit" type="submit" class="submit-btn button">Uppdatera</button>            
             </div>
             
         </form>
@@ -83,7 +84,7 @@
         <form asp-page-handler="delete" method="post" id="radera-btn">
            
             <input type ="hidden" name="adId" value="@Model.AdToEdit.Id" />
-            <button onclick="confirmDelete(event)"class="submit-btn" type="submit">Radera</button>
+            <button onclick="confirmDelete(event)"class="submit-btn button" type="submit">Radera</button>
             
         </form>
         </div>
@@ -91,7 +92,7 @@
         </div>
         <form asp-page-handler="sold" method="post">
             <input type ="hidden" name="adId" value="@Model.AdToEdit.Id" />
-            <button class="submit-btn" id="sold-btn" type="submit">Markera som såld</button>
+            <button class="submit-btn button" id="sold-btn" type="submit">Markera som såld</button>
         </form>
     </div>
 </div>
