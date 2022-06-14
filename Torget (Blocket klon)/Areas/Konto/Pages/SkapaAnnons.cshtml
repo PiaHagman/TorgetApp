@@ -32,7 +32,7 @@
             @*Kategori*@
             <div class="Kategori">
 
-                <select class="form-select" asp-for="Input.Kategori"
+                <select class="form-select Kategori-select" asp-for="Input.Kategori"
                         asp-items="@(new SelectList(@Model.CategoryList))">
 
                     <option value="" disabled selected>Välj kategori</option>
@@ -51,7 +51,7 @@
 
             @*Bild*@
             <div class="Bild">
-                <input class="form-control" ma type="file" onchange="ShowPreview(this)" asp-for="Input.AdImages" multiple max="4" accept=".jpg,.png,.jpeg*"/>
+                <input class="add-image form-control" ma type="file" onchange="ShowPreview(this)" asp-for="Input.AdImages" multiple max="4" accept=".jpg,.png,.jpeg*"/>
                 <span asp-validation-for="Input.AdImages"></span>
 
                 <dialog class="image-modal">
@@ -65,11 +65,11 @@
             </div>
 
             @*Submit*@
-            <div class="submit">
+            <div style="height: 50px; display: block;" class="submit">
 
-                <button type="button" class="modal-btn">i</button>
+                <button type="button" class="modal-btn mt-5 float-start">i</button>
 
-                <button class="submit-btn" type="submit" onclick="BindTagsToInputTags(event)">Lägg upp</button> @*BUG - submits on enter key*@
+                <button class="submit-btn mt-5 float-end" type="submit" onclick="BindTagsToInputTags(event)">Lägg upp</button> @*BUG - submits on enter key*@
             </div>
 
         </form>

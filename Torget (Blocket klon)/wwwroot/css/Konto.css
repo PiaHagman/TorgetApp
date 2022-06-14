@@ -53,7 +53,8 @@ input:focus, textarea:focus, select:focus {
 
 textarea {
     padding-top: 8px;
-    text-indent: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
     font-weight: 600;
     font-size: 1rem;
 }
@@ -82,8 +83,9 @@ textarea {
 }
 
 .submit {
+    display: flex;
     justify-content: end;
-    height: 50px;
+    
 }
 
 select {
@@ -95,25 +97,18 @@ select {
 
 
 .submit-btn {
-    float: right;
-    justify-content: end;
-    justify-content: end;
-    justify-content: end;
-    justify-content: end;
     min-height: 30px;
     border-radius: 25px;
     border: 0px transparent solid;
     border-top: 2px inset #b1d6db;
     background-color: #07beb8;
     padding: 10px 20px;
-    margin-top: 20px;
     /*button text*/
     font-size: 0.8rem;
     font-weight: bold;
 }
 
 .modal-btn {
-    float: left;
     justify-content: start;
     min-height: 30px;
     border-radius: 50%;
@@ -215,16 +210,16 @@ select {
     border-radius: 50%;
 }
 
-.form-control {
+.add-image {
     border: 0px transparent solid;
     border-top: 2px inset #b1d6db;
     border-radius: 19px;
-    margin: 10px 0;
+    margin: 25px 0 0 0;
 }
 
-.form-select {
+.Kategori-select {
     border: 0px transparent solid;
     border-top: 2px inset #b1d6db;
     border-radius: 19px;
-    margin: 10px 0;
+    margin: 15px 0 25px 0;
 }

@@ -1,8 +1,8 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Authorization;
 using Torget__Blocket_klon_.Data.Models;
 using Torget__Blocket_klon_.Data.Services;
 
@@ -15,6 +15,8 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
         private readonly UserManager<TorgetUser> _userManager;
 
         public bool ErrorOccurred = false;
+
+        public List<string> CategoryList { get; set; }
 
         public TorgetAd AdToEdit { get; set; }
 
@@ -56,6 +58,8 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
 
         public async Task<IActionResult> OnGet(int adId)
         {
+            CategoryList = await _adHandler.GetCategoriesList();
+
             Input = new InputModel();
             AdToEdit = await _adHandler.Get(adId);
 
@@ -93,7 +97,7 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
 
                 await _adHandler.Update(AdToEdit);
 
-                return RedirectToPage("/MinaAnnonser", new {area = "Konto"});
+                return RedirectToPage("/MinaAnnonser", new { area = "Konto" });
             }
 
             return Page();
@@ -104,7 +108,7 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
             try
             {
                 await _adHandler.Delete(adId);
-                return RedirectToPage("/AnnonsRaderad", new {area = "Konto"});
+                return RedirectToPage("/AnnonsRaderad", new { area = "Konto" });
             }
             catch
             {
@@ -124,7 +128,7 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
         public async Task<IActionResult> OnPostSold(int adId)
         {
             await _adHandler.MarkAsSold(adId);
-            return RedirectToPage("/MinaAnnonser", new {area = "Konto"});
+            return RedirectToPage("/MinaAnnonser", new { area = "Konto" });
         }
     }
 }

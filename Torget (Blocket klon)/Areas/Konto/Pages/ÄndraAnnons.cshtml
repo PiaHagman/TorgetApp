@@ -36,7 +36,7 @@
             modal.classList.remove("show");
             modal.style.display = "none";
         }
-      </script>
+    </script>
 }
 
 <div class="ad-view">
@@ -49,26 +49,31 @@
             @*Rubrik*@
             <div class="rubrik">
                 <label asp-for="Input.Title"></label> 
-                <input class="input-element" asp-for="Input.Title" class="form-control" aria-required="true"    />
+                <input class="input-element" asp-for="Input.Title" aria-required="true"    />
                 <span asp-validation-for="Input.Title" ></span>
             </div>
             @*Beskrivning*@
             <div class="beskrivning">
                 <label asp-for="Input.Description" ></label>
-                <textarea class="input-element multiline-element" asp-for="Input.Description" class="form-control" aria-required="true"></textarea>
+                <textarea class="input-element multiline-element" asp-for="Input.Description" aria-required="true"
+                oninput="this.style.height = ''; this.style.height = this.scrollHeight + 15 + 'px';" style="overflow: hidden;" ></textarea>
                 <span asp-validation-for="Input.Description" ></span>
             </div>
             @*Pris*@
             <div class="pris">
                 <label asp-for="Input.Price" ></label>
-                <input class="input-element" asp-for="Input.Price" class="form-control" aria-required="true"/>
+                <input class="input-element" asp-for="Input.Price" aria-required="true"/>
                 <span asp-validation-for="Input.Price"/>
             </div>
             @*Kategori*@
             <div class="Kategori">
-                <label asp-for="Input.Category"></label>
-                <input class="input-element" asp-for="Input.Category" class="form-control" aria-required="true"/>
-                <span asp-validation-for="Input.Category" ></span>
+                <label asp-for="Input.Category" ></label>
+                <select class="form-select Kategori-select" asp-for="Input.Category"
+                        asp-items="@(new SelectList(@Model.CategoryList))">
+
+                    <option value="" disabled selected>Välj kategori</option>
+                </select>
+                <span asp-validation-for="Input.Category"></span>
             </div>
             
             <div class="submit-buttons">
@@ -98,8 +103,16 @@
 
 
 <script>
+
+    const textArea = document.querySelector("TEXTAREA");
+    {
+        textArea.style.height = textArea.scrollHeight + 15 + "px";
+    }
+
+
     function confirmDelete(event) {
         var yesDelete = confirm("Vill du radera denna annons?");
         if(!yesDelete) event.preventDefault();
     }
+
 </script>   
