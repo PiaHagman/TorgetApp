@@ -167,5 +167,15 @@ Summering:
 - Johan: Jobbat vidare med kategorier och taggar - ska försöka få klart issuen idag
 - Gustav: Ska fokusera lite på annat än detta projekt från nu. Fixa issue/PR under dagen.
 - Idris: Skapat funktionell chat-funktion - både frontend och backend. Kolla PR under dagen tillsammans. 
-- Jag forsätter med begränsning till fyra bilder under dagen
+- Jag forsätter med begränsning till fyra bilder under dagen.
 - Vi planerar att ha vår avslutande sprint review på onsdag klockan nio.
+
+## 14/6
+<br>**Daily standup**
+<br>**Timebox: 15 min**
+<br><br>
+Summering: 
+- Jag färdig med min issue från igår.
+- Jag och Idris sätter oss med lite sista designgrejer under dagen, issue #48.
+- Kim och Johan slutför kategorier-arbetet
+
