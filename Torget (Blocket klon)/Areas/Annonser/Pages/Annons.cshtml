@@ -7,19 +7,18 @@
 }
 
 <div class="my-container">
-    <a class="fa-solid fa-xmark icon icon-content" href="/index"></a> @*Lägg till rätt länk!*@
-         <div class="my-ad">
-
+    <a class="fa-solid fa-xmark icon icon-content" href="/index"></a>
+    <div class="my-ad">
         <div class="ad-images">
             <div>
-                <img class="hero-img" id="hero-img" />
+                <img class="hero-img" id="hero-img"/>
             </div>
             <div class="small-pics" id="small-pics">
                 <div class="arrow" id="arrow-left"><i class="fa-solid fa-angle-left icon-content"></i></div>
                 @{
                     for (int i = 0; i < @Model.ImagesCount; i++)
                     {
-                               <img id="small-pic-@i" src="@Model.TorgetAd.AdImages[i].Url"/>
+                        <img id="small-pic-@i" src="@Model.TorgetAd.AdImages[i].Url"/>
                     }
                 }
                 <div class="arrow" id="arrow-right"><i class="fa-solid fa-angle-right icon-content"></i></div>
@@ -30,14 +29,16 @@
             <h1 id="ad-title">@Model.TorgetAd.Title</h1>
             <h4 class="ad-price">@Model.TorgetAd.Price SEK</h4>
             <p class="ad-description">@Model.TorgetAd.Description</p>
-            <p id="ad-tags">
-            @{
-                for (int i = 0; i < @Model.TagsCount; i++)
+            <p>
+                @{
+                    for (int i = 0; i < @Model.TagsCount; i++)
                     {
-                           <span>#@Model.TorgetAd.Tags[i].TagName</span>
+                        <span class="ad-tags">#@Model.TorgetAd.Tags[i].TagName</span>
                     }
-            }
+                }
             </p>
+            <p class="ad-container-category">Kategori: <span >@Model.TorgetAd.Category.Name</span></p>
+
             <p class="ad-seller-date">Uppladdat av @Model.TorgetAd.TorgetUser.UserName <br/> @Model.TorgetAd.DatePosted.ToShortDateString() Kl. @Model.TorgetAd.DatePosted.ToShortTimeString()</p>
         </div>
 
@@ -49,14 +50,14 @@
                     Säljarens postkod: @Model.TorgetAd.TorgetUser.ZipCode
                 </div>
             </div>
-            
+
             <a asp-area="Konto" asp-page="/Chatt" asp-route-adId="@Model.TorgetAd.Id" asp-route-sellerId="@Model.TorgetAd.TorgetUser.Id" class="info-container"> @*Lägg till rätt länk!*@
                 <div class="icon icon-quote fa-solid fa-quote-right icon-content"></div>
                 <div class="info-text">
-                    Chatta med säljaren 
+                    Chatta med säljaren
                 </div>
             </a>
-            
+
             <div class="info-container">
                 <div class=" icon icon-phone fa-solid fa-phone icon-content"></div>
                 <div class="info-text">

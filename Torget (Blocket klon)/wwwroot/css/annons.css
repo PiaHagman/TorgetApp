@@ -78,7 +78,18 @@ a:hover{
 .ad-description{
     margin: 25px 0 5px 0;
 }
-.ad-tags,
+.ad-tags {
+    margin: 5px 4px 0 0;
+    font-size: 10px;
+    font-weight: 500;
+    border-radius: 100px;
+    background-color: lightpink;
+    padding: 5px 10px;
+}
+.ad-container-category {
+    color: #07beb8;
+    font-weight: bold;
+}
 .ad-seller-date {
     font-size: smaller;
     color: grey;

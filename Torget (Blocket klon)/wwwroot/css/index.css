@@ -252,7 +252,11 @@ nav {
         font-size: 15px;
         font-weight: 600;
     }
-
+.ad-container-cat {
+    color: #07beb8;
+    font-size: 10px;
+    margin: 3px 0 0 5px;
+}
 .mud-input-text {
     padding: 0 15px 20px 25px;
 }
