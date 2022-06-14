@@ -242,8 +242,8 @@ nav {
         background-color: gainsboro;
         border-radius: 16px;
         height: 100px;
-        max-height: 110px;
         width: 100%;
+        object-fit: cover;
     }
 
     .ad-container .ad-container-title {
