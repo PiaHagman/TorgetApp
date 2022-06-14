@@ -1,9 +1,33 @@
 ﻿@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.Web
 @using Microsoft.AspNetCore.Mvc
 @using Torget__Blocket_klon_.Data.ModelsNotInDb
 @using Microsoft.AspNetCore.WebUtilities
 @inject NavigationManager NavManager
 @inherits ComponentBase
+
+<div class="categories to-hide">
+    <div class="category-single">
+        <MudIconButton @ref="_elektronikIcon" OnClick="e => AssignCategory(_elektronikIcon,Categories.Elektronik)" Icon="fa-solid fa-computer"></MudIconButton>
+        <p class="text-center">Elektronik</p>
+    </div>
+    <div class="category-single">
+        <MudIconButton @ref="_fordonIcon" OnClick="e => AssignCategory(_fordonIcon, Categories.Fordon)" Icon="fa-solid fa-car"></MudIconButton>
+        <p>Fordon</p>
+    </div>
+    <div class="category-single">
+        <MudIconButton @ref="_hobbyIcon" OnClick="e => AssignCategory(_hobbyIcon, Categories.Hobby)" Icon="fa-solid fa-bicycle"></MudIconButton>
+        <p>Hobby</p>
+    </div>
+    <div class="category-single">
+        <MudIconButton @ref="_kläderIcon" OnClick="e => AssignCategory(_kläderIcon, Categories.Kläder)" Icon="fa-solid fa-shirt"></MudIconButton>
+        <p>Kläder</p>
+    </div>
+    <div class="category-single">
+        <MudIconButton @ref="_möblerIcon" OnClick="e => AssignCategory(_möblerIcon, Categories.Möbler)" Icon="fa-solid fa-chair"></MudIconButton>
+        <p>Möbler</p>
+    </div>
+</div>
 
 <EditForm Model="@SearchQuery" OnValidSubmit="@PerformSearch" class="filters">
     <div class="filter-search input">
@@ -32,7 +56,37 @@
     [MaxLength(int.MaxValue)]
     private IEnumerable<string> counties = new HashSet<string>();
 
+    private MudIconButton? _elektronikIcon;
+    private MudIconButton? _fordonIcon;
+    private MudIconButton? _hobbyIcon;
+    private MudIconButton? _kläderIcon;
+    private MudIconButton? _möblerIcon;
+
+    enum Categories
+    {
+        Elektronik,
+        Fordon,
+        Hobby,
+        Kläder,
+        Möbler
+    }
+
+    private List<string> _categories = new List<string> {"Elektronik", "Fordon", "Hobby", "Kläder", "Möbler"};
+
     private string[] allowedCounties = {"Lerum", "Göteborg", "Stockholm"};
+
+    private void AssignCategory(MudIconButton element, Categories categoryIndex)
+    {
+        _elektronikIcon.Style = "border: none;";
+        _fordonIcon.Style = "border: none;";
+        _hobbyIcon.Style = "border: none;";
+        _kläderIcon.Style = "border: none;";
+        _möblerIcon.Style = "border: none;";
+
+        element.Style = "border: 2px solid black;";
+        SearchQuery.Category = _categories[(int)categoryIndex];
+    }
+    
 
     private void PerformSearch()
     {

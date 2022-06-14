@@ -94,7 +94,7 @@ header {
     flex-direction: column;
 }
 
-    .category-single i {
+    .category-single i, .category-single .mud-icon-button {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -104,6 +104,7 @@ header {
         background-color: var(--background-color-dark);
         box-shadow: 0px -3px #7fbbc4;
         font-size: 32px;
+        color: rgb(15, 10, 10)
     }
 
 .categories p {

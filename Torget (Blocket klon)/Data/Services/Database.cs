@@ -129,7 +129,6 @@ public class Database
                 Tags = new List<Tag> {new() {TagName = "regn"}, new() {TagName = "rusk"}},
                 AdImages = new List<AdImage>
                 {
-                    
                     new() {Url = "../../images/regnställ.jpg"}, new() {Url = "../../images/regnställ2.jpg"},
                     new() {Url = "../../images/regnställ3.jpg"}
                 }
@@ -142,10 +141,9 @@ public class Database
                 Category = categorys[1],
                 Price = 1900,
                 TorgetUser = user3,
-                Tags = new List<Tag> {new() {TagName = "vitmålat" }, new() {TagName = "lådor"}},
+                Tags = new List<Tag> {new() {TagName = "vitmålat"}, new() {TagName = "lådor"}},
                 AdImages = new List<AdImage>
                 {
-
                     new() {Url = "../../images/skåp2.jpg"}, new() {Url = "../../images/skåp.jpg"}
                 }
             },
@@ -160,7 +158,6 @@ public class Database
                 Tags = new List<Tag> {new() {TagName = "grym"}, new() {TagName = "snygg"}, new() {TagName = "glad"}},
                 AdImages = new List<AdImage>
                 {
-
                     new() {Url = "../../images/bjorn.jpg"}, new() {Url = "../../images/kim.jpg"},
                     new() {Url = "../../images/pia.jpg"}
                 }
@@ -176,9 +173,22 @@ public class Database
                 Tags = new List<Tag> {new() {TagName = "pixelkung"}, new() {TagName = "gift"}},
                 AdImages = new List<AdImage>
                 {
-
                     new() {Url = "../../images/johan.png"}, new() {Url = "../../images/johan2.png"},
                     new() {Url = "../../images/johan3.png"}
+                }
+            },
+            new()
+            {
+                Title = "Riktigt Gul Dator",
+                Description =
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non erat quis orci porttitor sodales. Vivamus at diam dignissim, eleifend est id, placerat lacus. Vivamus semper sapien in maximus varius. Sed tincidunt quam quis dui sollicitudin, ac tincidunt purus tempor. Nulla eleifend vitae augue sit amet tincidunt. Aenean fermentum diam.",
+                Category = categorys[3],
+                Price = 150000,
+                TorgetUser = user1,
+                Tags = new List<Tag> {new() {TagName = "gulast?"}, new() {TagName = "Microsoft"}},
+                AdImages = new List<AdImage>
+                {
+                    new() {Url = "../../images/datorgul.jpg"}, new() {Url = "../../images/dator2.jpg"}
                 }
             }
         };
