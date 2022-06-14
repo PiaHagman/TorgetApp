@@ -15,6 +15,17 @@
     border-radius: 25px;
     padding: 20px;
     box-shadow: 2px 5px 5px #cfcfcf;
+    position: relative;
+}
+
+.close-icon {
+    background-color: #07BEB8;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    position: absolute;
+    top: -22px;
+    right: -22px;
 }
 
 .titel {
@@ -23,38 +34,19 @@
 }
 
 .input-element {
-    min-height: 30px;
     justify-content: center;
     align-items: center;
     margin: 10px 0;
     min-height: 36px !important;
     width: 100%;
-    border-radius: 15px;
+    border-radius: 20px;
     border: 0px transparent solid;
-    border-top: 2px inset #b1d6db;
+    box-shadow: 0 -3px #7fbbc4;
 }
-
-.beskrivning {
-    border-radius: 20px !important;
-}
-
-    .beskrivning textarea {
-        margin: 5px 10px;
-        border: hidden;
-    }
 
 .beskrivning textarea:focus {
     outline: none;
 }
-
-/*.pris, .beskrivning, .Kategori, .rubrik {
-    background-color: #98DFEA !important;
-}
-
-    .pris *, .beskrivning *, .Kategori *, .rubrik * {
-        background-color: #98DFEA !important;
-        color: black;
-    }*/
 
 input {
     padding-left: 15px;
@@ -72,7 +64,8 @@ textarea {
     min-height: 30px;
     justify-content: center;
     align-items: center;
-    margin: 10px 0;
+    width: 90%;
+    margin: 10px auto;
 }
 
 ::placeholder {
@@ -86,6 +79,7 @@ textarea {
 .image-text {
     font-size: 0.8rem;
     width: 90%;
+    margin: 0 auto 10px auto;
 }
 
 .submit {
