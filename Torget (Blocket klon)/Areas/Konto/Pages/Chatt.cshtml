@@ -1,0 +1,76 @@
+﻿@page
+@model Torget__Blocket_klon_.Areas.Konto.Pages.IndexModel
+@using Torget__Blocket_klon_.Data.Services;
+@using Torget__Blocket_klon_.Data.Models;
+@using Microsoft.EntityFrameworkCore;
+
+@inject TorgetDbContext db;
+
+@section Styling {
+    <link rel="stylesheet" href="~/css/chatt.css" asp-append-version="true" />
+}
+
+<div class="chat-box">
+    <div class="chat-menu">
+        @if (@Model.UsersAdMessages != null)
+        {
+            @foreach(var item in @Model.UsersAdMessages)
+            {
+                var target = db.TorgetAds.Include(x => x.AdImages).Include(x => x.TorgetUser).Where(x => x.Id == item.AdId).First();
+
+                <div class="chat-menu-item" data-chatid="@item._id" data-adid="@target.Id" data-currentuser="@Model.CurrentUserId">
+                    <img src="@target.AdImages.First().Url" alt="thumbnail"/>
+                    <h4>@target.Title</h4>
+                    <p class="username">@target.TorgetUser.Email</p>
+                    <p>@item.Messages.Last().Content</p>
+                </div>
+            }
+        } 
+        else 
+        {
+            <div class="chat-menu-item">
+                <h4>Du har inga aktiva chattar</h4>
+            </div>
+        }
+    </div>
+    <div class="chat-view">
+        @if (@Model.AdId != 0 && @Model.SellerId != null)
+        {
+            
+            var target = db.TorgetAds.Include(x => x.AdImages).Include(x => x.TorgetUser).Where(x => x.Id == Model.AdId).First();
+
+            <div class="reference" id="referenceBox" data-adid="@target.Id" data-currentuser="@Model.CurrentUserId">
+                <img src="@target.AdImages.First().Url" alt="thumbnail" />
+                <span>
+                    <p><b>Ny chatt med: </b>@target.TorgetUser.UserName <br><b>Angående annonsen: </b>@target.Title</p>
+                </span>
+                
+            </div>
+            <div class="chat-bubbles" id="chatWindow">
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="skriv här." id="chatInput" value="" />
+                <button id="chatSend">Skicka</button>
+            </div>
+        }
+        else
+        {
+            <div class="chat-bubbles" id="chatWindow">
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="skriv här." id="chatInput" />
+                <button id="chatSend">Skicka</button>
+            </div>
+        }
+        
+    </div>
+</div>
+
+<p id="connectionStatus"></p>
+
+
+
+@section Scripts {
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/chatt.js" ></script>
+}
