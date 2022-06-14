@@ -9,6 +9,9 @@
 @section Styling {
     <link rel="stylesheet" href="~/css/chatt.css" asp-append-version="true" />
 }
+@{
+    ViewData["Title"] = "Blocket - Chatt";
+}
 
 <div class="chat-box">
     <div class="chat-menu">
@@ -62,7 +65,7 @@
             <div class="chat-bubbles" id="chatWindow">
             </div>
             <div class="chat-input">
-                <input type="text" placeholder="skriv här." id="chatInput" />
+                <input type="text" placeholder="Skriv här" id="chatInput" />
                 <button id="chatSend">Skicka</button>
             </div>
         }

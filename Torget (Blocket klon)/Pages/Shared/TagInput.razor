@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@*Finns för att kunna "reset" inputen via fokus*@
+<input style="position: absolute; left: -100000px;" @ref="@_focusElement"/>
+
+<MudTextField @ref="_tagFieldElement" @bind-Value="_tagName" @bind-Text="_tagName" DisableUnderLine="true" Style="height: 38px;"  
+              Placeholder="Ange sökord/taggar" Class="input-element" Variant="Variant.Text" Clearable="true" Immediate="true" OnKeyUp="CreateTagChip"></MudTextField>
+<MudChipSet AllClosable="true" OnClose="RemoveTag">
+    @foreach (var tagName in _tagList)
+    {
+        <MudChip Text="@tagName"></MudChip>
+    }
+</MudChipSet>
+
+@code
+{
+    MudTextField<string> _tagFieldElement;
+    ElementReference _focusElement;
+
+    private string _tagName { get; set; }
+
+    readonly List<string> _tagList = new();
+
+    private async Task CreateTagChip(KeyboardEventArgs args)
+    {
+        if (args.Key != " ") return;
+
+        _tagList.Add(_tagName);
+        _tagName = "";
+        await ClearInputAsync();
+    }
+
+    private async Task ClearInputAsync()
+    {
+        await _focusElement.FocusAsync();
+        await _tagFieldElement.FocusAsync();
+    }
+
+    private void RemoveTag(MudChip chip) => _tagList.Remove(chip.Text);
+}

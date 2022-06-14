@@ -9,15 +9,15 @@
 <html lang="en">
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"]</title>
     <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <!--Blazor -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <link href="~/_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
-    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <link href="~/_content/MudBlazor/MudBlazor.min.css" rel="stylesheet"/>
+    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered"/>
     <base href="~/"/>
     <!--Blazor -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,13 +28,14 @@
     <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
     @RenderSection("Styling", required: false)
 
-    <title>@ViewBag.Title</title> 
+
+    <title>@ViewBag.Title</title>
 </head>
 <body>
 <component type="typeof(MudThemeProvider)" render-mode="ServerPrerendered"/>
 <header>
     <div class="joined-header">
-        <h3>TORGET</h3>
+        <h3><a href="~/">TORGET</a></h3>
         <div>
             <label for="checkbox" class="toggler">
                 <input type="checkbox" id="checkbox" />
@@ -46,20 +47,24 @@
     </div>
     <div class="categories to-hide">
         <div class="category-single">
-            <i class="fa-solid fa-cat"></i>
-            <p>Category</p>
+            <i class="fa-solid fa-computer"></i>
+            <p class="text-center">Elektronik</p>
         </div>
         <div class="category-single">
-            <i class="fa-solid fa-cat"></i>
-            <p>Category</p>
+            <i class="fa-solid fa-car"></i>
+            <p>Fordon</p>
         </div>
         <div class="category-single">
-            <i class="fa-solid fa-cat"></i>
-            <p>Category</p>
+            <i class="fa-solid fa-bicycle"></i>
+            <p>Hobby</p>
         </div>
         <div class="category-single">
-            <i class="fa-solid fa-cat"></i>
-            <p>Category</p>
+            <i class="fa-solid fa-shirt"></i>
+            <p>Kläder</p>
+        </div>
+        <div class="category-single">
+            <i class="fa-solid fa-chair"></i>
+            <p>Möbler</p>
         </div>
     </div>
     <component type="typeof(_SearchBar)" render-mode="ServerPrerendered"/>
