@@ -60,6 +60,12 @@ public class SkapaAnnonsModel : PageModel
 
     public async Task<List<AdImage>> AddImages(List<IFormFile> postedFiles)
     {
+        if (postedFiles == null)
+        {
+            var urlList = new List<AdImage> { new() { Url = "../../images/image-missing.png" } };
+            return urlList;
+        }
+
         var fileUploadPath = _webenvironment.WebRootPath + "\\AdImageUploads";
 
 
@@ -70,19 +76,19 @@ public class SkapaAnnonsModel : PageModel
         foreach (var postedFile in postedFiles)
             if (postedFile.Length > 0)
             {
-                var file = Path.Join(fileUploadPath, postedFile.FileName);
+                var absolutePath = Path.Join(fileUploadPath, postedFile.FileName);
 
-                var pathSplit = file.Split("\\");
+                var pathSplit = absolutePath.Split("\\");
 
-                var URLPath = "/" + pathSplit[^2] + "/" + pathSplit[^1];
+                var relativePath = "/" + pathSplit[^2] + "/" + pathSplit[^1];
 
 
-                await using (var stream = new FileStream(file, FileMode.Create))
+                await using (var stream = new FileStream(absolutePath, FileMode.Create))
                 {
                     await postedFile.CopyToAsync(stream);
                 }
 
-                uploadedFiles.Add(URLPath);
+                uploadedFiles.Add(relativePath);
             }
 
         var returnList = CreateAdImageList(uploadedFiles);
@@ -94,29 +100,29 @@ public class SkapaAnnonsModel : PageModel
     {
         var urlList = new List<AdImage>();
 
-        foreach (var uploadedFile in uploadedFiles) urlList.Add(new AdImage {Url = uploadedFile});
+        foreach (var uploadedFile in uploadedFiles) urlList.Add(new AdImage { Url = uploadedFile });
 
         return urlList;
     }
 
     public class InputModel
     {
-        [Required]
+        [Required(ErrorMessage = "Ange en rubrik!")]
         [DataType(DataType.Text)]
         [Display(Name = "Rubrik")]
         public string Titel { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Ange en beskrivning!")]
         [DataType(DataType.MultilineText)]
         [Display(Name = "Beskrivning")]
         public string Beskrivning { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Ange pris!")]
         [DataType(DataType.Currency)]
         [Display(Name = "Pris")]
         public int Pris { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Ange kategori!")]
         [DataType(DataType.Text)]
         [Display(Name = "Kategori")]
         public string Kategori { get; set; }

@@ -146,3 +146,26 @@ Summering:
 - Jag, Kim och Idris närvarande.
 - Idris har kommit långt med sin chatt-funktion. Grymt! 
 - Imorgon är jag frånvarande på fm pga skolavslutning
+
+## 10/6
+<br>**Daily standup**
+<br>**Timebox: 15 min**
+<br><br>
+Summering: 
+- Jag, Kim och Johan närvarande.
+- Klar med PR igår. Påbörjade issue #50 - kanske hinner fortsätta lite idag. Annars måndag.
+- Jag rapporterade lite för Gustav som sitter med logga in och länkningar till registrering samt ev logga ut
+- Kim på studiebesök idag, inte så mycket jobb. 
+- Johan försökte med mudblazor igår, men gick tillbaka till html när det inte fungerade som han ville. Ska kika vidare på kategorier idag.
+
+## 13/6
+<br>**Daily standup**
+<br>**Timebox: 15 min**
+<br><br>
+Summering: 
+- Kim: tittat mest på PR och MudBlazor för kategorier. Fortsätter i övrigt med filtrering.
+- Johan: Jobbat vidare med kategorier och taggar - ska försöka få klart issuen idag
+- Gustav: Ska fokusera lite på annat än detta projekt från nu. Fixa issue/PR under dagen.
+- Idris: Skapat funktionell chat-funktion - både frontend och backend. Kolla PR under dagen tillsammans. 
+- Jag forsätter med begränsning till fyra bilder under dagen
+- Vi planerar att ha vår avslutande sprint review på onsdag klockan nio.

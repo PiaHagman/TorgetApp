@@ -1,12 +1,14 @@
 ﻿@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @using Torget__Blocket_klon_.Areas.Konto.Pages
+@using Torget__Blocket_klon_.Data.Models
 @model Torget__Blocket_klon_.Areas.Konto.Pages.SkapaAnnonsModel
 @{
 }
 
 <div class="ad-view">
     <div class="ad-input-area">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" id="myForm">
             @*Titel*@
             <div class="titel">
                 <h2 class="titel"><i class="fa-solid fa-square-plus"></i> Ny annons</h2>
@@ -14,26 +16,22 @@
             @*Rubrik*@
             <div class="rubrik">
                 <input class="input-element" asp-for="Input.Titel" placeholder="Rubrik"/>
-                <label asp-for="Input.Titel"/>
-                <span asp-validation-for="Input.Titel"/>
+                <span asp-validation-for="Input.Titel"></span>
             </div>
             @*Beskrivning*@
             <div class="beskrivning">
                 <textarea class="input-element multiline-element" asp-for="Input.Beskrivning" placeholder="Beskrivning"></textarea>
-                <label asp-for="Input.Beskrivning"/>
-                <span asp-validation-for="Input.Beskrivning"/>
+                <span asp-validation-for="Input.Beskrivning"></span>
             </div>
             @*Pris*@
             <div class="pris">
                 <input class="input-element" asp-for="Input.Pris" placeholder="Pris"/>
-                <label asp-for="Input.Pris"/>
-                <span asp-validation-for="Input.Pris"/>
+                <span asp-validation-for="Input.Pris"></span>
             </div>
             @*Kategori*@
             <div class="Kategori">
                 <input class="input-element" asp-for="Input.Kategori" placeholder="Kategorier"/>
-                <label asp-for="Input.Kategori"/>
-                <span asp-validation-for="Input.Kategori"/>
+                <span asp-validation-for="Input.Kategori"></span>
             </div>
             
             <div id="img-preview">
@@ -42,9 +40,8 @@
 
             @*Bild*@
             <div class="Bild">
-                <input class="image-element" ma type="file" onchange="ShowPreview(this)" asp-for="Input.AdImages" multiple max="4" accept=".jpg,.png,.jpeg*"/>
-                <label asp-for="Input.AdImages"/>
-                <span asp-validation-for="Input.AdImages"/>
+                <input class="image-element" ma type="file" onchange="ShowPreview(this)" asp-for="Input.AdImages" multiple max="4" accept=".jpg,.png,.jpeg*" id="myFiles"/>
+                <span asp-validation-for="Input.AdImages"></span>
                 <p class="image-text">Recommended minimum ad image size 600x400px <br/> Accepted image formats are: .jpg, .jpeg, .png </p>
             </div>
             
@@ -59,35 +56,45 @@
 <script>
   
     function ShowPreview(input) {
-
         var imageContainer = document.getElementById("img-preview");
-        imageContainer.innerHTML = "";
-        imageContainer.style.display ="flex";
+        if (input.files.length > 4) {
 
-        var reader = new FileReader();
+                        alert("Max antal uppladdningar är 4 bilder!");
 
-        function readFile(index) {
-            if( index >= input.files.length ) return;
+                        document.getElementById("myFiles").value = ""; 
+                        imageContainer.innerHTML = "";
+                        imageContainer.style.display ="none";
+                        
+        } else {
+                                                imageContainer.innerHTML = "";
+                        imageContainer.style.display ="flex";
+
+                        var reader = new FileReader();
+
+
+                        function readFile(index) {
+                            if( index >= input.files.length) return;
             
-            var file = input.files[index];
-            reader.onload = function(e) {
+                            var file = input.files[index];
+                            reader.onload = function(e) {
 
-                var imageContainer = document.getElementById("img-preview");
+                                var imageContainer = document.getElementById("img-preview");
 
-                // get file content
-                var bin = e.target.result;
+                                // get file content
+                                var bin = e.target.result;
 
-                var image = document.createElement("img");
-                image.src = bin;
-                imageContainer.appendChild(image);
+                                var image = document.createElement("img");
+                                image.src = bin;
+                                imageContainer.appendChild(image);
 
-                readFile(index + 1);
-            }
-            reader.readAsDataURL(file);
-        }
-        readFile(0);
+                                readFile(index + 1);
+                            }
+                            reader.readAsDataURL(file);
+                        }
+                        readFile(0); 
+                    }
+
     }
 
     //#sourceURL=ShowPreview.js
-
 </script>
