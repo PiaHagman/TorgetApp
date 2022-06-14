@@ -4,33 +4,34 @@
 @{
 }
 
+<h2 class="display-4 text-center mt-5 mb-3">Ny annons</h2>
 <div class="ad-view">
     <div class="ad-input-area">
         <form method="post" enctype="multipart/form-data">
-            @*Titel*@
+            @*Titel
             <div class="titel">
                 <h2 class="titel"><i class="fa-solid fa-square-plus"></i> Ny annons</h2>
-            </div>
+            </div>*@
             @*Rubrik*@
-            <div class="rubrik">
+            <div class="rubrik input">
                 <input class="input-element" asp-for="Input.Titel" placeholder="Rubrik"/>
                 <label asp-for="Input.Titel"/>
                 <span asp-validation-for="Input.Titel"/>
             </div>
             @*Beskrivning*@
-            <div class="beskrivning">
+            <div class="beskrivning input">
                 <textarea class="input-element multiline-element" asp-for="Input.Beskrivning" placeholder="Beskrivning"></textarea>
                 <label asp-for="Input.Beskrivning"/>
                 <span asp-validation-for="Input.Beskrivning"/>
             </div>
             @*Pris*@
-            <div class="pris">
+            <div class="pris input">
                 <input class="input-element" asp-for="Input.Pris" placeholder="Pris"/>
                 <label asp-for="Input.Pris"/>
                 <span asp-validation-for="Input.Pris"/>
             </div>
             @*Kategori*@
-            <div class="Kategori">
+            <div class="Kategori input">
                 <input class="input-element" asp-for="Input.Kategori" placeholder="Kategorier"/>
                 <label asp-for="Input.Kategori"/>
                 <span asp-validation-for="Input.Kategori"/>
@@ -50,7 +51,7 @@
             
             @*Submit*@
             <div class="submit">
-                <button class="submit-btn" type="submit">Lägg upp</button>
+                <button class="submit-btn button" type="submit">Lägg upp</button>
             </div>
         </form>
     </div>

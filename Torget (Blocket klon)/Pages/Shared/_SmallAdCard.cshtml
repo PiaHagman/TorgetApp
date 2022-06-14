@@ -25,7 +25,8 @@
     @if(!Model.Sold && path=="konto/minaannonser")
     {
         <form class="edit-container" method="post" asp-route-torgetAdId="@Model.Id">
-            <input type="submit" class="submit-btn" value="Ändra"/>
+            <button type="submit" class="submit-btn button">Ändra</button>
+            @*<input type="submit" class="submit-btn" value="Ändra"/>*@
         </form>
     }
 </a>
