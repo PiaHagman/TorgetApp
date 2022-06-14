@@ -216,9 +216,8 @@ nav {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 12px;
-    margin-bottom: 100px;
+    justify-content: space-around;
+    margin: 16px 0 0 0;
 }
 
     .ads-container a, a:hover, a:focus, a:active {
@@ -233,9 +232,10 @@ nav {
     box-shadow: 2px 5px 10px #cfcfcf;
     border-radius: 16px;
     overflow: hidden;
-    width: 43%;
+    width: calc(50% - 1em);
+    max-width: 180px;
     padding: 8px;
-    margin: 0 0 14px 0;
+    margin: 6px;
 }
 
     .ad-container img {
