@@ -16,14 +16,18 @@
         {
             @foreach(var item in @Model.UsersAdMessages)
             {
-                var target = db.TorgetAds.Include(x => x.AdImages).Include(x => x.TorgetUser).Where(x => x.Id == item.AdId).First();
+                var target = db.TorgetAds.Include(x => x.AdImages).Include(x => x.TorgetUser).Where(x => x.Id == item.AdId).FirstOrDefault();
 
-                <div class="chat-menu-item" data-chatid="@item._id" data-adid="@target.Id" data-currentuser="@Model.CurrentUserId">
-                    <img src="@target.AdImages.First().Url" alt="thumbnail"/>
-                    <h4>@target.Title</h4>
-                    <p class="username">@target.TorgetUser.Email</p>
-                    <p>@item.Messages.Last().Content</p>
-                </div>
+                if (target != null)
+                {
+                    <div class="chat-menu-item" data-chatid="@item._id" data-adid="@target.Id" data-currentuser="@Model.CurrentUserId">
+                        <img src="@target.AdImages.First().Url" alt="thumbnail"/>
+                        <h4>@target.Title</h4>
+                        <p class="username">@target.TorgetUser.Email</p>
+                        <p>@item.Messages.Last().Content</p>
+                    </div>
+                }
+                
             }
         } 
         else 
@@ -37,7 +41,7 @@
         @if (@Model.AdId != 0 && @Model.SellerId != null)
         {
             
-            var target = db.TorgetAds.Include(x => x.AdImages).Include(x => x.TorgetUser).Where(x => x.Id == Model.AdId).First();
+            var target = db.TorgetAds.Include(x => x.AdImages).Include(x => x.TorgetUser).Where(x => x.Id == Model.AdId).FirstOrDefault();
 
             <div class="reference" id="referenceBox" data-adid="@target.Id" data-currentuser="@Model.CurrentUserId">
                 <img src="@target.AdImages.First().Url" alt="thumbnail" />
