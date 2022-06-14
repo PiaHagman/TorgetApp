@@ -10,28 +10,29 @@
 <h2 class="display-4 text-center mt-5 mb-3">Ny annons</h2>
 <div class="ad-view">
     <div class="ad-input-area">
+        <a class="fa-solid fa-xmark close-icon icon-content" asp-page="/index"></a>
         <form method="post" enctype="multipart/form-data">
             @*Titel
             <div class="titel">
                 <h2 class="titel"><i class="fa-solid fa-square-plus"></i> Ny annons</h2>
             </div>*@
             @*Rubrik*@
-            <div class="rubrik input">
+            <div class="rubrik">
                 <input class="input-element" asp-for="Input.Titel" placeholder="Rubrik"/>
                 <span asp-validation-for="Input.Titel"></span>
             </div>
             @*Beskrivning*@
-            <div class="beskrivning input">
+            <div class="beskrivning">
                 <textarea class="input-element multiline-element" asp-for="Input.Beskrivning" placeholder="Beskrivning"></textarea>
                 <span asp-validation-for="Input.Beskrivning"></span>
             </div>
             @*Pris*@
-            <div class="pris input">
+            <div class="pris">
                 <input class="input-element" asp-for="Input.Pris" placeholder="Pris"/>
                 <span asp-validation-for="Input.Pris"></span>
             </div>
             @*Kategori*@
-            <div class="Kategori input">
+            <div class="Kategori">
                 <input class="input-element" asp-for="Input.Kategori" placeholder="Kategorier"/>
                 <span asp-validation-for="Input.Kategori"></span>
             </div>
