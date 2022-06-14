@@ -82,7 +82,7 @@
             
         </form>
          <div class="submit">
-        <form asp-page-handler="delete" method="post">
+        <form asp-page-handler="delete" method="post" id="radera-btn">
            
             <input type ="hidden" name="adId" value="@Model.AdToEdit.Id" />
             <button onclick="confirmDelete(event)"class="submit-btn button" type="submit">Radera</button>

@@ -86,7 +86,7 @@ public class Database
                 Price = 150,
                 TorgetUser = user1,
                 SavedByUsers = new List<TorgetUser> {user2},
-                Tags = new List<Tag> {new() {TagName = "s"}, new() {TagName = "Söt"}},
+                Tags = new List<Tag> {new() {TagName = "Hårig"}, new() {TagName = "Söt"}},
                 AdImages = new List<AdImage>
                 {
                     new() {Url = "../../images/cat.jpg"}, new() {Url = "../../images/cat2.jpg"},

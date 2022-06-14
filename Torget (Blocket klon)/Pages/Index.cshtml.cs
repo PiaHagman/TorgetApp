@@ -27,6 +27,7 @@ namespace Torget__Blocket_klon_.Pages
         // Behöver kopplas ihop med _Layout :)
         public SearchQuery GetSearchQuery()
         {
+
             return new SearchQuery
             {
                 SearchWords = Request.Query["search"],

@@ -88,8 +88,8 @@ textarea {
 }
 
 .submit-btn {
-   /* float: right;*/
-   /* justify-content: end;*/
+    /* float: right;*/
+    /* justify-content: end;*/
     min-height: 30px;
     border-radius: 25px;
     border: 0px transparent solid;
@@ -102,10 +102,13 @@ textarea {
     color: black !important;
 }
 
+#radera-btn {
+    width: 100%;
+}
+
 #img-preview {
     border: 0px transparent solid;
     border-top: 2px inset #b1d6db;
-    width: 90%;
     background-color: white;
     border-radius: 25px;
     display: none;
@@ -120,35 +123,35 @@ textarea {
         height: 43px;
     }
 
-.submit-buttons{
-    display:flex;
-    flex-direction:row;
+.submit-buttons {
+    display: flex;
+    flex-direction: row;
     justify-content: flex-end;
     gap: 10px;
     margin-top: 10px;
 }
 
-.submit-buttons div{
-    width: 50%;
-}
-.submit-buttons button{
-    width: 100%;
-}
+    .submit-buttons div {
+        width: 50%;
+    }
 
-#updateAdForm .input-element{
+    .submit-buttons button {
+        width: 100%;
+    }
+
+#updateAdForm .input-element {
     margin: 3px 0 20px 0;
-
 }
-#sold-btn{
-    width:100%;
-    margin-top:10px;
+
+#sold-btn {
+    width: 100%;
+    margin-top: 10px;
 }
 
 .ad-sold {
     filter: brightness(30%);
-    
 }
-.ad-sold-text {
 
+.ad-sold-text {
     color: red;
 }
