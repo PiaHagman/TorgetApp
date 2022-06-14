@@ -97,6 +97,9 @@ select {
 .submit-btn {
     float: right;
     justify-content: end;
+    justify-content: end;
+    justify-content: end;
+    justify-content: end;
     min-height: 30px;
     border-radius: 25px;
     border: 0px transparent solid;
@@ -167,9 +170,40 @@ select {
     justify-content: start;
     flex-wrap: wrap;
     padding: 10px;
-    margin: 10px 0;
+}
+    
+.submit-buttons{
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
 }
 
+.submit-buttons div{
+    width: 50%;
+}
+.submit-buttons button{
+    width: 100%;
+}
+
+#updateAdForm .input-element{
+    margin: 3px 0 20px 0;
+
+}
+#sold-btn{
+    width:100%;
+    margin-top:10px;
+}
+
+.ad-sold {
+    filter: brightness(30%);
+    
+}
+.ad-sold-text {
+
+    color: red;
+}
 #img-preview > * {
     border-radius: 10px;
     height: 43px;
@@ -194,4 +228,3 @@ select {
     border-radius: 19px;
     margin: 10px 0;
 }
-

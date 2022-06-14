@@ -35,6 +35,7 @@ public class AdHandler
             .Include(a => a.TorgetUser)
             .Include(a => a.AdImages)
             .Include(a => a.Tags)
+            .Include(a => a.Category)
             .FirstOrDefaultAsync(a => a.Id == id);
 
         return ad ?? throw new AdDoesNotExistException(); //Förstår vi detta allihopa?
@@ -46,6 +47,7 @@ public class AdHandler
             .Include(a => a.TorgetUser)
             .Include(a => a.AdImages)
             .Include(a => a.Tags)
+            .Include(a => a.Category)
             .Where(a => a.TorgetUser.Id == userId)
             .ToListAsync();
 
@@ -58,6 +60,7 @@ public class AdHandler
             .Include(a => a.TorgetUser)
             .Include(a => a.AdImages)
             .Include(a => a.Tags) //.AsSplitQuery() Behövs? Läs på om.
+            .Include(a => a.Category)
             .AsQueryable();
 
         if (searchQuery is not null)
@@ -69,12 +72,19 @@ public class AdHandler
     }
 
     /// <exception cref="AdDoesNotExistException"></exception>
-    public async Task<TorgetAd> Update(int id, TorgetAd updatedAd)
+    public async Task<TorgetAd> Update(TorgetAd updatedAd)
     {
-        var ad = await _dbContext.TorgetAds.FindAsync(id);
+        var ad = await _dbContext.TorgetAds.FindAsync(updatedAd.Id);
         if (ad == null) throw new AdDoesNotExistException();
 
-        ad = updatedAd;
+
+        ad.Title = updatedAd.Title;
+        ad.Description = updatedAd.Description;
+        ad.Price = updatedAd.Price;
+        ad.Category = updatedAd.Category;
+        ad.DateUpdated = updatedAd.DateUpdated;
+
+
         var entityEntry = _dbContext.TorgetAds.Update(ad);
         await _dbContext.SaveChangesAsync();
 

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Torget__Blocket_klon_.Data.Models;
@@ -6,6 +7,7 @@ using Torget__Blocket_klon_.Data.Services;
 
 namespace Torget__Blocket_klon_.Pages
 {
+    [AllowAnonymous]
     public class IndexModel : PageModel
     {
         private AdHandler _adhandler;

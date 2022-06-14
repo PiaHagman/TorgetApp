@@ -24,3 +24,33 @@ Bonus: Arbetade lite med en prototyp under mötet.
 - Timebox: 0.25h
 
   Andra mötet gick smidigt till, vi nämnde vad vi arbetat med under gårdagen, vad vi skall arbeta med idag och om någon hade en "blocker" nämndes det med. Top notch 🤩
+
+### Sprint Review 1 & Sprint Retrospective 1
+
+- Datum: 2022/06/02 Kl. 9
+- Timebox: 4h
+
+Produkten presenterades av produkt ownern (Pia) till stakeholdern (Idris), stakeholdern tyckte till om några kosmetiska grejjer och bad även om att få fyra kategorier implementerade. I helhet var alla parter nöjda med arbetet vi utfört.
+
+Vi använde oss utav någon vind ankare metod för att beskriva vart vi är nu, vart vi vill och problemen med vårt arbete med scrum. Vi kom överrens över det vi tagit fram och tog fram lösningar och sätt att förbättra oss.
+
+### Planeringsmöte inför sprint 2
+
+- Datum: 2022/06/02 Kl. 14
+- Timebox: 2h
+
+Vi kollade över det som blev över i sprint 1 och det som kundes plockas in från backloggen. Dessutom bearbetade vi ner user stories in till nya issues för att ta med dom till sprint 2. För att estimera hur mycket arbete som vi kunde utföra i sprint 2 använde oss utav poängen vi satt på tidigare färdiga issues och kollade av hur många poäng vi avklarat under sprint 1. Vi bestämde oss att ta på oss mer poäng inför sprint 2 eftersom vi kände på oss att vi kunde klara av fler poäng under kommande sprint.
+
+### Staup meeting I
+
+- Datum: 2022/06/08 Kl. 9
+- Timebox: 0.25h
+
+Jag arbetar med att testa signalr och ska arbeta vidare med den under dagen.
+
+### Standup meeting J
+
+- Datum: 2022/06/13
+- Timebox: 0.25h
+
+Jag gjorde klart chatten och ska arbeta vidare med nya chatt funktioner ifall vi har tid över. Vi går igenom pull requests tillsammans och mergar den, sedan så får jag visa upp hur chatten fungerar. Muntlig presentation av scrum? för Björn. Arbetar vidare med chatten.

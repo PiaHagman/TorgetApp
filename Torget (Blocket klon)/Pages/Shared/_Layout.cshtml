@@ -1,5 +1,7 @@
-﻿@using Microsoft.AspNetCore.Components.Web
+﻿
 @using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Components.Web
+@using Torget__Blocket_klon_.Data.ModelsNotInDb
 @inject SignInManager<TorgetUser> signInManager;
 <!DOCTYPE html>
 
@@ -20,10 +22,11 @@
     <!--Blazor -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="~/css/Konto.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="~/css/annons.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/Konto.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/annons.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+    @RenderSection("Styling", required: false)
 
 
     <title>@ViewBag.Title</title>
@@ -31,7 +34,17 @@
 <body>
 <component type="typeof(MudThemeProvider)" render-mode="ServerPrerendered"/>
 <header>
-    <h3>TORGET</h3>
+    <div class="joined-header">
+        <h3>TORGET</h3>
+        <div>
+            <label for="checkbox" class="toggler">
+                <input type="checkbox" id="checkbox" />
+                <span class="ball"></span>
+                <i class="fa-regular fa-sun sun"></i>
+                <i class="fa-regular fa-moon moon"></i>
+            </label>
+        </div>
+    </div>
     <div class="categories to-hide">
         <div class="category-single">
             <i class="fa-solid fa-cat"></i>
@@ -55,40 +68,42 @@
         <i class="fa-solid fa-angle-up hide-header-icon"></i>
     </div>
     <nav class="navigation">
-
+        
         <a href="/" class="nav-item">
             <i class="fa-solid fa-house"></i>
             <h5>Hem</h5>
         </a>
 
-        <div class="nav-item">
+        <a class="nav-item">
             <i class="fa-solid fa-camera-retro"></i>
             <h5>Bevakningar</h5>
-        </div>
+        </a>
 
-        <div class="nav-item">
+        <a class="nav-item" asp-area="Konto" asp-page="/SkapaAnnons">
             <i class="fa-solid fa-square-plus"></i>
             <h5>Ny annons</h5>
-        </div>
+        </a>
 
 
-        <div class="nav-item">
+        <a class="nav-item" asp-area="Konto" asp-page="/Chatt">
             <i class="fa-solid fa-quote-right"></i>
             <h5>Chatt</h5>
-        </div>
-
-        <a asp-area="User" asp-page="/Register" class="nav-item">
-            @*Implementera if för inloggad eller inte. Länka vidare beroende på status.*@
-            <i class="fa-solid fa-user-tie"></i>
-            @if (!signInManager.IsSignedIn(User))
-            {
-                <h5>Logga in</h5>
-            }
-            else
-            {
-                <h5>Profil</h5>
-            }
         </a>
+
+        @if (!signInManager.IsSignedIn(User))
+        {
+            <a asp-area="Konto" asp-page="/Inloggning" class="nav-item">
+                <i class = "fa-solid fa-user-tie"></i>
+                <h5>Logga in</h5>
+            </a>
+        }
+        else
+        {
+            <a asp-area="Konto" asp-page="/Profil" class="nav-item">
+                <i class = "fa-solid fa-user-tie"></i>
+                <h5>Profil </h5>
+            </a>
+        }
     </nav>
 </header>
 <div>

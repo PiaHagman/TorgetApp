@@ -1,4 +1,6 @@
 ﻿@page "{id}"
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 @model Torget__Blocket_klon_.Areas.Annonser.Pages.AnnonsModel
 @{
     ViewData["Title"] = @Model.TorgetAd.Title;
@@ -48,7 +50,7 @@
                 </div>
             </div>
             
-            <a asp-page="/index" class="info-container"> @*Lägg till rätt länk!*@
+            <a asp-area="Konto" asp-page="/Chatt" asp-route-adId="@Model.TorgetAd.Id" asp-route-sellerId="@Model.TorgetAd.TorgetUser.Id" class="info-container"> @*Lägg till rätt länk!*@
                 <div class="icon icon-quote fa-solid fa-quote-right icon-content"></div>
                 <div class="info-text">
                     Chatta med säljaren 
