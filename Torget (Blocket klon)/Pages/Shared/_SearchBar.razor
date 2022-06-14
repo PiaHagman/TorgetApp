@@ -18,8 +18,11 @@
             }
         </MudSelect>
     </div>
-    <div class="filter-price input">
-        <input type="text" placeholder="Pris" id="price"/>
+    <div class="filter-price-lowest input">
+        <InputNumber @bind-Value="SearchQuery.PriceLowest" placeholder="Min-pris" id="priceLowest"/>
+    </div>
+    <div class="filter-price-highest input">
+        <InputNumber @bind-Value="SearchQuery.PriceHighest" placeholder="Max-pris" id="priceHighest"/>
     </div>
     <input class="filter-submit button" type="submit" value="Sök" />
 </EditForm>

@@ -1,9 +1,10 @@
 ﻿@page
 @model Torget__Blocket_klon_.Areas.Konto.Pages.ÄndraAnnonsModel
 @{
-    ViewData["Title"] = "Ändra Annons";
+    ViewData["Title"] = "Torget - Ändra Annons";
 }
 
+<h1 class="display-4 text-center mt-7 mb-3" style="font-size: 30px;">Ändra annons</h1>
 @if (@Model.ErrorOccurred)
 {
     <!-- Button trigger modal -->
@@ -41,11 +42,9 @@
 
 <div class="ad-view">
     <div class="ad-input-area">
+        <a class="fa-solid fa-xmark close-icon icon-content" asp-page="/MinaAnnonser"></a>
         <form method="post" enctype="multipart/form-data" id="updateAdForm">
-            @*Titel*@
-            <div class="titel">
-                <h2 class="titel"><i class="fa-solid fa-square-pen"></i> Ändra annons</h2>
-            </div>
+
             @*Rubrik*@
             <div class="rubrik">
                 <label asp-for="Input.Title"></label> 
@@ -80,15 +79,15 @@
             @*Submit*@
             <div class="submit">
             <input type="hidden" name="adId" value="@Model.AdToEdit.Id"/>
-            <button id="registerSubmit" type="submit" class="submit-btn">Uppdatera</button>            
+            <button id="registerSubmit" type="submit" class="submit-btn button">Uppdatera</button>            
             </div>
             
         </form>
          <div class="submit">
-        <form asp-page-handler="delete" method="post">
+        <form asp-page-handler="delete" method="post" id="radera-btn">
            
             <input type ="hidden" name="adId" value="@Model.AdToEdit.Id" />
-            <button onclick="confirmDelete(event)"class="submit-btn" type="submit">Radera</button>
+            <button onclick="confirmDelete(event)"class="submit-btn button" type="submit">Radera</button>
             
         </form>
         </div>
@@ -96,7 +95,7 @@
         </div>
         <form asp-page-handler="sold" method="post">
             <input type ="hidden" name="adId" value="@Model.AdToEdit.Id" />
-            <button class="submit-btn" id="sold-btn" type="submit">Markera som såld</button>
+            <button class="submit-btn button" id="sold-btn" type="submit">Markera som såld</button>
         </form>
     </div>
 </div>

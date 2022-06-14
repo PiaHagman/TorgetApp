@@ -1,11 +1,12 @@
 ﻿@page
 @model Torget__Blocket_klon_.Areas.Konto.Pages.ProfilModel
 @{
-    ViewData["Title"] = "Profil";
+    ViewData["Title"] = "Torget- Min profil";
 }
 
 <div class="container d-flex justify-content-center flex-column w-75 mb-5" style="max-width: 800px;">
-    <h2 class="display-4 text-center mt-5 mb-3">Profil</h2>
+    <h1 class="display-4 text-center mt-7 mb-3" style="font-size: 30px;">Min profilsida</h1>
+    <h5 class="text-center mb-10">Inloggad som @User.Identity.Name</h5>
     
 <div class="d-flex justify-content-center">
     <a class="button p-2 text-black fw-bold border-0 mb-5 px-3" asp-area="Konto" asp-page="MinaAnnonser">Mina Annonser</a>

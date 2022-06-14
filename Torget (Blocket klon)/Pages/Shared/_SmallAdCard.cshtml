@@ -2,10 +2,14 @@
 @using Microsoft.AspNetCore.Http.Extensions;
 @*@inject HttpContext httpContext*@
 
+@{
+    string path = Context.Request.Path.Value.Trim('/').ToLower();
+}
 
-<a class="ad-container" id="ad-@Model.Id" asp-area="Annonser" asp-page="/Annons" asp-route-id=@Model.Id>
+<a class="ad-container" id="ad-@Model.Id" asp-area="Annonser" asp-page="/Annons" asp-route-id=@Model.Id asp-route-returnUrl=@path>
     <img class="ad-container-image" src="@Model.AdImages.First().Url" alt="Image for @Model.Title" />
     <h5 class="ad-container-title">@Model.Title</h5>
+    <p class="ad-container-cat">Kategori: <span >@Model.Category.Name</span></p>
     <span class="ad-container-tags">
         @foreach (Tag tag in Model.Tags)
         {
@@ -16,16 +20,16 @@
         <i class="fa-solid fa-compass"></i>
         <p>@Model.TorgetUser.County</p>
     </div>
+    
     <p class="ad-container-price">@Model.Price SEK</p>
     
-    @{
-        string path = Context.Request.Path.Value.Trim('/').ToLower();
-    }
+    
 
     @if(!Model.Sold && path=="konto/minaannonser")
     {
         <form class="edit-container" method="post" asp-route-torgetAdId="@Model.Id">
-            <input type="submit" class="submit-btn" value="Ändra"/>
+            <button type="submit" class="submit-btn button justify-content-center">Ändra</button>
+            @*<input type="submit" class="submit-btn" value="Ändra"/>*@
         </form>
     }
 </a>

@@ -1,25 +1,30 @@
 ﻿@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Torget__Blocket_klon_.Areas.Konto.Pages
 @using Torget__Blocket_klon_.Pages.Shared
+@using Torget__Blocket_klon_.Data.Models
 @model Torget__Blocket_klon_.Areas.Konto.Pages.SkapaAnnonsModel
+@{
+    ViewData["Title"] = "Torget - Skapa annons";
+}
 
+<h1 class="display-4 text-center mt-7 mb-3" style="font-size: 30px;">Skapa annons</h1>
 <div class="ad-view">
     <div class="ad-input-area">
+        <a class="fa-solid fa-xmark close-icon icon-content" asp-page="/index"></a>
         <form method="post" id="createAdForm" enctype="multipart/form-data">
             <div asp-validation-summary="All"></div>
-            @*Titel*@
-            <div class="titel">
-                <h2 class="titel"><i class="fa-solid fa-square-plus"></i> Ny annons</h2>
-            </div>
-
+            
             @*Rubrik*@
             <div class="rubrik">
                 <input class="input-element" asp-for="Input.Titel" placeholder="Rubrik"/>
                 <span asp-validation-for="Input.Titel"></span>
             </div>
-
+            
             @*Beskrivning*@
             <div class="beskrivning">
-                <textarea class="input-element multiline-element" asp-for="Input.Beskrivning" placeholder="Beskrivning"></textarea>
+                <textarea class="input-element multiline-element" asp-for="Input.Beskrivning" aria-required="true"
+                oninput="this.style.height = ''; this.style.height = this.scrollHeight + 15 + 'px';" style="overflow: hidden;" ></textarea>
                 <span asp-validation-for="Input.Beskrivning"></span>
             </div>
 
@@ -31,11 +36,10 @@
 
             @*Kategori*@
             <div class="Kategori">
-
                 <select class="form-select Kategori-select" asp-for="Input.Kategori"
                         asp-items="@(new SelectList(@Model.CategoryList))">
 
-                    <option value="" disabled selected>Välj kategori</option>
+                    <option style="color: rgba(255,255,255, 0.5)" value="" disabled selected>Välj kategori</option>
                 </select>
                 <span asp-validation-for="Input.Kategori"></span>
             </div>
@@ -51,6 +55,7 @@
 
             @*Bild*@
             <div class="Bild">
+               
                 <input class="add-image form-control" ma type="file" onchange="ShowPreview(this)" asp-for="Input.AdImages" multiple max="4" accept=".jpg,.png,.jpeg*"/>
                 <span asp-validation-for="Input.AdImages"></span>
 
@@ -65,13 +70,14 @@
             </div>
 
             @*Submit*@
-            <div style="height: 50px; display: block;" class="submit">
+            
+                <div style="height: 50px; display: block;" class="submit">
 
-                <button type="button" class="modal-btn mt-5 float-start">i</button>
+                    <button type="button" class="modal-btn mt-5 float-start">i</button>
 
-                <button class="submit-btn mt-5 float-end" type="submit" onclick="BindTagsToInputTags(event)">Lägg upp</button> @*BUG - submits on enter key*@
-            </div>
+                    <button class="submit-btn mt-5 float-end" type="submit" onclick="BindTagsToInputTags(event)">Lägg upp</button> @*BUG - submits on enter key*@
 
+                </div>
         </form>
     </div>
 </div>
@@ -79,55 +85,69 @@
 
 <script>
   
-    function ShowPreview(input) 
-    {
-
+    //SHOW IMAGE PREVIEW
+    function ShowPreview(input) {
         var imageContainer = document.getElementById("img-preview");
-        imageContainer.innerHTML = "";
-        imageContainer.style.display ="flex";
+        if (input.files.length > 4) {
 
-        var reader = new FileReader();
+            alert("Max antal uppladdningar är 4 bilder!");
 
-        function readFile(index) {
-            if( index >= input.files.length ) return;
-            
-            var file = input.files[index];
-            reader.onload = function(e) {
+            document.getElementById("myFiles").value = ""; 
+            imageContainer.innerHTML = "";
+            imageContainer.style.display ="none";
+                        
+        } else {
+            imageContainer.innerHTML = "";
+            imageContainer.style.display ="flex";
 
-                var imageContainer = document.getElementById("img-preview");
+            var reader = new FileReader();
 
-                // get file content
-                var bin = e.target.result;
 
-                var image = document.createElement("img");
-                image.src = bin;
-                imageContainer.appendChild(image);
+            function readFile(index) {
+                if( index >= input.files.length) return;
 
-                readFile(index + 1);
+                var file = input.files[index];
+                reader.onload = function(e) {
+
+                    var imageContainer = document.getElementById("img-preview");
+
+                    // get file content
+                    var bin = e.target.result;
+
+                    var image = document.createElement("img");
+                    image.src = bin;
+                    imageContainer.appendChild(image);
+
+                    readFile(index + 1);
+                }
+                reader.readAsDataURL(file);
             }
-            reader.readAsDataURL(file);
+            readFile(0); 
         }
-        readFile(0);
+
     }
 
     //#sourceURL=ShowPreview.js
+
     
        
-    /*MODAL*/
+    //MODAL
     const modal = document.querySelector(".image-modal")
     const modal_btn = document.querySelector(".modal-btn")
     const close_modal_btn = document.querySelector(".close-btn")
-   
-    
-    modal_btn.addEventListener("click", () => {
-        modal.showModal();
-    })  
-    
-    close_modal_btn.addEventListener("click", () => {
-        modal.close();
-    })
 
 
+    modal_btn.addEventListener("click",
+        () => {
+            modal.showModal();
+        });
+
+    close_modal_btn.addEventListener("click",
+        () => {
+            modal.close();
+        });
+
+    //BIND TAGS AND SUBMIT FORM
     function BindTagsToInputTags(submitEvent) {
         submitEvent.preventDefault();
 
@@ -143,14 +163,13 @@
             if (i !== tagChips.length - 1) tagListAsString += chipText + " ";
             else tagListAsString += chipText;
 
-        })
-;
+        });
         tagInputElement.value = tagListAsString;
 
         createAdForm.submit();
-    }
-    
+
+    }
+  </script>  
     
   
 
-</script>
