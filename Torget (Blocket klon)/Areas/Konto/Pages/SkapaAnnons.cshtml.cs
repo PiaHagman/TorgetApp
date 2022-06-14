@@ -25,9 +25,13 @@ public class SkapaAnnonsModel : PageModel
     }
 
     [BindProperty] public InputModel Input { get; set; }
+    public string ReturnUrl { get; set; }
 
-    public async Task OnGet()
+    public async Task OnGet(string? returnUrl = null)
     {
+        returnUrl ??= Url.Content("~/");
+        ReturnUrl = returnUrl;
+
         CategoryList = await _adHandler.GetCategoriesList();
     }
 

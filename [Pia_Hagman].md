@@ -179,3 +179,8 @@ Summering:
 - Jag och Idris sätter oss med lite sista designgrejer under dagen, issue #48.
 - Kim och Johan slutför kategorier-arbetet
 
+## 15/6
+<br>**Sprint Review**
+<br>**Timebox: 1,5h**
+<br><br>
+Summering:

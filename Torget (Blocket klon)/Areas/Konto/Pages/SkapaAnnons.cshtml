@@ -11,7 +11,7 @@
 <h1 class="display-4 text-center mt-7 mb-3" style="font-size: 30px;">Skapa annons</h1>
 <div class="ad-view">
     <div class="ad-input-area">
-        <a class="fa-solid fa-xmark close-icon icon-content" asp-page="/index"></a>
+        <a class="fa-solid fa-xmark close-icon icon-content" href=@Model.ReturnUrl></a>
         <form method="post" id="createAdForm" enctype="multipart/form-data">
             <div asp-validation-summary="All"></div>
             
