@@ -41,9 +41,19 @@ public class Database
             PhoneNumber = "0766-210910",
             Id = "f20ff2b1-a75d-4ce0-a245-6415284391cf"
         };
+        var user3 = new TorgetUser
+        {
+            Email = "user3@email.com",
+            UserName = "user3@email.com",
+            ZipCode = "14590",
+            County = "Stockholm",
+            PhoneNumber = "0766-210910",
+            Id = "ab0d5dd1-875c-485e-bc8c-cf810664410e"
+        };
 
         await _userManager.CreateAsync(user1, "Passw0rd!");
         await _userManager.CreateAsync(user2, "Passw0rd!");
+        await _userManager.CreateAsync(user3, "Passw0rd!");
 
 
         var categorys = new[]
@@ -106,6 +116,69 @@ public class Database
                 {
                     new() {Url = "../../images/maskin.jpg"}, new() {Url = "../../images/maskin1.jpg"},
                     new() {Url = "../../images/maskin2.jpg"}
+                }
+            },
+            new()
+            {
+                Title = "Kläder för väder",
+                Description =
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non erat quis orci porttitor sodales. Vivamus at diam dignissim, eleifend est id, placerat lacus. Vivamus semper sapien in maximus varius. Sed tincidunt quam quis dui sollicitudin, ac tincidunt purus tempor. Nulla eleifend vitae augue sit amet tincidunt. Aenean fermentum diam.",
+                Category = categorys[0],
+                Price = 30,
+                TorgetUser = user3,
+                Tags = new List<Tag> {new() {TagName = "regn"}, new() {TagName = "rusk"}},
+                AdImages = new List<AdImage>
+                {
+                    
+                    new() {Url = "../../images/regnställ.jpg"}, new() {Url = "../../images/regnställ2.jpg"},
+                    new() {Url = "../../images/regnställ3.jpg"}
+                }
+            },
+            new()
+            {
+                Title = "Skåpet",
+                Description =
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non erat quis orci porttitor sodales. Vivamus at diam dignissim, eleifend est id, placerat lacus. Vivamus semper sapien in maximus varius. Sed tincidunt quam quis dui sollicitudin, ac tincidunt purus tempor. Nulla eleifend vitae augue sit amet tincidunt. Aenean fermentum diam.",
+                Category = categorys[1],
+                Price = 1900,
+                TorgetUser = user3,
+                Tags = new List<Tag> {new() {TagName = "vitmålat" }, new() {TagName = "lådor"}},
+                AdImages = new List<AdImage>
+                {
+
+                    new() {Url = "../../images/skåp2.jpg"}, new() {Url = "../../images/skåp.jpg"}
+                }
+            },
+            new()
+            {
+                Title = "Hemliga kodalver",
+                Description =
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non erat quis orci porttitor sodales. Vivamus at diam dignissim, eleifend est id, placerat lacus. Vivamus semper sapien in maximus varius. Sed tincidunt quam quis dui sollicitudin, ac tincidunt purus tempor. Nulla eleifend vitae augue sit amet tincidunt. Aenean fermentum diam.",
+                Category = categorys[2],
+                Price = 0,
+                TorgetUser = user3,
+                Tags = new List<Tag> {new() {TagName = "grym"}, new() {TagName = "snygg"}, new() {TagName = "glad"}},
+                AdImages = new List<AdImage>
+                {
+
+                    new() {Url = "../../images/bjorn.jpg"}, new() {Url = "../../images/kim.jpg"},
+                    new() {Url = "../../images/pia.jpg"}
+                }
+            },
+            new()
+            {
+                Title = "Dalmas",
+                Description =
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non erat quis orci porttitor sodales. Vivamus at diam dignissim, eleifend est id, placerat lacus. Vivamus semper sapien in maximus varius. Sed tincidunt quam quis dui sollicitudin, ac tincidunt purus tempor. Nulla eleifend vitae augue sit amet tincidunt. Aenean fermentum diam.",
+                Category = categorys[2],
+                Price = 25000,
+                TorgetUser = user2,
+                Tags = new List<Tag> {new() {TagName = "pixelkung"}, new() {TagName = "gift"}},
+                AdImages = new List<AdImage>
+                {
+
+                    new() {Url = "../../images/johan.png"}, new() {Url = "../../images/johan2.png"},
+                    new() {Url = "../../images/johan3.png"}
                 }
             }
         };

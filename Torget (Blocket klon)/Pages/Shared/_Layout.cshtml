@@ -3,7 +3,10 @@
 @using Microsoft.AspNetCore.Components.Web
 @using Torget__Blocket_klon_.Data.ModelsNotInDb
 @inject SignInManager<TorgetUser> signInManager;
-<!DOCTYPE html>
+
+@{
+    string path = Context.Request.Path.Value.Trim('/').ToLower();
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,9 +86,9 @@
             <h5>Bevakningar</h5>
         </a>
 
-        <a class="nav-item" asp-area="Konto" asp-page="/SkapaAnnons">
+        <a class="nav-item" asp-area="Konto" asp-page="/SkapaAnnons" asp-route-returnUrl=@path>
             <i class="fa-solid fa-square-plus"></i>
-            <h5>Ny annons</h5>
+            <h5>Skapa annons</h5>
         </a>
 
 
