@@ -1,48 +1,39 @@
 ﻿@using Microsoft.AspNetCore.Components.Web
-<MudTextField Variant="Variant.Outlined" Clearable="true" Immediate="true" Label="Tags" @bind-Value="@input.name" OnKeyPress="Callback"></MudTextField>
-<MudChipSet AllClosable="true" OnClose="Closed">
-    @foreach (var value in values)
+@*Finns för att kunna "reset" inputen via fokus*@
+<input style="position: absolute; left: -100000px;" @ref="@_focusElement"/>
+
+<MudTextField @ref="_tagFieldElement" @bind-Value="_tagName" @bind-Text="_tagName" DisableUnderLine="true" Style="height: 38px;"  
+              Placeholder="Ange sökord/taggar" Class="input-element" Variant="Variant.Text" Clearable="true" Immediate="true" OnKeyUp="CreateTagChip"></MudTextField>
+<MudChipSet AllClosable="true" OnClose="RemoveTag">
+    @foreach (var tagName in _tagList)
     {
-        <MudChip Text="@value"></MudChip>
+        <MudChip Text="@tagName"></MudChip>
     }
 </MudChipSet>
 
 @code
 {
-    private readonly Inputted input = new() {name = ""};
+    MudTextField<string> _tagFieldElement;
+    ElementReference _focusElement;
 
-    public class Inputted
+    private string _tagName { get; set; }
+
+    readonly List<string> _tagList = new();
+
+    private async Task CreateTagChip(KeyboardEventArgs args)
     {
-        public string name { get; set; }
+        if (args.Key != " ") return;
+
+        _tagList.Add(_tagName);
+        _tagName = "";
+        await ClearInputAsync();
     }
 
-    readonly List<string> values = new();
-
-    private void Add(string tag)
+    private async Task ClearInputAsync()
     {
-        values.Add(tag);
+        await _focusElement.FocusAsync();
+        await _tagFieldElement.FocusAsync();
     }
 
-    private async void Reset()
-    {
-        input.name = string.Empty;
-        await InvokeAsync(StateHasChanged);
-    }
-
-    private void Closed(MudChip chip)
-    {
-        values.Remove(chip.Text);
-    }
-
-    private void Callback(KeyboardEventArgs args)
-    {
-        if (args.Key != " ")
-        {
-            return;
-        }
-
-        Add(input.name);
-        Reset();
-    }
-
+    private void RemoveTag(MudChip chip) => _tagList.Remove(chip.Text);
 }

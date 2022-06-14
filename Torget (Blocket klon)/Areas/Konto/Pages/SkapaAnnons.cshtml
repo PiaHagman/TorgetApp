@@ -1,11 +1,11 @@
 ﻿@page
-@using Humanizer
 @using Torget__Blocket_klon_.Pages.Shared
 @model Torget__Blocket_klon_.Areas.Konto.Pages.SkapaAnnonsModel
 
 <div class="ad-view">
     <div class="ad-input-area">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" id="createAdForm" enctype="multipart/form-data">
+            <div asp-validation-summary="All"></div>
             @*Titel*@
             <div class="titel">
                 <h2 class="titel"><i class="fa-solid fa-square-plus"></i> Ny annons</h2>
@@ -14,41 +14,36 @@
             @*Rubrik*@
             <div class="rubrik">
                 <input class="input-element" asp-for="Input.Titel" placeholder="Rubrik"/>
-                <span asp-validation-for="Input.Titel"/>
+                <span asp-validation-for="Input.Titel"></span>
             </div>
 
             @*Beskrivning*@
             <div class="beskrivning">
                 <textarea class="input-element multiline-element" asp-for="Input.Beskrivning" placeholder="Beskrivning"></textarea>
-                <span asp-validation-for="Input.Beskrivning"/>
+                <span asp-validation-for="Input.Beskrivning"></span>
             </div>
 
             @*Pris*@
             <div class="pris">
                 <input class="input-element" asp-for="Input.Pris" placeholder="Pris"/>
-                <span asp-validation-for="Input.Pris"/>
+                <span asp-validation-for="Input.Pris"></span>
             </div>
 
             @*Kategori*@
             <div class="Kategori">
 
-                <select class="form-select" name="Input.Kategori">
+                <select class="form-select" asp-for="Input.Kategori"
+                        asp-items="@(new SelectList(@Model.CategoryList))">
+
                     <option value="" disabled selected>Välj kategori</option>
-                    @foreach (var category in Model.CategoryList)
-                    {
-                        <option value="@category">@category.ToLower().Humanize(LetterCasing.Title)</option>
-                    }
                 </select>
                 <span asp-validation-for="Input.Kategori"></span>
             </div>
 
             @*Tags*@
-            <div class="tags">
-                <input id="tag-element" type="text" class="input-element" onchange="tagTextPillDecoration(this)" asp-for="Input.Tags" placeholder="Taggar"/>
-            </div>
-
             <component type="typeof(TagInput)" render-mode="ServerPrerendered"/>
-
+            <input id="tagInput" type="hidden" asp-for="Input.Tags"/>
+            <span asp-validation-for="Input.Tags"></span>
 
             @*Bild Prewview*@
             <div id="img-preview">
@@ -57,7 +52,7 @@
             @*Bild*@
             <div class="Bild">
                 <input class="form-control" ma type="file" onchange="ShowPreview(this)" asp-for="Input.AdImages" multiple max="4" accept=".jpg,.png,.jpeg*"/>
-                <span asp-validation-for="Input.AdImages"/>
+                <span asp-validation-for="Input.AdImages"></span>
 
                 <dialog class="image-modal">
                     <h4>Bild restriktioner</h4>
@@ -67,7 +62,6 @@
                     <button type="button" class="close-btn">Close</button>
                 </dialog>
 
-
             </div>
 
             @*Submit*@
@@ -75,7 +69,7 @@
 
                 <button type="button" class="modal-btn">i</button>
 
-                <button class="submit-btn" type="submit">Lägg upp</button> @*BUG - submits on enter key*@
+                <button class="submit-btn" type="submit" onclick="BindTagsToInputTags(event)">Lägg upp</button> @*BUG - submits on enter key*@
             </div>
 
         </form>
@@ -132,6 +126,29 @@
     close_modal_btn.addEventListener("click", () => {
         modal.close();
     })
+
+
+    function BindTagsToInputTags(submitEvent) {
+        submitEvent.preventDefault();
+
+        const tagChips = document.querySelectorAll(".mud-chip-content");
+        const tagInputElement = document.getElementById("tagInput");
+        const createAdForm = document.getElementById("createAdForm");
+
+        let tagListAsString = "";
+
+        tagChips.forEach((chip, i) => {
+            const chipText = chip.innerText;
+
+            if (i !== tagChips.length - 1) tagListAsString += chipText + " ";
+            else tagListAsString += chipText;
+
+        })
+;
+        tagInputElement.value = tagListAsString;
+
+        createAdForm.submit();
+    }
     
     
   

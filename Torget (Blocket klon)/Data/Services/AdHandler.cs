@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Humanizer;
+using Microsoft.EntityFrameworkCore;
 using Torget__Blocket_klon_.Data.Models;
 using Torget__Blocket_klon_.Data.ModelsNotInDb;
 
@@ -15,6 +16,12 @@ public class AdHandler
 
     public async Task<TorgetAd> Create(TorgetAd ad)
     {
+        var category = await _dbContext.TorgetCategories.FirstOrDefaultAsync(c => c.Name == ad.Category.Name);
+
+        if (category is null) throw new CategoryDoesNotExistException();
+
+        ad.Category = category;
+
         var entityEntry = _dbContext.TorgetAds.Add(ad);
         await _dbContext.SaveChangesAsync();
 
@@ -109,10 +116,15 @@ public class AdHandler
 
         var categoryList = new List<string>();
 
-        foreach (var category in categories) categoryList.Add(category.Name);
+        foreach (var category in categories) categoryList.Add(category.Name.ToLower().Humanize(LetterCasing.Title));
 
         return categoryList;
     }
+}
+
+public class CategoryDoesNotExistException : Exception
+{
+    public CategoryDoesNotExistException() : base("Ogiltig kategori, fulspel?") { }
 }
 
 public class AdDoesNotExistException : Exception

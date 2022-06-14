@@ -22,13 +22,12 @@
 
 .input-element {
     min-height: 30px;
-    justify-content: center;
-    align-items: center;
     margin: 10px 0;
     width: 100%;
     border-radius: 19px;
     border: 0px transparent solid;
     border-top: 2px inset #b1d6db;
+    background-color: white;
 }
 
 input {
@@ -37,6 +36,16 @@ input {
     font-weight: 600;
     font-size: 1rem;
 }
+
+#createAdForm .mud-input-control-input-container {
+    height: 38px;
+}
+
+#createAdForm .mud-input-text {
+    padding-left: 15px;
+    padding-bottom: 30px;
+}
+
 
 input:focus, textarea:focus, select:focus {
     outline-color: #07beb8;

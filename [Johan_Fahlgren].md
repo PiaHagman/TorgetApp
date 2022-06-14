@@ -17,7 +17,8 @@
 [Daily Stand Up 7](###Daily-stand-up-7)  
 [Daily Stand Up 8](###Daily-stand-up-8)  
 [Daily Stand Up 9](###Daily-stand-up-9)  
-[Daily Stand Up 10](###Daily-stand-up-10)
+[Daily Stand Up 10](###Daily-stand-up-10)  
+[Daily Stand Up 10](###Daily-stand-up-11)
 
 ### Sprint reviews:  
 [Sprint Review 1](###Sprint-Review-1)  
@@ -184,6 +185,18 @@ ___
 - Idris sitter med sin chat tjänst.
 - Pia jobbar vidare med att begränsa antalet bilder som ska kunna laddas up.
 - Kim och jag ska titta viadre på taggar på skapa annons sidan. 
+
+
+- ### Daily Stand Up 11 <br/>
+**Date:** 2021-06-14 <br/>
+**Timebox:** 0 h 15 min <br/>
+
+**Notes:** <br/>
+
+- Kim fortsätter med sin sökning på pris, och titta på taggar med mig.
+- Pia tillsammans med idris vill påbörja lite design ändringar.
+- Jag forsätter med taggar, börja kolla på filtrerring av kategorier sen?
+- Sprint review och retrospektive imorgon klockan 09:00. 
 ___
 
 
