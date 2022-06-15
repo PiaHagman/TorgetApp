@@ -223,7 +223,8 @@ select {
 }
 
 .ad-sold {
-    filter: brightness(30%);
+    
+    filter: brightness(30%) !important;
 }
 
 .ad-sold-text {
