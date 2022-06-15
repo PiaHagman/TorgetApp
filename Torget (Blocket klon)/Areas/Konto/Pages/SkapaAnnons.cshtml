@@ -11,41 +11,47 @@
     <div class="ad-input-area">
         <a class="fa-solid fa-xmark close-icon icon-content" href=@Model.ReturnUrl></a>
         <form method="post" id="createAdForm" enctype="multipart/form-data">
-            <div asp-validation-summary="All"></div>
+            @*//Behövs inte summary på fel just nu (alla fel visas över respektive inputfält) - men om ifall det behövs senare:
+            <div asp-validation-summary="All"></div>*@
             
             @*Rubrik*@
             <div class="rubrik">
-                <input class="input-element" asp-for="Input.Titel" placeholder="Rubrik"/>
                 <span asp-validation-for="Input.Titel"></span>
+                <input required class="input-element" asp-for="Input.Titel" placeholder="Rubrik"/>
+
             </div>
             
             @*Beskrivning*@
             <div class="beskrivning">
+                <span asp-validation-for="Input.Beskrivning"></span>
                 <textarea class="input-element multiline-element" asp-for="Input.Beskrivning" aria-required="true"
                 oninput="this.style.height = ''; this.style.height = this.scrollHeight + 15 + 'px';" style="overflow: hidden;" ></textarea>
-                <span asp-validation-for="Input.Beskrivning"></span>
+
             </div>
 
             @*Pris*@
             <div class="pris">
-                <input class="input-element" asp-for="Input.Pris" placeholder="Pris"/>
                 <span asp-validation-for="Input.Pris"></span>
+                <input class="input-element" asp-for="Input.Pris" placeholder="Pris"/>
+
             </div>
 
             @*Kategori*@
             <div class="Kategori">
+                <span asp-validation-for="Input.Kategori"></span>
                 <select class="form-select Kategori-select" asp-for="Input.Kategori"
                         asp-items="@(new SelectList(@Model.CategoryList))">
 
-                    <option style="color: rgba(255,255,255, 0.5)" value="" disabled selected>Välj kategori</option>
+                    <option style="color: rgba(255, 255, 255, 0.5)" value="" disabled selected>Välj kategori</option>
                 </select>
-                <span asp-validation-for="Input.Kategori"></span>
+
             </div>
 
             @*Tags*@
+            <span asp-validation-for="Input.Tags"></span>
             <component type="typeof(TagInput)" render-mode="ServerPrerendered"/>
             <input id="tagInput" type="hidden" asp-for="Input.Tags"/>
-            <span asp-validation-for="Input.Tags"></span>
+            
 
             @*Bild Prewview*@
             <div id="img-preview">
@@ -54,14 +60,23 @@
             @*Bild*@
             <div class="Bild">
                
-                <input class="add-image form-control" ma type="file" onchange="ShowPreview(this)" asp-for="Input.AdImages" multiple max="4" accept=".jpg,.png,.jpeg*"/>
+                <input class="add-image form-control" ma type="file" onchange="ShowPreview(this)" asp-for="Input.AdImages" multiple max="4" accept=".jpg,.png,.jpeg*" id="myFiles"/>
                 <span asp-validation-for="Input.AdImages"></span>
 
                 <dialog class="image-modal">
-                    <h4>Bild restriktioner</h4>
-                    <p>Rekommenderad minsta bildstorlek: 400x600px </p>
-                    <p>Accepterade bildformat: .jpg, .jpeg, .png</p>
-                    <p>Max fyra bider</p>
+                    
+                    <h4>Bild restriktioner:</h4>
+                    <ul>
+                        <li><p>Rekommenderad minsta bildstorlek: 400x600px </p></li>
+                        <li><p>Accepterade bildformat: .jpg, .jpeg, .png</p></li>
+                        <li><p>Max fyra bider</p></li>
+                    </ul>
+                  
+                    <h4>Pris restriktioner:</h4>
+                    <ul>
+                        <li><p>Pris anges i SEK, endast numreriska värden</p></li>
+                        <li><p>Maxbelopp för annons är 214 478 SEK</p></li>
+                    </ul>
                     <button type="button" class="close-btn">Close</button>
                 </dialog>
 

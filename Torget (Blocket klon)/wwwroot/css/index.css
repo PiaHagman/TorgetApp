@@ -227,6 +227,7 @@ nav {
     justify-content: space-between;
     margin: 16px 0 100px 0;
     padding: 0 5%;
+    
 }
 
     .ads-container a, a:hover, a:focus, a:active {
@@ -239,7 +240,6 @@ nav {
     flex-direction: column;
     background-color: white;
     box-shadow: 2px 5px 10px #cfcfcf;
-    background-color: rgb(152, 223, 234, 0.05);
     border-radius: 16px;
     overflow: hidden;
     width: calc(50% - 1em);
@@ -315,6 +315,7 @@ nav {
         display: flex;
         height: 23px;
         margin: 0 0 0 5px;
+        
     }
 
         .ad-container .ad-container-tags p {
@@ -325,6 +326,7 @@ nav {
             border-radius: 100px;
             background-color: lightpink;
             padding: 2px 5px;
+           
         }
 
     .ad-container .ad-container-price {
@@ -334,45 +336,52 @@ nav {
         font-weight: 500;
     }
 
+
 @media only screen and (min-width: 1000px) {
     header {
-        display: flex;
-        flex-direction: row;
-        flex-flow: row;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        justify-items: center;
         background-color: #98dfea;
-        max-height: 200px;
+        max-height: 250px;
         max-width: 100vw;
-        justify-content: space-between;
-        align-items: start;
         box-shadow: 0 3px #7fbbc4;
         padding: 20px max(2rem, 50vw - 1100px / 2);
     }
 
         header h3 {
+            grid-column: 1;
+            grid-row: 1;
             font-weight: bold;
             font-size: 42px;
-            margin: 0;
+            margin-left: 25px;
+            margin-bottom: 10px;
             padding: 0;
             width: 60%;
         }
-
+.toggler {
+    margin: 0 30px;
+}
 
     .categories {
-        order: 3;
+        grid-column: 1;
+        grid-row: 3;
         width: 40%;
-        display: none;
+        display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        padding: 18px 0 0 0;
+        padding: 5px 0 0 0;
     }
 
     .category-single {
         display: flex;
         height: auto;
         flex-direction: column;
-        margin: 0 20px;
+        margin: 0 14px;
     }
 
         .category-single i {
@@ -397,7 +406,8 @@ nav {
 
 
     .filters {
-        order: 2;
+        grid-column: 2;
+        grid-row: span 3;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr;
@@ -418,11 +428,19 @@ nav {
         }
 
     .filter-location {
-        grid-area: 2 / 1 / 2 / 3;
+        grid-area: 2 / 1 / 2 / 6;
         height: 40px;
         padding: 3px;
         align-items: center;
         justify-content: center;
+    }
+
+    .filter-price-lowest {
+        grid-area: 3 / 1 / 3 / 3;
+    }
+
+    .filter-price-highest {
+        grid-area: 3 / 3 / 3 / 5;
     }
 
     .filter-price {
@@ -430,7 +448,7 @@ nav {
     }
 
     .filter-submit {
-        grid-area: 2 / 5 / 2 / 6;
+        grid-area: 3 / 5 / 3 / 6;
         height: 48px;
         border: none;
         color: inherit;
@@ -444,7 +462,8 @@ nav {
     }
 
     nav {
-        order: 1;
+        grid-column: 1;
+        grid-row: 2;
         position: static;
         display: flex;
         flex-direction: row;
@@ -454,9 +473,11 @@ nav {
         box-shadow: 0 -3px #7fbbc4;
         border-radius: 100px;
         padding: 3px 10px;
+        width: 420px;
         min-width: 300px;
         height: 50px;
     }
+
 
         nav .nav-item {
             display: flex;
@@ -476,6 +497,9 @@ nav {
                 margin: 0;
                 padding: 0;
             }
+    .ads-container {
+        justify-content: center;
+    }
 }
 
 

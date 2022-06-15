@@ -25,10 +25,6 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
 
         public async Task<IActionResult> OnGetAsync()
         {
-            var user = await _userManager.FindByIdAsync(
-                "43eefa21-9b75-4926-9e1f-d9a878aa5f24"); //TODO Tillfällig user. Plocka in User sen istället.
-
-
             var userId = _userManager.GetUserId(User);
 
             MinaAnnonser = await _adHandler.GetUserAds(userId);

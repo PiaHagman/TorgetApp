@@ -77,6 +77,14 @@
 
     private void AssignCategory(MudIconButton element, Categories categoryIndex)
     {
+        if (element.Style == "border: 2px solid black;")
+        {
+            element.Style = "border: none;";
+            
+            SearchQuery.Category = String.Empty;
+            return;
+        }
+
         _elektronikIcon.Style = "border: none;";
         _fordonIcon.Style = "border: none;";
         _hobbyIcon.Style = "border: none;";

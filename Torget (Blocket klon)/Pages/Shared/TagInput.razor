@@ -1,9 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components.Web
-@*Finns för att kunna "reset" inputen via fokus*@
-<input style="position: absolute; left: -100000px;" @ref="@_focusElement"/>
 
 <MudTextField @ref="_tagFieldElement" @bind-Value="_tagName" DisableUnderLine="true" Style="height: 38px;"  
-              Placeholder="Ange sökord/taggar" Class="input-element" Variant="Variant.Text" Clearable="true" Immediate="true" OnKeyUp="CreateTagChip"></MudTextField>
+              Placeholder="Ange sökord/taggar" Class="input-element" Variant="Variant.Text" Clearable="true" Immediate="true" KeyDownPreventDefault="true" OnKeyDown="ReadKeyAndCreateTagChip" TextUpdateSuppression="false"></MudTextField>
 <MudChipSet AllClosable="true" OnClose="RemoveTag">
     @foreach (var tagName in _tagList)
     {
@@ -20,20 +18,43 @@
 
     readonly List<string> _tagList = new();
 
-    private async Task CreateTagChip(KeyboardEventArgs args)
+    
+    private void CreateTagChip()
     {
-        if (args.Key != " ") return;
-        
         _tagList.Add(_tagName);
         _tagName = "";
-        await ClearInputAsync();
     }
 
-    private async Task ClearInputAsync()
-    {
-        await _focusElement.FocusAsync();
-        await _tagFieldElement.FocusAsync();
-    }
+    private void Backspace() => _tagName = 
+        string.Join("", 
+            _tagName
+                .ToCharArray()
+                .SkipLast(1)
+                .ToArray());
 
     private void RemoveTag(MudChip chip) => _tagList.Remove(chip.Text);
+
+    private void ReadKeyAndCreateTagChip(KeyboardEventArgs args)
+    {
+        switch (args.Key)
+        {
+            case " ":
+            case "Enter":
+            case ",":
+            case "Tab":
+                CreateTagChip();
+                return;
+            case "Backspace":
+            {
+                Backspace();
+                return;
+            }
+            default:
+                if (args.Key.Length > 1) return;
+                _tagName += args.Key;
+                break;
+        }
+        
+    }
+
 }

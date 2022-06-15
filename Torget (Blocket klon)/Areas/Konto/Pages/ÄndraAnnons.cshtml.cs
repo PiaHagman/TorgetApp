@@ -71,7 +71,7 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
             Input.Description = AdToEdit.Description;
             Input.Price = AdToEdit.Price;
             Input.Category = AdToEdit.Category.Name;
-            //STUDY Lägg till så att en kan ändra bilder 
+            //STUDY Lägg till så att en kan ändra bilder , kategori(BUG) och taggar
 
             return Page();
         }
@@ -82,9 +82,6 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
             {
                 //TODO Byt till följade:
                 //var seller = await _userManager.GetUserAsync(User);
-
-                var user = await _userManager.FindByIdAsync(
-                    "43eefa21-9b75-4926-9e1f-d9a878aa5f24"); //TODO Tillfällig user.
 
                 AdToEdit = await _adHandler.Get(adId);
 
@@ -97,7 +94,7 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
 
                 await _adHandler.Update(AdToEdit);
 
-                return RedirectToPage("/MinaAnnonser", new { area = "Konto" });
+                return RedirectToPage("/MinaAnnonser", new {area = "Konto"});
             }
 
             return Page();
@@ -108,7 +105,7 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
             try
             {
                 await _adHandler.Delete(adId);
-                return RedirectToPage("/AnnonsRaderad", new { area = "Konto" });
+                return RedirectToPage("/AnnonsRaderad", new {area = "Konto"});
             }
             catch
             {
@@ -128,7 +125,7 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
         public async Task<IActionResult> OnPostSold(int adId)
         {
             await _adHandler.MarkAsSold(adId);
-            return RedirectToPage("/MinaAnnonser", new { area = "Konto" });
+            return RedirectToPage("/MinaAnnonser", new {area = "Konto"});
         }
     }
 }
