@@ -64,6 +64,11 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
             if (ModelState.IsValid)
             {
                 var user = await _userManager.FindByEmailAsync(Input.Email);
+                if (user == null)
+                {
+                    ModelState.AddModelError(String.Empty, "Användaren finns inte i vår databas.");
+                    return Page();
+                }
                 var result = await _signInManager.PasswordSignInAsync(user, Input.Password, Input.RememberMe, lockoutOnFailure:false);
                 if (result.Succeeded)
                 {
