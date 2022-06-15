@@ -181,6 +181,11 @@ Summering:
 
 ## 15/6
 <br>**Sprint Review**
-<br>**Timebox: 1,5h**
+<br>**Timebox: 1 h**
 <br><br>
-Summering:
+Summering: 
+- Vi har klarat av alla utom en issue som vi satte upp för sprint 2. Bra jobbat! 
+- Upptänkte några buggar när vi körde genomgång för stakeholdern. Vi skrev ner dessa som review-notes i vår backlogg för eventuellt kommande arbete.
+- Fixar lite småpill direkt i sprint 2 under dagen idag-
+- I samma möte så körde vi ett kortare retrospective-möte. Det kändes onödigt att lägga till nya aktions eftersom vi inte kommer jobba mer tillsammans på detta projekt, men vi passade på att tacka varandra för gott samarbete.
+- Tack och hej leverpastej!
