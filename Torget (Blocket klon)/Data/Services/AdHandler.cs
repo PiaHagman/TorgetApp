@@ -75,8 +75,10 @@ public class AdHandler
     public async Task<TorgetAd> Update(TorgetAd updatedAd)
     {
         var ad = await _dbContext.TorgetAds.FindAsync(updatedAd.Id);
-        if (ad == null) throw new AdDoesNotExistException();
+        var adCategory = await _dbContext.TorgetCategories.FindAsync(updatedAd.Category.Name);
 
+        if (ad == null) throw new AdDoesNotExistException();
+        if (adCategory != null) ad.Category = adCategory;
 
         ad.Title = updatedAd.Title;
         ad.Description = updatedAd.Description;
@@ -134,7 +136,9 @@ public class AdHandler
 
 public class CategoryDoesNotExistException : Exception
 {
-    public CategoryDoesNotExistException() : base("Ogiltig kategori, fulspel?") { }
+    public CategoryDoesNotExistException() : base("Ogiltig kategori, fulspel?")
+    {
+    }
 }
 
 public class AdDoesNotExistException : Exception

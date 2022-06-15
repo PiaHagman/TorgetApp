@@ -28,12 +28,10 @@ builder.Services.AddDefaultIdentity<TorgetUser>(options =>
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Cookie.HttpOnly = true;
-    //TODO: Fixa rätt paths
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(30); //TODO: Hur länge vill vi ha?
+    options.ExpireTimeSpan = TimeSpan.FromHours(12);
     options.LoginPath = "/Konto/Inloggning";
     options.SlidingExpiration = true;
     options.ReturnUrlParameter = "ReturnUrl";
-    options.AccessDeniedPath = "/AccessDenied";
 });
 
 #endregion
