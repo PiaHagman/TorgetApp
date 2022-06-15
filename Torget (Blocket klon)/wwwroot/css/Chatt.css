@@ -3,8 +3,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 20px auto 0 auto;
-    width: 90%;
+    margin: 3px auto 0 auto;
+    width: 100%;
     max-width: 1000px;
     border-radius: 10px;
 }
@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: #f3ffff;
+    background-color: #f0ffff;
 }
 
 .chat-menu-item {
@@ -31,8 +31,8 @@
     .chat-menu-item img {
         grid-area: 1 / 1 / 5 / 1;
         object-fit: cover;
-        width: 100%;
-        max-height: 100%;
+        width: 100px;
+        height: 100%;
         border-radius: 10px;
     }
 
@@ -66,11 +66,13 @@
         margin: 0 0 0 10px;
     }
 
+.current-chat {
+    background-color: #88aeb3;
+}
+
 .chat-view {
     display: flex;
     flex-direction: column;
-    /*width: min-content;
-    min-width: 500px;*/
     padding: 10px;
     background-color: whitesmoke;
     margin-bottom: 30px;
@@ -80,9 +82,9 @@
     display: flex;
     flex-direction: column;
     height: 500px;
-    padding: 10px;
+    padding: 5px;
     overflow-y: scroll;
-    /*scrollbar-width: none;*/
+    scrollbar-width: none;
 }
 
     .chat-bubbles::-webkit-scrollbar {
@@ -90,16 +92,17 @@
     }
 
 .chat-bubbles p {
-    background-color: bisque;
-    border-radius: 10px;
+    background-color: #f7cd29;
+    border-radius: 18px 18px 18px 2px;
     padding: 10px;
     max-width: max-content;
 }
 
-.chat-bubbles .right {
-    background-color: lightcyan;
-    margin-left: auto;
-}
+    .chat-bubbles .right {
+        border-radius: 18px 18px 2px 18px;
+        background-color: #2bd7ff;
+        margin-left: auto;
+    }
 
 .chat-input {
     display: flex;
@@ -131,8 +134,11 @@
     .reference {
         display: flex;
         flex-direction: row;
-        height: 80px;
-        margin: 10px;
+        height: min-content;
+        max-height: 120px;
+        width: 400px;
+        max-width: 90%;
+        margin: 20px auto 10px auto;
         padding: 10px;
         border-radius: 10px;
         background-color: white;
@@ -149,4 +155,43 @@
 
         .reference p {
             margin: 8px 0 8px 10px;
+            overflow: clip;
         }
+
+@media only screen and (min-width: 1000px) {
+    .chat-box {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 30px auto 0 auto;
+        width: 100%;
+        max-width: 1000px;
+        max-height: 700px;
+        border-radius: 10px;
+    }
+
+    .chat-menu {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background-color: #f0ffff;
+        min-height: 100%;
+        width: 400px;
+        overflow: scroll;
+    }
+
+    .chat-view {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        width: 600px;
+        min-height: 100%;
+        padding: 10px;
+        background-color: whitesmoke;
+        margin-bottom: 0;
+    }
+
+    .chat-bubbles {
+        height: 600px;
+    }
+}
