@@ -38,7 +38,7 @@ public class AdHandler
             .Include(a => a.Category)
             .FirstOrDefaultAsync(a => a.Id == id);
 
-        return ad ?? throw new AdDoesNotExistException(); //Förstår vi detta allihopa?
+        return ad ?? throw new AdDoesNotExistException();
     }
 
     public async Task<List<TorgetAd>> GetUserAds(string userId)
@@ -74,36 +74,22 @@ public class AdHandler
     /// <exception cref="AdDoesNotExistException"></exception>
     public async Task<TorgetAd> Update(TorgetAd updatedAd)
     {
-        var ad = await _dbContext.TorgetAds.FindAsync(updatedAd.Id);
-        var adCategory = await _dbContext.TorgetCategories.FindAsync(updatedAd.Category.Name);
-
-        if (ad == null) throw new AdDoesNotExistException();
-        if (adCategory != null) ad.Category = adCategory;
-
-        ad.Title = updatedAd.Title;
-        ad.Description = updatedAd.Description;
-        ad.Price = updatedAd.Price;
-        ad.Category = updatedAd.Category;
-        ad.DateUpdated = updatedAd.DateUpdated;
-
-
-        var entityEntry = _dbContext.TorgetAds.Update(ad);
+        _dbContext.Attach(updatedAd);
         await _dbContext.SaveChangesAsync();
 
-        return entityEntry.Entity;
+        return updatedAd;
     }
 
     /// <exception cref="AdDoesNotExistException"></exception>
     public async Task<TorgetAd> MarkAsSold(int id)
     {
-        var ad = await _dbContext.TorgetAds.FindAsync(id);
-        if (ad == null) throw new AdDoesNotExistException();
-
+        var ad = new TorgetAd() {Id = id};
+        _dbContext.Attach(ad);
         ad.Sold = true;
-        var entityEntry = _dbContext.TorgetAds.Update(ad);
+
         await _dbContext.SaveChangesAsync();
 
-        return entityEntry.Entity;
+        return ad;
     }
 
     /// <exception cref="AdDoesNotExistException"></exception>

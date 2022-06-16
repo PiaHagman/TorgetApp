@@ -88,7 +88,6 @@ namespace Torget__Blocket_klon_.Areas.Konto.Pages
                 AdToEdit.Title = Input.Title;
                 AdToEdit.Description = Input.Description;
                 AdToEdit.Price = Input.Price;
-                AdToEdit.Category.Name = Input.Category;
                 AdToEdit.DateUpdated = DateTime.Now;
 
 
