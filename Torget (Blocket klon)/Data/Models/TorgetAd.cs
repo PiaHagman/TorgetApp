@@ -12,7 +12,7 @@ public class TorgetAd
 
     public int Id { get; set; }
     [Required] public string Title { get; set; }
-    [Required] public string Category { get; set; }
+    [Required] public TorgetCategory Category { get; set; }
     [Required] public string Description { get; set; }
 
     [Required]
@@ -26,8 +26,7 @@ public class TorgetAd
     [InverseProperty("TorgetAds")] public TorgetUser TorgetUser { get; set; }
 
     [InverseProperty("SavedAds")]
-    public List<TorgetUser>? SavedByUsers { get; set; } //Ska detta verkligen vara "many to many"?
-
+    public List<TorgetUser>? SavedByUsers { get; set; } 
     public List<AdImage> AdImages { get; set; }
     public List<Tag> Tags { get; set; }
 }

@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+
+<!-- Ful lösning för att kunna skapa taggar vid mellanslag och även samtidigt tömma input-->
+<input style="position: absolute; margin: -100000px;" @ref="@_focusElement"/>
+
+<MudTextField @ref="_textFieldElement" @bind-Value="Name" @bind-Text="Name" DisableUnderLine="true" Style="height:30px;" Placeholder="Taggar" Class="input-element" Variant="Variant.Text" Clearable="true" Immediate="true" OnKeyUp="CreateTagChip"></MudTextField>
+<MudChipSet AllClosable="true" OnClose="Closed">
+   
+        @foreach (var tag in Tags)
+        {
+            <MudChip Text="@tag"></MudChip>
+        }
+    
+</MudChipSet>
+
+@code
+{
+    MudTextField<string> _textFieldElement;
+    ElementReference _focusElement;
+    
+    public string Name { get; set; }
+    public List<string> Tags { get; set; } = new();
+
+    private void Closed(MudChip chip) => Tags.Remove(chip.Text);
+
+    private async Task CreateTagChip(KeyboardEventArgs args)
+    {
+        if (args.Key != " ") return;
+
+        Tags.Add(Name);
+        Name = "";
+        await _focusElement.FocusAsync();
+        await _textFieldElement.FocusAsync();
+    }
+}

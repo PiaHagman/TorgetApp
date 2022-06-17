@@ -1,5 +1,5 @@
 ﻿.ad-view {
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 150px;
     justify-content: center;
     margin: auto;
@@ -8,11 +8,24 @@
 }
 
 .ad-input-area {
+    width: 90%;
+    max-width: 700px;
     flex-direction: column;
-    background-color: #98DFEA;
+    background-color: rgba(152, 223, 234, 0.3);
     border-radius: 25px;
     padding: 20px;
     box-shadow: 2px 5px 5px #cfcfcf;
+    position: relative;
+}
+
+.close-icon {
+    background-color: #07BEB8;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    position: absolute;
+    top: -22px;
+    right: -22px;
 }
 
 .titel {
@@ -22,32 +35,58 @@
 
 .input-element {
     min-height: 30px;
-    justify-content: center;
-    align-items: center;
     margin: 10px 0;
-    width: 90%;
-    border-radius: 15px;
+    min-height: 36px !important;
+    width: 100%;
+    border-radius: 20px;
     border: 0px transparent solid;
-    border-top: 2px inset #b1d6db;
+    box-shadow: 0 -3px #7fbbc4;
+    background-color: white;
+}
+
+.beskrivning textarea:focus {
+    outline: none;
 }
 
 input {
     padding-left: 15px;
+    height: 38px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+#createAdForm .mud-input-control-input-container {
+    height: 38px;
+}
+
+#createAdForm .mud-input-text {
+    padding-left: 15px;
+    padding-bottom: 30px;
+}
+
+
+input:focus, textarea:focus, select:focus {
+    outline-color: #07beb8;
 }
 
 textarea {
+    padding-top: 8px;
     padding-left: 15px;
+    padding-right: 15px;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 .multiline-element {
-    min-height: 90px;
+    min-height: 150px !important; 
 }
 
 .image-element {
     min-height: 30px;
     justify-content: center;
     align-items: center;
-    margin: 10px 0;
+    width: 90%;
+    margin: 10px auto;
 }
 
 ::placeholder {
@@ -57,45 +96,161 @@ textarea {
 }
 
 
-
 .image-text {
-    font-size: 0.8rem;
-    width: 90%;
+    font-size: 0.7rem;
+    width: 100%;
+    margin: 0 auto 10px auto;
 }
 
 .submit {
+    display: flex;
     justify-content: end;
+    
 }
 
+select {
+    height: 38px;
+    text-indent: 2px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+
 .submit-btn {
-    float: right;
-    margin-right: 10%;
-    justify-content: end;
+    text-align: center;
     min-height: 30px;
     border-radius: 25px;
     border: 0px transparent solid;
     border-top: 2px inset #b1d6db;
     background-color: #07beb8;
-    padding: 10px 20px;
+    padding: 10px 20px !important;
     /*button text*/
     font-size: 0.8rem;
     font-weight: bold;
 }
 
-#img-preview {
+.modal-btn {
+    justify-content: start;
+    min-height: 30px;
+    border-radius: 50%;
     border: 0px transparent solid;
     border-top: 2px inset #b1d6db;
-    width: 90%;
-    background-color: white;
+    background-color: #07beb8;
+    padding: 10px 20px;
+    margin-top: 20px;
+    /*button text*/
+    font-size: 1rem;
+    font-weight: 1000;
+}
+
+.image-modal {
+    padding: 1em;
+    margin: auto;
+    justify-content: center;
+    border-radius: 5px;
+    border: 5px solid #07beb8;
+}
+
+.image-modal::backdrop {
+    background: linear-gradient(45deg, #07beb8, #b1d6db);
+    opacity: .5;
+}
+
+.image-modal > h4 {
+    font-weight: bold;
+    width: 100%;
+}
+
+
+.close-btn {
+    float: right;
+    justify-content: start;
+    min-height: 30px;
     border-radius: 25px;
+    border: 0px transparent solid;
+    border-top: 2px inset #b1d6db;
+    background-color: #07beb8;
+    padding: 10px 20px !important;
+    /*button text*/
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: black !important;
+}
+
+#radera-btn {
+    width: 100%;
+}
+
+#img-preview {
+    border: 0px transparent solid;
+    box-shadow: 0 -3px #7fbbc4;
+    width: 100%;
+    background-color: white;
+    border-radius: 19px;
     display: none;
     gap: 10px;
     justify-content: start;
     flex-wrap: wrap;
     padding: 10px;
+    margin-top: 25px;
 }
 
+   
+
+.submit-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+    .submit-buttons div {
+        width: 50%;
+    }
+
+    .submit-buttons button {
+        width: 100%;
+    }
+
+#updateAdForm .input-element {
+    margin: 3px 0 20px 0;
+}
+
+#sold-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.ad-sold {
+    
+    filter: brightness(30%) !important;
+}
+
+.ad-sold-text {
+    color: red;
+}
 #img-preview > * {
     border-radius: 10px;
     height: 43px;
+}
+
+.tag-pill {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+}
+
+.add-image {
+    border: 0px transparent solid;
+    box-shadow: 0 -3px #7fbbc4;
+    border-radius: 19px;
+    margin: 25px 0 0 0;
+}
+
+.Kategori-select {
+    border: 0px transparent solid;
+    box-shadow: 0 -3px #7fbbc4;
+    border-radius: 19px;
+    margin: 15px 0 25px 0;
 }

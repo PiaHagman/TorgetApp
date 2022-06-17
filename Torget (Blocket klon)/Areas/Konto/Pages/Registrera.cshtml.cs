@@ -1,15 +1,18 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Torget__Blocket_klon_.Data.Models;
+using Torget__Blocket_klon_.Data.Services;
 
 namespace Torget__Blocket_klon_.Areas.User.Pages;
 
-public class RegisterModel : PageModel
+[AllowAnonymous]
+public class RegistreraModel : PageModel
 {
     private readonly UserManager<TorgetUser> _userManager;
-    private readonly ILogger<RegisterModel> _logger;
+    private readonly ZipCodeHandler _zipCodeHandler;
 
     [Required(ErrorMessage = "Du måste ange en email")]
     [EmailAddress]
@@ -26,8 +29,12 @@ public class RegisterModel : PageModel
     [Required(ErrorMessage = "Du måste ange en postkod")]
     [BindProperty]
     [DataType(DataType.PostalCode)]
+    [MaxLength(5)]
+    [MinLength(5, ErrorMessage = "Postkoden måste innehålla 5 siffror utan mellanrum.")]
     [Display(Name = "Postnummer")]
     public string ZipCode { get; set; }
+
+    [Display(Name = "Ort")] [BindProperty] public string? County { get; set; }
 
     [Required(ErrorMessage = "Du måste ange ett lösenord")]
     [BindProperty]
@@ -42,10 +49,10 @@ public class RegisterModel : PageModel
     [Compare("Password", ErrorMessage = "Lösenorden matchar inte.")]
     public string ConfirmPassword { get; set; }
 
-    public RegisterModel(UserManager<TorgetUser> userManager, ILogger<RegisterModel> logger)
+    public RegistreraModel(UserManager<TorgetUser> userManager, ZipCodeHandler zipCodeHandler)
     {
         _userManager = userManager;
-        _logger = logger;
+        _zipCodeHandler = zipCodeHandler;
     }
 
     public void OnGet()
@@ -56,18 +63,30 @@ public class RegisterModel : PageModel
     {
         if (!ModelState.IsValid) return Page();
 
+        try
+        {
+            var zipCodeResult = await _zipCodeHandler.GetZipCodeInformation(ZipCode);
+            County = zipCodeResult.County;
+        }
+        catch (ZipCodeNotValidException e)
+        {
+            ModelState.AddModelError("ZipCodeError", e.Message);
+            return Page();
+        }
+
         TorgetUser user = new()
         {
             Email = Email,
             UserName = Email,
             PhoneNumber = PhoneNumber,
-            ZipCode = ZipCode
+            ZipCode = ZipCode,
+            County = County
         };
 
         var result = await _userManager.CreateAsync(user, Password);
 
         if (result.Succeeded)
-            return RedirectToPage("/Index"); //Redirect to mina annonser or user info.
+            return RedirectToPage("/Index"); //Redirect to Logga in
 
         foreach (var error in result.Errors)
             ModelState.AddModelError(error.Code, error.Description);
