@@ -2,11 +2,11 @@
 
 ## Gruppmedlemar
 
- - [Kim Björnsen Åklint(https://github.com/Bjornsen016)] (Scrum master)
- - [Pia Hagman(https://github.com/PiaHagman)] (Product Owner)
- - [Johan Fahlgren(https://github.com/johan-fahlgren)] 
- - [Idris Hargaaya(https://github.com/Hargaaya)] (Stakeholder)
- - [Gustav Alvérus(https://github.com/gustavalverus)]
+ - [Kim Björnsen Åklint](https://github.com/Bjornsen016) - (Scrum master)
+ - [Pia Hagman](https://github.com/PiaHagman) - (Product Owner)
+ - [Johan Fahlgren](https://github.com/johan-fahlgren)
+ - [Idris Hargaaya](https://github.com/Hargaaya) - (Stakeholder)
+ - [Gustav Alvérus](https://github.com/gustavalverus)
 
 ## Blocket app
 
