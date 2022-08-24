@@ -1,4 +1,4 @@
-# Grupp 1 Göteborg Agile
+# Torget App
 
 ## Gruppmedlemar
 
@@ -42,44 +42,6 @@ Core funktionalitet som speglar blocket.
 ### Daily standup
 
 Helgfria vardagar 9:00-9:15
-
-### Tillgänglighet
-
-#### Kim Björnsen Åklint
-  - Kan arbeta varje vardag 8 - 17. Sitter också många kvällar.
-  - Dagar jag vet att jag är borta:
-    - 25/5 10-13 är jag borta
-    - 27/5 Jobbar jag på mitt gamla jobb
-    - 3/6 Bröllopsdag, så stor planering här ;)
-
-#### Johan Fahlgren
-  - Kan arbeta varje vardag 8~9 - 17.
-  - Dagar jag vet att jag är borta:
-    - 24/5 borta 11~14
-    - 26/5 hela dagen
-    - 27/5 hela dagen
-    - 1/6 vet inte tid än (gissa förmiddag), men borta ca 2 timmar.
-
-#### Hargaaya Idris
-  - Kan arbeta vardagar 9-17
-  - Tillfällen jag vet att jag är borta: 
-    - 25/5 Kl. 12-14
-
-#### Pia Hagman
-- Kan arbeta varje vardag 8.30 - 15.30. Kan också sitta flera kvällar om så krävs.
-- Frånvaro jag vet om:
-  - denna vecka (v.21) lite från och till pga magsjuka och alla barn hemma
-  - 9/6 före lunch skolavslutning
-  - 10/6 barnen studiedag så endast med på möten
-  - 15/6 efter lunch
-
-#### Gustav Alvérus
-- Kan arbeta vardagar 9-17
-- Frånvaro jag vet om
-  - 31/5 efter lunch
-  - 10/6 före lunch
- 
-    
 
 ## Branchingstrategi
 - Master
